@@ -22,7 +22,10 @@ ipch
 *.vcxproj
 *.vpc_crc
 *.sln
-*.res
+*.pdb
+*.db
+*.opendb
+*.lib
 .vs/
 Release*/
 Debug*/
