@@ -39,6 +39,7 @@ struct P4File_t
 	CUtlSymbol m_sDepotFile;	// the name in the depot
 	CUtlSymbol m_sClientFile;	// the name on the client in Perforce syntax
 	CUtlSymbol m_sLocalFile;	// the name on the client in local syntax
+	CUtlSymbol m_sFileType;		// the type according to the server, see p4 help filetypes
 	int m_iHeadRevision;		// head revision number
 	int m_iHaveRevision;		// the revision the clientspec has synced locally
 	bool m_bOpenedByOther;		// opened by another user
@@ -80,6 +81,7 @@ struct P4Client_t
 // Purpose: Interface to accessing P4 commands
 //-----------------------------------------------------------------------------
 #define P4_MAX_INPUT_BUFFER_SIZE	16384		// descriptions should be limited to this size!
+#define P4_INTERFACE_VERSION		"VP4002"
 
 abstract_class IP4  : public IAppSystem
 {
@@ -114,6 +116,9 @@ public:
 
 	// changes the clientspec to remove the specified path (cloaking)
 	virtual void RemovePathFromActiveClientspec( const char *path ) = 0;
+	
+	// sets the name of the changelist to open files under, NULL for "Default" changelist
+	virtual void SetOpenFileChangeList(const char *pChangeListName) = 0;
 
 	// file manipulation
 	virtual bool OpenFileForAdd( const char *pFullPath ) = 0;
@@ -173,6 +178,11 @@ public:
 	// Returns file information for a single file
 	virtual bool GetFileInfo( const char *pFullPath, P4File_t *pFileInfo ) = 0;
 
+	// Reopens a file for edit or add with the specified filetype. To see the valid strings for 
+	// filetypes, see p4 help fileinfo. Perforce has to know about files before the filetype can
+	// be changed (so for new files, they must be added first, then the filetype modified).
+	virtual bool SetFileType( const char *pFullPath, const char *pFileType ) = 0;
+	
 	// retrieves the list of files in a path, using a known client spec
 	virtual CUtlVector<P4File_t> &GetFileListUsingClientSpec( const char *pPath, const char *pClientSpec ) = 0;
 
@@ -181,7 +191,8 @@ public:
 	virtual const char *GetLastError() = 0;
 
 	// sets the name of the changelist to open files under, NULL for "Default" changelist
-	virtual void SetOpenFileChangeList( const char *pChangeListName ) = 0;
+	// apparently this was already defined:
+	//virtual void SetOpenFileChangeList( const char *pChangeListName ) = 0;
 
 	virtual void GetFileListInChangelist( unsigned int changeListNumber, CUtlVector<P4File_t> &fileList ) = 0;
 };
