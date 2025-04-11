@@ -202,7 +202,7 @@ public:
 	virtual void JSDialogResponse( HHTMLBrowser unBrowserHandle, bool bResult ) = 0;
 
 	// You MUST call this in response to a HTML_FileOpenDialog_t callback
-	IGNOREATTR()
+	IGNOREATTR();
 	virtual void FileLoadDialogResponse( HHTMLBrowser unBrowserHandle, const char **pchSelectedFiles ) = 0;
 };
 

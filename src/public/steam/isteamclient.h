@@ -45,7 +45,7 @@
 #elif defined( VALVE_CALLBACK_PACK_LARGE )
 #pragma pack( push, 8 )
 #else
-#error ???
+#error "Packing size not defined"
 #endif 
 
 typedef struct ValvePackingSentinel_t
@@ -64,7 +64,7 @@ VALVE_COMPILE_TIME_ASSERT( sizeof(ValvePackingSentinel_t) == 24 )
 #elif defined(VALVE_CALLBACK_PACK_LARGE)
 VALVE_COMPILE_TIME_ASSERT( sizeof(ValvePackingSentinel_t) == 32 )
 #else
-#error ???
+#error "Packing size not defined"
 #endif
 
 

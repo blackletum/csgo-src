@@ -516,6 +516,16 @@ static inline bool BIsViveHMD( EVRHMDType eType )
 	return eType == k_eEVRHMDType_HTC_Dev || eType == k_eEVRHMDType_HTC_VivePre || eType == k_eEVRHMDType_HTC_Vive || eType == k_eEVRHMDType_HTC_Unknown;
 }
 
+//
+// Specifies a game's online state in relation to duration control
+//
+enum EDurationControlOnlineState
+{
+	k_EDurationControlOnlineState_Invalid = 0,				// nil value
+	k_EDurationControlOnlineState_Offline = 1,				// currently in offline play - single-player, offline co-op, etc.
+	k_EDurationControlOnlineState_Online = 2,				// currently in online play
+	k_EDurationControlOnlineState_OnlineHighPri = 3,		// currently in online play and requests not to be interrupted
+};
 
 #pragma pack( push, 1 )
 
