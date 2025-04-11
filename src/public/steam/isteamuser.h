@@ -11,6 +11,7 @@
 #endif
 
 #include "steam_api_common.h"
+#include "steamclientpublic.h"
 
 //-----------------------------------------------------------------------------
 // Purpose: Functions for accessing and manipulating a steam account
