@@ -8,6 +8,7 @@ $Macro SRCDIR		"..\.."
 $Macro GAMENAME 	"csgo"
 
 $Include "$SRCDIR\game\client\client_base.vpc"
+$Include "$SRCDIR\coplay\src\coplay.vpc"
 $Include "$SRCDIR\game\shared\cstrike15\cstrike15_gcmessages_include.vpc" [!$X360 && !$PS3]
 $include "$SRCDIR\game\shared\cstrike15\cstrike15_usermessages_include.vpc"
 $Include "$SRCDIR\game\client\client_econ_base.vpc" [!$X360 && !$PS3]
