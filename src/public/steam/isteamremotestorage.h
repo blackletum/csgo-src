@@ -10,7 +10,7 @@
 #pragma once
 #endif
 
-#include "isteamclient.h"
+#include "steam_api_common.h"
 
 
 //-----------------------------------------------------------------------------
@@ -28,7 +28,7 @@ const uint32 k_unMaxCloudFileChunkSize = 100 * 1024 * 1024;
 #elif defined( VALVE_CALLBACK_PACK_LARGE )
 #pragma pack( push, 8 )
 #else
-#error isteamclient.h must be included
+#error steam_api_common.h should define VALVE_CALLBACK_PACK_xxx
 #endif 
 struct SteamParamStringArray_t
 {
@@ -57,12 +57,16 @@ const uint32 k_cchTagListMax = 1024 + 1;
 const uint32 k_cchFilenameMax = 260;
 const uint32 k_cchPublishedFileURLMax = 256;
 
+//This code is originally from the file that shipped with
+//CSGO apparently but it wasn't in the files for when I was 
+//implementing coplay so uh lets hope it isn't needed lmao 
+//-blackletum 04 11 2025
 // Ways to handle a synchronization conflict
-enum EResolveConflict
-{
-	k_EResolveConflictKeepClient = 1,		// The local version of each file will be used to overwrite the server version
-	k_EResolveConflictKeepServer = 2,		// The server version of each file will be used to overwrite the local version
-};
+//enum EResolveConflict
+//{
+//	k_EResolveConflictKeepClient = 1,		// The local version of each file will be used to overwrite the server version
+//	k_EResolveConflictKeepServer = 2,		// The server version of each file will be used to overwrite the local version
+//};
 
 enum ERemoteStoragePlatform
 {
@@ -71,7 +75,10 @@ enum ERemoteStoragePlatform
 	k_ERemoteStoragePlatformOSX			= (1 << 1),
 	k_ERemoteStoragePlatformPS3			= (1 << 2),
 	k_ERemoteStoragePlatformLinux		= (1 << 3),
-	k_ERemoteStoragePlatformReserved2	= (1 << 4),
+	k_ERemoteStoragePlatformSwitch		= (1 << 4),
+	k_ERemoteStoragePlatformAndroid		= (1 << 5),
+	k_ERemoteStoragePlatformIOS			= (1 << 6),
+	// NB we get one more before we need to widen some things
 
 	k_ERemoteStoragePlatformAll = 0xffffffff
 };
@@ -81,6 +88,8 @@ enum ERemoteStoragePublishedFileVisibility
 	k_ERemoteStoragePublishedFileVisibilityPublic = 0,
 	k_ERemoteStoragePublishedFileVisibilityFriendsOnly = 1,
 	k_ERemoteStoragePublishedFileVisibilityPrivate = 2,
+	k_ERemoteStoragePublishedFileVisibilityUnlisted = 3,
+
 };
 
 
@@ -158,6 +167,27 @@ enum EUGCReadAction
 	k_EUGCRead_Close = 2,	
 };
 
+enum ERemoteStorageLocalFileChange
+{
+	k_ERemoteStorageLocalFileChange_Invalid = 0,
+
+	// The file was updated from another device
+	k_ERemoteStorageLocalFileChange_FileUpdated = 1,
+
+	// The file was deleted by another device
+	k_ERemoteStorageLocalFileChange_FileDeleted = 2,
+};
+
+enum ERemoteStorageFilePathType
+{
+	k_ERemoteStorageFilePathType_Invalid = 0,
+	
+	// The file is directly accessed by the game and this is the full path
+	k_ERemoteStorageFilePathType_Absolute = 1,
+
+	// The file is accessed via the ISteamRemoteStorage API and this is the filename
+	k_ERemoteStorageFilePathType_APIFilename = 2,
+};
 
 //-----------------------------------------------------------------------------
 // Purpose: Functions for accessing, reading and writing files stored remotely 
@@ -177,16 +207,16 @@ class ISteamRemoteStorage
 		virtual bool	FileWrite( const char *pchFile, const void *pvData, int32 cubData ) = 0;
 		virtual int32	FileRead( const char *pchFile, void *pvData, int32 cubDataToRead ) = 0;
 		
-		CALL_RESULT( RemoteStorageFileWriteAsyncComplete_t )
+		STEAM_CALL_RESULT( RemoteStorageFileWriteAsyncComplete_t )
 		virtual SteamAPICall_t FileWriteAsync( const char *pchFile, const void *pvData, uint32 cubData ) = 0;
 		
-		CALL_RESULT( RemoteStorageFileReadAsyncComplete_t )
+		STEAM_CALL_RESULT( RemoteStorageFileReadAsyncComplete_t )
 		virtual SteamAPICall_t FileReadAsync( const char *pchFile, uint32 nOffset, uint32 cubToRead ) = 0;
 		virtual bool	FileReadAsyncComplete( SteamAPICall_t hReadCall, void *pvBuffer, uint32 cubToRead ) = 0;
 		
 		virtual bool	FileForget( const char *pchFile ) = 0;
 		virtual bool	FileDelete( const char *pchFile ) = 0;
-		CALL_RESULT( RemoteStorageFileShareResult_t )
+		STEAM_CALL_RESULT( RemoteStorageFileShareResult_t )
 		virtual SteamAPICall_t FileShare( const char *pchFile ) = 0;
 		virtual bool	SetSyncPlatforms( const char *pchFile, ERemoteStoragePlatform eRemoteStoragePlatform ) = 0;
 
@@ -218,7 +248,7 @@ class ISteamRemoteStorage
 		// Downloads a UGC file.  A priority value of 0 will download the file immediately,
 		// otherwise it will wait to download the file until all downloads with a lower priority
 		// value are completed.  Downloads with equal priority will occur simultaneously.
-		CALL_RESULT( RemoteStorageDownloadUGCResult_t )
+		STEAM_CALL_RESULT( RemoteStorageDownloadUGCResult_t )
 		virtual SteamAPICall_t UGCDownload( UGCHandle_t hContent, uint32 unPriority ) = 0;
 		
 		// Gets the amount of data downloaded so far for a piece of content. pnBytesExpected can be 0 if function returns false
@@ -240,26 +270,8 @@ class ISteamRemoteStorage
 		virtual int32	GetCachedUGCCount() = 0;
 		virtual	UGCHandle_t GetCachedUGCHandle( int32 iCachedContent ) = 0;
 
-		// The following functions are only necessary on the Playstation 3. On PC & Mac, the Steam client will handle these operations for you
-		// On Playstation 3, the game controls which files are stored in the cloud, via FilePersist, FileFetch, and FileForget.
-			
-#if defined(_PS3) || defined(_SERVER)
-		// Connect to Steam and get a list of files in the Cloud - results in a RemoteStorageAppSyncStatusCheck_t callback
-		virtual void GetFileListFromServer() = 0;
-		// Indicate this file should be downloaded in the next sync
-		virtual bool FileFetch( const char *pchFile ) = 0;
-		// Indicate this file should be persisted in the next sync
-		virtual bool FilePersist( const char *pchFile ) = 0;
-		// Pull any requested files down from the Cloud - results in a RemoteStorageAppSyncedClient_t callback
-		virtual bool SynchronizeToClient() = 0;
-		// Upload any requested files to the Cloud - results in a RemoteStorageAppSyncedServer_t callback
-		virtual bool SynchronizeToServer() = 0;
-		// Reset any fetch/persist/etc requests
-		virtual bool ResetFileRequestState() = 0;
-#endif
-
 		// publishing UGC
-		CALL_RESULT( RemoteStoragePublishFileProgress_t )
+		STEAM_CALL_RESULT( RemoteStoragePublishFileProgress_t )
 		virtual SteamAPICall_t	PublishWorkshopFile( const char *pchFile, const char *pchPreviewFile, AppId_t nConsumerAppId, const char *pchTitle, const char *pchDescription, ERemoteStoragePublishedFileVisibility eVisibility, SteamParamStringArray_t *pTags, EWorkshopFileType eWorkshopFileType ) = 0;
 		virtual PublishedFileUpdateHandle_t CreatePublishedFileUpdateRequest( PublishedFileId_t unPublishedFileId ) = 0;
 		virtual bool UpdatePublishedFileFile( PublishedFileUpdateHandle_t updateHandle, const char *pchFile ) = 0;
@@ -268,44 +280,44 @@ class ISteamRemoteStorage
 		virtual bool UpdatePublishedFileDescription( PublishedFileUpdateHandle_t updateHandle, const char *pchDescription ) = 0;
 		virtual bool UpdatePublishedFileVisibility( PublishedFileUpdateHandle_t updateHandle, ERemoteStoragePublishedFileVisibility eVisibility ) = 0;
 		virtual bool UpdatePublishedFileTags( PublishedFileUpdateHandle_t updateHandle, SteamParamStringArray_t *pTags ) = 0;
-		CALL_RESULT( RemoteStorageUpdatePublishedFileResult_t )
+		STEAM_CALL_RESULT( RemoteStorageUpdatePublishedFileResult_t )
 		virtual SteamAPICall_t	CommitPublishedFileUpdate( PublishedFileUpdateHandle_t updateHandle ) = 0;
 		// Gets published file details for the given publishedfileid.  If unMaxSecondsOld is greater than 0,
 		// cached data may be returned, depending on how long ago it was cached.  A value of 0 will force a refresh.
 		// A value of k_WorkshopForceLoadPublishedFileDetailsFromCache will use cached data if it exists, no matter how old it is.
-		CALL_RESULT( RemoteStorageGetPublishedFileDetailsResult_t )
+		STEAM_CALL_RESULT( RemoteStorageGetPublishedFileDetailsResult_t )
 		virtual SteamAPICall_t	GetPublishedFileDetails( PublishedFileId_t unPublishedFileId, uint32 unMaxSecondsOld ) = 0;
-		CALL_RESULT( RemoteStorageDeletePublishedFileResult_t )
+		STEAM_CALL_RESULT( RemoteStorageDeletePublishedFileResult_t )
 		virtual SteamAPICall_t	DeletePublishedFile( PublishedFileId_t unPublishedFileId ) = 0;
 		// enumerate the files that the current user published with this app
-		CALL_RESULT( RemoteStorageEnumerateUserPublishedFilesResult_t )
+		STEAM_CALL_RESULT( RemoteStorageEnumerateUserPublishedFilesResult_t )
 		virtual SteamAPICall_t	EnumerateUserPublishedFiles( uint32 unStartIndex ) = 0;
-		CALL_RESULT( RemoteStorageSubscribePublishedFileResult_t )
+		STEAM_CALL_RESULT( RemoteStorageSubscribePublishedFileResult_t )
 		virtual SteamAPICall_t	SubscribePublishedFile( PublishedFileId_t unPublishedFileId ) = 0;
-		CALL_RESULT( RemoteStorageEnumerateUserSubscribedFilesResult_t )
+		STEAM_CALL_RESULT( RemoteStorageEnumerateUserSubscribedFilesResult_t )
 		virtual SteamAPICall_t	EnumerateUserSubscribedFiles( uint32 unStartIndex ) = 0;
-		CALL_RESULT( RemoteStorageUnsubscribePublishedFileResult_t )
+		STEAM_CALL_RESULT( RemoteStorageUnsubscribePublishedFileResult_t )
 		virtual SteamAPICall_t	UnsubscribePublishedFile( PublishedFileId_t unPublishedFileId ) = 0;
 		virtual bool UpdatePublishedFileSetChangeDescription( PublishedFileUpdateHandle_t updateHandle, const char *pchChangeDescription ) = 0;
-		CALL_RESULT( RemoteStorageGetPublishedItemVoteDetailsResult_t )
+		STEAM_CALL_RESULT( RemoteStorageGetPublishedItemVoteDetailsResult_t )
 		virtual SteamAPICall_t	GetPublishedItemVoteDetails( PublishedFileId_t unPublishedFileId ) = 0;
-		CALL_RESULT( RemoteStorageUpdateUserPublishedItemVoteResult_t )
+		STEAM_CALL_RESULT( RemoteStorageUpdateUserPublishedItemVoteResult_t )
 		virtual SteamAPICall_t	UpdateUserPublishedItemVote( PublishedFileId_t unPublishedFileId, bool bVoteUp ) = 0;
-		CALL_RESULT( RemoteStorageGetPublishedItemVoteDetailsResult_t )
+		STEAM_CALL_RESULT( RemoteStorageGetPublishedItemVoteDetailsResult_t )
 		virtual SteamAPICall_t	GetUserPublishedItemVoteDetails( PublishedFileId_t unPublishedFileId ) = 0;
-		CALL_RESULT( RemoteStorageEnumerateUserPublishedFilesResult_t )
+		STEAM_CALL_RESULT( RemoteStorageEnumerateUserPublishedFilesResult_t )
 		virtual SteamAPICall_t	EnumerateUserSharedWorkshopFiles( CSteamID steamId, uint32 unStartIndex, SteamParamStringArray_t *pRequiredTags, SteamParamStringArray_t *pExcludedTags ) = 0;
-		CALL_RESULT( RemoteStoragePublishFileProgress_t )
+		STEAM_CALL_RESULT( RemoteStoragePublishFileProgress_t )
 		virtual SteamAPICall_t	PublishVideo( EWorkshopVideoProvider eVideoProvider, const char *pchVideoAccount, const char *pchVideoIdentifier, const char *pchPreviewFile, AppId_t nConsumerAppId, const char *pchTitle, const char *pchDescription, ERemoteStoragePublishedFileVisibility eVisibility, SteamParamStringArray_t *pTags ) = 0;
-		CALL_RESULT( RemoteStorageEnumeratePublishedFilesByUserActionResult_t )
+		STEAM_STEAM_CALL_RESULT( RemoteStorageSetUserPublishedFileActionResult_t )
 		virtual SteamAPICall_t	SetUserPublishedFileAction( PublishedFileId_t unPublishedFileId, EWorkshopFileAction eAction ) = 0;
-		CALL_RESULT( RemoteStorageEnumeratePublishedFilesByUserActionResult_t )
+		STEAM_STEAM_CALL_RESULT( RemoteStorageSetUserPublishedFileActionResult_t )
 		virtual SteamAPICall_t	EnumeratePublishedFilesByUserAction( EWorkshopFileAction eAction, uint32 unStartIndex ) = 0;
 		// this method enumerates the public view of workshop files
-		CALL_RESULT( RemoteStorageEnumerateWorkshopFilesResult_t )
+		STEAM_CALL_RESULT( RemoteStorageEnumerateWorkshopFilesResult_t )
 		virtual SteamAPICall_t	EnumeratePublishedWorkshopFiles( EWorkshopEnumerationType eEnumerationType, uint32 unStartIndex, uint32 unCount, uint32 unDays, SteamParamStringArray_t *pTags, SteamParamStringArray_t *pUserTags ) = 0;
 
-		CALL_RESULT( RemoteStorageDownloadUGCResult_t )
+		STEAM_CALL_RESULT( RemoteStorageDownloadUGCResult_t )
 		virtual SteamAPICall_t UGCDownloadToLocation( UGCHandle_t hContent, const char *pchLocation, uint32 unPriority ) = 0;
 };
 
@@ -318,86 +330,22 @@ class ISteamRemoteStorage
 #elif defined( VALVE_CALLBACK_PACK_LARGE )
 #pragma pack( push, 8 )
 #else
-#error isteamclient.h must be included
+#error steam_api_common.h should define VALVE_CALLBACK_PACK_xxx
 #endif 
-
-//-----------------------------------------------------------------------------
-// Purpose: sent when the local file cache is fully synced with the server for an app
-//          That means that an application can be started and has all latest files
-//-----------------------------------------------------------------------------
-struct RemoteStorageAppSyncedClient_t
-{
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 1 };
-	AppId_t m_nAppID;
-	EResult m_eResult;
-	int m_unNumDownloads;
-};
-
-//-----------------------------------------------------------------------------
-// Purpose: sent when the server is fully synced with the local file cache for an app
-//          That means that we can shutdown Steam and our data is stored on the server
-//-----------------------------------------------------------------------------
-struct RemoteStorageAppSyncedServer_t
-{
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 2 };
-	AppId_t m_nAppID;
-	EResult m_eResult;
-	int m_unNumUploads;
-};
-
-//-----------------------------------------------------------------------------
-// Purpose: Status of up and downloads during a sync session
-//       
-//-----------------------------------------------------------------------------
-struct RemoteStorageAppSyncProgress_t
-{
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 3 };
-	char m_rgchCurrentFile[k_cchFilenameMax];				// Current file being transferred
-	AppId_t m_nAppID;							// App this info relates to
-	uint32 m_uBytesTransferredThisChunk;		// Bytes transferred this chunk
-	double m_dAppPercentComplete;				// Percent complete that this app's transfers are
-	bool m_bUploading;							// if false, downloading
-};
-
-//
-// IMPORTANT! k_iClientRemoteStorageCallbacks + 4 is used, see iclientremotestorage.h
-//
-
-
-//-----------------------------------------------------------------------------
-// Purpose: Sent after we've determined the list of files that are out of sync
-//          with the server.
-//-----------------------------------------------------------------------------
-struct RemoteStorageAppSyncStatusCheck_t
-{
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 5 };
-	AppId_t m_nAppID;
-	EResult m_eResult;
-};
-
-//-----------------------------------------------------------------------------
-// Purpose: Sent after a conflict resolution attempt.
-//-----------------------------------------------------------------------------
-struct RemoteStorageConflictResolution_t
-{
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 6 };
-	AppId_t m_nAppID;
-	EResult m_eResult;
-};
-
+	
 //-----------------------------------------------------------------------------
 // Purpose: The result of a call to FileShare()
 //-----------------------------------------------------------------------------
 struct RemoteStorageFileShareResult_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 7 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 7 };
 	EResult m_eResult;			// The result of the operation
 	UGCHandle_t m_hFile;		// The handle that can be shared with users and features
 	char m_rgchFilename[k_cchFilenameMax]; // The name of the file that was shared
 };
 
 
-// k_iClientRemoteStorageCallbacks + 8 is deprecated! Do not reuse
+// k_iSteamRemoteStorageCallbacks	 + 8 is deprecated! Do not reuse
 
 
 //-----------------------------------------------------------------------------
@@ -405,7 +353,7 @@ struct RemoteStorageFileShareResult_t
 //-----------------------------------------------------------------------------
 struct RemoteStoragePublishFileResult_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 9 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 9 };
 	EResult m_eResult;				// The result of the operation.
 	PublishedFileId_t m_nPublishedFileId;
 	bool m_bUserNeedsToAcceptWorkshopLegalAgreement;
@@ -417,7 +365,7 @@ struct RemoteStoragePublishFileResult_t
 //-----------------------------------------------------------------------------
 struct RemoteStorageDeletePublishedFileResult_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 11 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 11 };
 	EResult m_eResult;				// The result of the operation.
 	PublishedFileId_t m_nPublishedFileId;
 };
@@ -428,7 +376,7 @@ struct RemoteStorageDeletePublishedFileResult_t
 //-----------------------------------------------------------------------------
 struct RemoteStorageEnumerateUserPublishedFilesResult_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 12 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 12 };
 	EResult m_eResult;				// The result of the operation.
 	int32 m_nResultsReturned;
 	int32 m_nTotalResultCount;
@@ -441,7 +389,7 @@ struct RemoteStorageEnumerateUserPublishedFilesResult_t
 //-----------------------------------------------------------------------------
 struct RemoteStorageSubscribePublishedFileResult_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 13 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 13 };
 	EResult m_eResult;				// The result of the operation.
 	PublishedFileId_t m_nPublishedFileId;
 };
@@ -452,7 +400,7 @@ struct RemoteStorageSubscribePublishedFileResult_t
 //-----------------------------------------------------------------------------
 struct RemoteStorageEnumerateUserSubscribedFilesResult_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 14 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 14 };
 	EResult m_eResult;				// The result of the operation.
 	int32 m_nResultsReturned;
 	int32 m_nTotalResultCount;
@@ -465,7 +413,7 @@ struct RemoteStorageEnumerateUserSubscribedFilesResult_t
 #elif defined(VALVE_CALLBACK_PACK_LARGE)
 	VALVE_COMPILE_TIME_ASSERT( sizeof( RemoteStorageEnumerateUserSubscribedFilesResult_t ) == (1 + 1 + 1 + 50 + 100) * 4 + 4 );
 #else
-#warning You must first include isteamclient.h
+#warning You must first include steam_api_common.h
 #endif
 
 //-----------------------------------------------------------------------------
@@ -473,7 +421,7 @@ struct RemoteStorageEnumerateUserSubscribedFilesResult_t
 //-----------------------------------------------------------------------------
 struct RemoteStorageUnsubscribePublishedFileResult_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 15 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 15 };
 	EResult m_eResult;				// The result of the operation.
 	PublishedFileId_t m_nPublishedFileId;
 };
@@ -484,7 +432,7 @@ struct RemoteStorageUnsubscribePublishedFileResult_t
 //-----------------------------------------------------------------------------
 struct RemoteStorageUpdatePublishedFileResult_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 16 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 16 };
 	EResult m_eResult;				// The result of the operation.
 	PublishedFileId_t m_nPublishedFileId;
 	bool m_bUserNeedsToAcceptWorkshopLegalAgreement;
@@ -496,7 +444,7 @@ struct RemoteStorageUpdatePublishedFileResult_t
 //-----------------------------------------------------------------------------
 struct RemoteStorageDownloadUGCResult_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 17 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 17 };
 	EResult m_eResult;				// The result of the operation.
 	UGCHandle_t m_hFile;			// The handle to the file that was attempted to be downloaded.
 	AppId_t m_nAppID;				// ID of the app that created this file.
@@ -511,7 +459,7 @@ struct RemoteStorageDownloadUGCResult_t
 //-----------------------------------------------------------------------------
 struct RemoteStorageGetPublishedFileDetailsResult_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 18 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 18 };
 	EResult m_eResult;				// The result of the operation.
 	PublishedFileId_t m_nPublishedFileId;
 	AppId_t m_nCreatorAppID;		// ID of the app that created this file.
@@ -538,7 +486,7 @@ struct RemoteStorageGetPublishedFileDetailsResult_t
 
 struct RemoteStorageEnumerateWorkshopFilesResult_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 19 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 19 };
 	EResult m_eResult;
 	int32 m_nResultsReturned;
 	int32 m_nTotalResultCount;
@@ -554,7 +502,7 @@ struct RemoteStorageEnumerateWorkshopFilesResult_t
 //-----------------------------------------------------------------------------
 struct RemoteStorageGetPublishedItemVoteDetailsResult_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 20 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 20 };
 	EResult m_eResult;
 	PublishedFileId_t m_unPublishedFileId;
 	int32 m_nVotesFor;
@@ -569,7 +517,7 @@ struct RemoteStorageGetPublishedItemVoteDetailsResult_t
 //-----------------------------------------------------------------------------
 struct RemoteStoragePublishedFileSubscribed_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 21 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 21 };
 	PublishedFileId_t m_nPublishedFileId;	// The published file id
 	AppId_t m_nAppID;						// ID of the app that will consume this file.
 };
@@ -579,7 +527,7 @@ struct RemoteStoragePublishedFileSubscribed_t
 //-----------------------------------------------------------------------------
 struct RemoteStoragePublishedFileUnsubscribed_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 22 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 22 };
 	PublishedFileId_t m_nPublishedFileId;	// The published file id
 	AppId_t m_nAppID;						// ID of the app that will consume this file.
 };
@@ -590,7 +538,7 @@ struct RemoteStoragePublishedFileUnsubscribed_t
 //-----------------------------------------------------------------------------
 struct RemoteStoragePublishedFileDeleted_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 23 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 23 };
 	PublishedFileId_t m_nPublishedFileId;	// The published file id
 	AppId_t m_nAppID;						// ID of the app that will consume this file.
 };
@@ -601,7 +549,7 @@ struct RemoteStoragePublishedFileDeleted_t
 //-----------------------------------------------------------------------------
 struct RemoteStorageUpdateUserPublishedItemVoteResult_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 24 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 24 };
 	EResult m_eResult;				// The result of the operation.
 	PublishedFileId_t m_nPublishedFileId;	// The published file id
 };
@@ -612,7 +560,7 @@ struct RemoteStorageUpdateUserPublishedItemVoteResult_t
 //-----------------------------------------------------------------------------
 struct RemoteStorageUserVoteDetails_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 25 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 25 };
 	EResult m_eResult;				// The result of the operation.
 	PublishedFileId_t m_nPublishedFileId;	// The published file id
 	EWorkshopVote m_eVote;			// what the user voted
@@ -620,7 +568,7 @@ struct RemoteStorageUserVoteDetails_t
 
 struct RemoteStorageEnumerateUserSharedWorkshopFilesResult_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 26 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 26 };
 	EResult m_eResult;				// The result of the operation.
 	int32 m_nResultsReturned;
 	int32 m_nTotalResultCount;
@@ -629,7 +577,7 @@ struct RemoteStorageEnumerateUserSharedWorkshopFilesResult_t
 
 struct RemoteStorageSetUserPublishedFileActionResult_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 27 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 27 };
 	EResult m_eResult;				// The result of the operation.
 	PublishedFileId_t m_nPublishedFileId;	// The published file id
 	EWorkshopFileAction m_eAction;	// the action that was attempted
@@ -637,7 +585,7 @@ struct RemoteStorageSetUserPublishedFileActionResult_t
 
 struct RemoteStorageEnumeratePublishedFilesByUserActionResult_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 28 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 28 };
 	EResult m_eResult;				// The result of the operation.
 	EWorkshopFileAction m_eAction;	// the action that was filtered on
 	int32 m_nResultsReturned;
@@ -652,7 +600,7 @@ struct RemoteStorageEnumeratePublishedFilesByUserActionResult_t
 //-----------------------------------------------------------------------------
 struct RemoteStoragePublishFileProgress_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 29 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 29 };
 	double m_dPercentFile;
 	bool m_bPreview;
 };
@@ -663,7 +611,7 @@ struct RemoteStoragePublishFileProgress_t
 //-----------------------------------------------------------------------------
 struct RemoteStoragePublishedFileUpdated_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 30 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 30 };
 	PublishedFileId_t m_nPublishedFileId;	// The published file id
 	AppId_t m_nAppID;						// ID of the app that will consume this file.
 	uint64 m_ulUnused;						// not used anymore
@@ -674,7 +622,7 @@ struct RemoteStoragePublishedFileUpdated_t
 //-----------------------------------------------------------------------------
 struct RemoteStorageFileWriteAsyncComplete_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 31 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 31 };
 	EResult	m_eResult;						// result
 };
 
@@ -683,12 +631,20 @@ struct RemoteStorageFileWriteAsyncComplete_t
 //-----------------------------------------------------------------------------
 struct RemoteStorageFileReadAsyncComplete_t
 {
-	enum { k_iCallback = k_iClientRemoteStorageCallbacks + 32 };
+	enum { k_iCallback = k_iSteamRemoteStorageCallbacks + 32 };
 	SteamAPICall_t m_hFileReadAsync;		// call handle of the async read which was made
 	EResult	m_eResult;						// result
 	uint32 m_nOffset;						// offset in the file this read was at
 	uint32 m_cubRead;						// amount read - will the <= the amount requested
 };
+
+//-----------------------------------------------------------------------------
+// Purpose: one or more files for this app have changed locally after syncing
+//			to remote session changes
+//			Note: only posted if this happens DURING the local app session
+//-----------------------------------------------------------------------------
+STEAM_CALLBACK_BEGIN( RemoteStorageLocalFileChange_t, k_iSteamRemoteStorageCallbacks + 33 )
+STEAM_CALLBACK_END( 0 )
 
 #pragma pack( pop )
 
