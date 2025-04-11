@@ -21,14 +21,6 @@
 #define REFERENCE(arg) ((void)arg)
 #endif
 
-#if defined(STEAM_API_EXPORTS) && !defined(API_GEN)
-#define STEAM_PRIVATE_API( ... ) __VA_ARGS__
-#elif defined(STEAM_API_EXPORTS) && defined(API_GEN)
-#define STEAM_PRIVATE_API( ... )
-#else
-#define STEAM_PRIVATE_API( ... ) protected: __VA_ARGS__ public:
-#endif
-
 #if defined(__linux__) || defined(__APPLE__) 
 // The 32-bit version of gcc has the alignment requirement for uint64 and double set to
 // 4 meaning that even with #pragma pack(8) these types will only be four-byte aligned.
@@ -45,26 +37,26 @@
 #elif defined( VALVE_CALLBACK_PACK_LARGE )
 #pragma pack( push, 8 )
 #else
-#error "Packing size not defined"
+#error ???
 #endif 
 
-typedef struct ValvePackingSentinel_t
+typedef struct
 {
-    uint32 m_u32;
-    uint64 m_u64;
-    uint16 m_u16;
-    double m_d;
+	uint32 m_u32;
+	uint64 m_u64;
+	uint16 m_u16;
+	double m_d;
 } ValvePackingSentinel_t;
 
 #pragma pack( pop )
 
 
 #if defined(VALVE_CALLBACK_PACK_SMALL)
-VALVE_COMPILE_TIME_ASSERT( sizeof(ValvePackingSentinel_t) == 24 )
+VALVE_COMPILE_TIME_ASSERT(sizeof(ValvePackingSentinel_t) == 24)
 #elif defined(VALVE_CALLBACK_PACK_LARGE)
-VALVE_COMPILE_TIME_ASSERT( sizeof(ValvePackingSentinel_t) == 32 )
+VALVE_COMPILE_TIME_ASSERT(sizeof(ValvePackingSentinel_t) == 32)
 #else
-#error "Packing size not defined"
+#error ???
 #endif
 
 
@@ -76,10 +68,10 @@ typedef int32 HSteamUser;
 #if defined( POSIX )
 #define __cdecl
 #endif
-extern "C" typedef void (__cdecl *SteamAPIWarningMessageHook_t)(int, const char *);
-extern "C" typedef uint32 ( *SteamAPI_CheckCallbackRegistered_t )( int iCallbackNum );
+extern "C" typedef void(__cdecl* SteamAPIWarningMessageHook_t)(int, const char*);
+
 #if defined( __SNC__ )
-	#pragma diag_suppress=1700	   // warning 1700: class "%s" has virtual functions but non-virtual destructor
+#pragma diag_suppress=1700	   // warning 1700: class "%s" has virtual functions but non-virtual destructor
 #endif
 
 // interface predec
@@ -96,7 +88,6 @@ class ISteamNetworking;
 class ISteamRemoteStorage;
 class ISteamScreenshots;
 class ISteamMusic;
-class ISteamMusicRemote;
 class ISteamGameServerStats;
 class ISteamPS3OverlayRender;
 class ISteamHTTP;
@@ -104,9 +95,6 @@ class ISteamUnifiedMessages;
 class ISteamController;
 class ISteamUGC;
 class ISteamAppList;
-class ISteamHTMLSurface;
-class ISteamInventory;
-class ISteamVideo;
 
 //-----------------------------------------------------------------------------
 // Purpose: Interface to creating a new steam instance, or to
@@ -114,79 +102,75 @@ class ISteamVideo;
 //			different process or is local.
 //
 //			For most scenarios this is all handled automatically via SteamAPI_Init().
-//			You'll only need these APIs if you have a more complex versioning scheme,
-//			or if you want to implement a multiplexed gameserver where a single process
-//			is handling multiple games at once with independent gameserver SteamIDs.
+//			You'll only need to use these interfaces if you have a more complex versioning scheme,
+//			where you want to get different versions of the same interface in different dll's in your project.
 //-----------------------------------------------------------------------------
 class ISteamClient
 {
 public:
-	// Creates a communication pipe to the Steam client.
-	// NOT THREADSAFE - ensure that no other threads are accessing Steamworks API when calling
+	// Creates a communication pipe to the Steam client
 	virtual HSteamPipe CreateSteamPipe() = 0;
 
 	// Releases a previously created communications pipe
-	// NOT THREADSAFE - ensure that no other threads are accessing Steamworks API when calling
-	virtual bool BReleaseSteamPipe( HSteamPipe hSteamPipe ) = 0;
+	virtual bool BReleaseSteamPipe(HSteamPipe hSteamPipe) = 0;
 
 	// connects to an existing global user, failing if none exists
 	// used by the game to coordinate with the steamUI
-	// NOT THREADSAFE - ensure that no other threads are accessing Steamworks API when calling
-	virtual HSteamUser ConnectToGlobalUser( HSteamPipe hSteamPipe ) = 0;
+	virtual HSteamUser ConnectToGlobalUser(HSteamPipe hSteamPipe) = 0;
 
 	// used by game servers, create a steam user that won't be shared with anyone else
-	// NOT THREADSAFE - ensure that no other threads are accessing Steamworks API when calling
-	virtual HSteamUser CreateLocalUser( HSteamPipe *phSteamPipe, EAccountType eAccountType ) = 0;
+	virtual HSteamUser CreateLocalUser(HSteamPipe* phSteamPipe, EAccountType eAccountType) = 0;
 
 	// removes an allocated user
-	// NOT THREADSAFE - ensure that no other threads are accessing Steamworks API when calling
-	virtual void ReleaseUser( HSteamPipe hSteamPipe, HSteamUser hUser ) = 0;
+	virtual void ReleaseUser(HSteamPipe hSteamPipe, HSteamUser hUser) = 0;
 
 	// retrieves the ISteamUser interface associated with the handle
-	virtual ISteamUser *GetISteamUser( HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
+	virtual ISteamUser* GetISteamUser(HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char* pchVersion) = 0;
 
 	// retrieves the ISteamGameServer interface associated with the handle
-	virtual ISteamGameServer *GetISteamGameServer( HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
+	virtual ISteamGameServer* GetISteamGameServer(HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char* pchVersion) = 0;
 
 	// set the local IP and Port to bind to
 	// this must be set before CreateLocalUser()
-	virtual void SetLocalIPBinding( uint32 unIP, uint16 usPort ) = 0; 
+	virtual void SetLocalIPBinding(uint32 unIP, uint16 usPort) = 0;
 
 	// returns the ISteamFriends interface
-	virtual ISteamFriends *GetISteamFriends( HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
+	virtual ISteamFriends* GetISteamFriends(HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char* pchVersion) = 0;
 
 	// returns the ISteamUtils interface
-	virtual ISteamUtils *GetISteamUtils( HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
+	virtual ISteamUtils* GetISteamUtils(HSteamPipe hSteamPipe, const char* pchVersion) = 0;
 
 	// returns the ISteamMatchmaking interface
-	virtual ISteamMatchmaking *GetISteamMatchmaking( HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
+	virtual ISteamMatchmaking* GetISteamMatchmaking(HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char* pchVersion) = 0;
 
 	// returns the ISteamMatchmakingServers interface
-	virtual ISteamMatchmakingServers *GetISteamMatchmakingServers( HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
+	virtual ISteamMatchmakingServers* GetISteamMatchmakingServers(HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char* pchVersion) = 0;
 
 	// returns the a generic interface
-	virtual void *GetISteamGenericInterface( HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
+	virtual void* GetISteamGenericInterface(HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char* pchVersion) = 0;
 
 	// returns the ISteamUserStats interface
-	virtual ISteamUserStats *GetISteamUserStats( HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
+	virtual ISteamUserStats* GetISteamUserStats(HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char* pchVersion) = 0;
 
 	// returns the ISteamGameServerStats interface
-	virtual ISteamGameServerStats *GetISteamGameServerStats( HSteamUser hSteamuser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
+	virtual ISteamGameServerStats* GetISteamGameServerStats(HSteamUser hSteamuser, HSteamPipe hSteamPipe, const char* pchVersion) = 0;
 
 	// returns apps interface
-	virtual ISteamApps *GetISteamApps( HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
+	virtual ISteamApps* GetISteamApps(HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char* pchVersion) = 0;
 
 	// networking
-	virtual ISteamNetworking *GetISteamNetworking( HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
+	virtual ISteamNetworking* GetISteamNetworking(HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char* pchVersion) = 0;
 
 	// remote storage
-	virtual ISteamRemoteStorage *GetISteamRemoteStorage( HSteamUser hSteamuser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
+	virtual ISteamRemoteStorage* GetISteamRemoteStorage(HSteamUser hSteamuser, HSteamPipe hSteamPipe, const char* pchVersion) = 0;
 
 	// user screenshots
-	virtual ISteamScreenshots *GetISteamScreenshots( HSteamUser hSteamuser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
+	virtual ISteamScreenshots* GetISteamScreenshots(HSteamUser hSteamuser, HSteamPipe hSteamPipe, const char* pchVersion) = 0;
 
-	// Deprecated. Applications should use SteamAPI_RunCallbacks() or SteamGameServer_RunCallbacks() instead.
-	STEAM_PRIVATE_API( virtual void RunFrame() = 0; )
+
+	// this needs to be called every frame to process matchmaking results
+	// redundant if you're already calling SteamAPI_RunCallbacks()
+	virtual void RunFrame() = 0;
 
 	// returns the number of IPC calls made since the last time this function was called
 	// Used for perf debugging so you can understand how many IPC calls your game makes per frame
@@ -197,50 +181,36 @@ public:
 	// API warning handling
 	// 'int' is the severity; 0 for msg, 1 for warning
 	// 'const char *' is the text of the message
-	// callbacks will occur directly after the API function is called that generated the warning or message.
-	virtual void SetWarningMessageHook( SteamAPIWarningMessageHook_t pFunction ) = 0;
+	// callbacks will occur directly after the API function is called that generated the warning or message
+	virtual void SetWarningMessageHook(SteamAPIWarningMessageHook_t pFunction) = 0;
 
 	// Trigger global shutdown for the DLL
 	virtual bool BShutdownIfAllPipesClosed() = 0;
 
+#ifdef _PS3
+	virtual ISteamPS3OverlayRender* GetISteamPS3OverlayRender() = 0;
+#endif
+
 	// Expose HTTP interface
-	virtual ISteamHTTP *GetISteamHTTP( HSteamUser hSteamuser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
+	virtual ISteamHTTP* GetISteamHTTP(HSteamUser hSteamuser, HSteamPipe hSteamPipe, const char* pchVersion) = 0;
 
 	// Exposes the ISteamUnifiedMessages interface
-	virtual ISteamUnifiedMessages *GetISteamUnifiedMessages( HSteamUser hSteamuser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
+	virtual ISteamUnifiedMessages* GetISteamUnifiedMessages(HSteamUser hSteamuser, HSteamPipe hSteamPipe, const char* pchVersion) = 0;
 
 	// Exposes the ISteamController interface
-	virtual ISteamController *GetISteamController( HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
+	virtual ISteamController* GetISteamController(HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char* pchVersion) = 0;
 
 	// Exposes the ISteamUGC interface
-	virtual ISteamUGC *GetISteamUGC( HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
+	virtual ISteamUGC* GetISteamUGC(HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char* pchVersion) = 0;
 
 	// returns app list interface, only available on specially registered apps
-	virtual ISteamAppList *GetISteamAppList( HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
-	
+	virtual ISteamAppList* GetISteamAppList(HSteamUser hSteamUser, HSteamPipe hSteamPipe, const char* pchVersion) = 0;
+
 	// Music Player
-	virtual ISteamMusic *GetISteamMusic( HSteamUser hSteamuser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
-
-	// Music Player Remote
-	virtual ISteamMusicRemote *GetISteamMusicRemote(HSteamUser hSteamuser, HSteamPipe hSteamPipe, const char *pchVersion) = 0;
-
-	// html page display
-	virtual ISteamHTMLSurface *GetISteamHTMLSurface(HSteamUser hSteamuser, HSteamPipe hSteamPipe, const char *pchVersion) = 0;
-
-	// Helper functions for internal Steam usage
-	STEAM_PRIVATE_API( virtual void DEPRECATED_Set_SteamAPI_CPostAPIResultInProcess( void (*)() ) = 0; )
-	STEAM_PRIVATE_API( virtual void DEPRECATED_Remove_SteamAPI_CPostAPIResultInProcess( void (*)() ) = 0; )
-	STEAM_PRIVATE_API( virtual void Set_SteamAPI_CCheckCallbackRegisteredInProcess( SteamAPI_CheckCallbackRegistered_t func ) = 0; )
-
-	// inventory
-	virtual ISteamInventory *GetISteamInventory( HSteamUser hSteamuser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
-
-	// Video
-	virtual ISteamVideo *GetISteamVideo( HSteamUser hSteamuser, HSteamPipe hSteamPipe, const char *pchVersion ) = 0;
+	virtual ISteamMusic* GetISteamMusic(HSteamUser hSteamuser, HSteamPipe hSteamPipe, const char* pchVersion) = 0;
 };
 
-
-#define STEAMCLIENT_INTERFACE_VERSION		"SteamClient017"
+#define STEAMCLIENT_INTERFACE_VERSION		"SteamClient014"
 
 //-----------------------------------------------------------------------------
 // Purpose: Base values for callback identifiers, each callback must
@@ -259,7 +229,7 @@ enum { k_iSteamAppsCallbacks = 1000 };
 enum { k_iSteamUserStatsCallbacks = 1100 };
 enum { k_iSteamNetworkingCallbacks = 1200 };
 enum { k_iClientRemoteStorageCallbacks = 1300 };
-enum { k_iClientDepotBuilderCallbacks = 1400 };
+enum { k_iSteamUserItemsCallbacks = 1400 };
 enum { k_iSteamGameServerItemsCallbacks = 1500 };
 enum { k_iClientUtilsCallbacks = 1600 };
 enum { k_iSteamGameCoordinatorCallbacks = 1700 };
@@ -286,14 +256,7 @@ enum { k_iClientShortcutsCallbacks = 3700 };
 enum { k_iClientRemoteControlManagerCallbacks = 3800 };
 enum { k_iSteamAppListCallbacks = 3900 };
 enum { k_iSteamMusicCallbacks = 4000 };
-enum { k_iSteamMusicRemoteCallbacks = 4100 };
-enum { k_iClientVRCallbacks = 4200 };
-enum { k_iClientGameNotificationCallbacks = 4300 }; 
-enum { k_iSteamGameNotificationCallbacks = 4400 }; 
-enum { k_iSteamHTMLSurfaceCallbacks = 4500 };
-enum { k_iClientVideoCallbacks = 4600 };
-enum { k_iClientInventoryCallbacks = 4700 };
-enum { k_iClientBluetoothManagerCallbacks = 4800 };
+
 
 //-----------------------------------------------------------------------------
 // The CALLBACK macros are for client side callback logging enabled with
@@ -301,11 +264,14 @@ enum { k_iClientBluetoothManagerCallbacks = 4800 };
 // Do not change any of these. 
 //-----------------------------------------------------------------------------
 
-#ifdef STEAM_CALLBACK_INSPECTION_ENABLED
+struct SteamCallback_t
+{
+public:
+	SteamCallback_t() {}
+};
 
 #define DEFINE_CALLBACK( callbackname, callbackid ) \
-struct callbackname { \
-	typedef callbackname SteamCallback_t; \
+struct callbackname : SteamCallback_t { \
 	enum { k_iCallback = callbackid }; \
 	static callbackname *GetNullPointer() { return 0; } \
 	static const char *GetCallbackName() { return #callbackname; } \
@@ -342,18 +308,7 @@ struct callbackname { \
 	static uint32  GetNumMemberVariables() { return 0; } \
 	static bool    GetMemberVariable( uint32 index, uint32 &varOffset, uint32 &varSize,  uint32 &varCount, const char **pszName, const char **pszType ) { REFERENCE( pszType ); REFERENCE( pszName ); REFERENCE( varCount ); REFERENCE( varSize ); REFERENCE( varOffset ); REFERENCE( index ); return false; } \
 	};
-	
-#else
 
-#define DEFINE_CALLBACK( callbackname, callbackid )	struct callbackname { typedef callbackname SteamCallback_t; enum { k_iCallback = callbackid };
-#define CALLBACK_MEMBER( varidx, vartype, varname )	public: vartype varname ; 
-#define CALLBACK_ARRAY( varidx, vartype, varname, varcount ) public: vartype varname [ varcount ];
-#define END_CALLBACK_INTERNAL_BEGIN( numvars )  
-#define END_CALLBACK_INTERNAL_SWITCH( varidx )
-#define END_CALLBACK_INTERNAL_END()					};
-#define END_DEFINE_CALLBACK_0()						};
-
-#endif
 
 #define END_DEFINE_CALLBACK_1() \
 	END_CALLBACK_INTERNAL_BEGIN( 1 ) \
@@ -413,7 +368,7 @@ struct callbackname { \
 	END_CALLBACK_INTERNAL_END()
 
 #define END_DEFINE_CALLBACK_8() \
-	END_CALLBACK_INTERNAL_BEGIN( 8 ) \
+	END_CALLBACK_INTERNAL_BEGIN( 7 ) \
 	END_CALLBACK_INTERNAL_SWITCH( 0 ) \
 	END_CALLBACK_INTERNAL_SWITCH( 1 ) \
 	END_CALLBACK_INTERNAL_SWITCH( 2 ) \
@@ -425,7 +380,7 @@ struct callbackname { \
 	END_CALLBACK_INTERNAL_END()
 
 #define END_DEFINE_CALLBACK_9() \
-	END_CALLBACK_INTERNAL_BEGIN( 9 ) \
+	END_CALLBACK_INTERNAL_BEGIN( 7 ) \
 	END_CALLBACK_INTERNAL_SWITCH( 0 ) \
 	END_CALLBACK_INTERNAL_SWITCH( 1 ) \
 	END_CALLBACK_INTERNAL_SWITCH( 2 ) \
@@ -435,86 +390,6 @@ struct callbackname { \
 	END_CALLBACK_INTERNAL_SWITCH( 6 ) \
 	END_CALLBACK_INTERNAL_SWITCH( 7 ) \
 	END_CALLBACK_INTERNAL_SWITCH( 8 ) \
-	END_CALLBACK_INTERNAL_END()
-
-#define END_DEFINE_CALLBACK_10() \
-	END_CALLBACK_INTERNAL_BEGIN( 10 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 0 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 1 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 2 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 3 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 4 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 5 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 6 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 7 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 8 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 9 ) \
-	END_CALLBACK_INTERNAL_END()
-
-#define END_DEFINE_CALLBACK_11() \
-	END_CALLBACK_INTERNAL_BEGIN( 11 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 0 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 1 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 2 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 3 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 4 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 5 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 6 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 7 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 8 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 9 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 10 ) \
-	END_CALLBACK_INTERNAL_END()
-
-#define END_DEFINE_CALLBACK_12() \
-	END_CALLBACK_INTERNAL_BEGIN( 12 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 0 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 1 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 2 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 3 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 4 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 5 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 6 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 7 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 8 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 9 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 10 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 11 ) \
-	END_CALLBACK_INTERNAL_END()
-
-#define END_DEFINE_CALLBACK_13() \
-	END_CALLBACK_INTERNAL_BEGIN( 13 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 0 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 1 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 2 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 3 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 4 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 5 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 6 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 7 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 8 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 9 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 10 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 11 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 12 ) \
-	END_CALLBACK_INTERNAL_END()
-
-#define END_DEFINE_CALLBACK_14() \
-	END_CALLBACK_INTERNAL_BEGIN( 14 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 0 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 1 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 2 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 3 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 4 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 5 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 6 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 7 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 8 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 9 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 10 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 11 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 12 ) \
-	END_CALLBACK_INTERNAL_SWITCH( 13 ) \
 	END_CALLBACK_INTERNAL_END()
 
 #endif // ISTEAMCLIENT_H
