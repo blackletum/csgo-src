@@ -16,6 +16,8 @@
 
 #include "isteamfriends.h"
 
+#include "steamtypes.h"
+
 // lobby type description
 enum ELobbyType
 {

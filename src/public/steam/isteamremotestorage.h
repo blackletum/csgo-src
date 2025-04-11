@@ -309,9 +309,9 @@ class ISteamRemoteStorage
 		virtual SteamAPICall_t	EnumerateUserSharedWorkshopFiles( CSteamID steamId, uint32 unStartIndex, SteamParamStringArray_t *pRequiredTags, SteamParamStringArray_t *pExcludedTags ) = 0;
 		STEAM_CALL_RESULT( RemoteStoragePublishFileProgress_t )
 		virtual SteamAPICall_t	PublishVideo( EWorkshopVideoProvider eVideoProvider, const char *pchVideoAccount, const char *pchVideoIdentifier, const char *pchPreviewFile, AppId_t nConsumerAppId, const char *pchTitle, const char *pchDescription, ERemoteStoragePublishedFileVisibility eVisibility, SteamParamStringArray_t *pTags ) = 0;
-		STEAM_STEAM_CALL_RESULT( RemoteStorageSetUserPublishedFileActionResult_t )
+		STEAM_CALL_RESULT( RemoteStorageSetUserPublishedFileActionResult_t )
 		virtual SteamAPICall_t	SetUserPublishedFileAction( PublishedFileId_t unPublishedFileId, EWorkshopFileAction eAction ) = 0;
-		STEAM_STEAM_CALL_RESULT( RemoteStorageSetUserPublishedFileActionResult_t )
+		STEAM_CALL_RESULT( RemoteStorageSetUserPublishedFileActionResult_t )
 		virtual SteamAPICall_t	EnumeratePublishedFilesByUserAction( EWorkshopFileAction eAction, uint32 unStartIndex ) = 0;
 		// this method enumerates the public view of workshop files
 		STEAM_CALL_RESULT( RemoteStorageEnumerateWorkshopFilesResult_t )

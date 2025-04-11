@@ -25,6 +25,7 @@
 // General result codes
 enum EResult
 {
+	k_EResultNone = 0,							// no result
 	k_EResultOK	= 1,							// success
 	k_EResultFail = 2,							// generic failure 
 	k_EResultNoConnection = 3,					// no/failed network connection
@@ -1218,12 +1219,86 @@ const int k_cchGameExtraInfoMax = 64;
 // Purpose: Passed as argument to SteamAPI_UseBreakpadCrashHandler to enable optional callback
 //  just before minidump file is captured after a crash has occurred.  (Allows app to append additional comment data to the dump, etc.)
 //-----------------------------------------------------------------------------
-typedef void (*PFNPreMinidumpCallback)(void *context);
+typedef void (*PFNPreMinidumpCallback)(void* context);
 
-//-----------------------------------------------------------------------------
-// Purpose: Used by ICrashHandler interfaces to reference particular installed crash handlers
-//-----------------------------------------------------------------------------
-typedef void *BREAKPAD_HANDLE;
-#define BREAKPAD_INVALID_HANDLE (BREAKPAD_HANDLE)0 
+enum EGameSearchErrorCode_t
+{
+	k_EGameSearchErrorCode_OK = 1,
+	k_EGameSearchErrorCode_Failed_Search_Already_In_Progress = 2,
+	k_EGameSearchErrorCode_Failed_No_Search_In_Progress = 3,
+	k_EGameSearchErrorCode_Failed_Not_Lobby_Leader = 4, // if not the lobby leader can not call SearchForGameWithLobby
+	k_EGameSearchErrorCode_Failed_No_Host_Available = 5, // no host is available that matches those search params
+	k_EGameSearchErrorCode_Failed_Search_Params_Invalid = 6, // search params are invalid
+	k_EGameSearchErrorCode_Failed_Offline = 7, // offline, could not communicate with server
+	k_EGameSearchErrorCode_Failed_NotAuthorized = 8, // either the user or the application does not have priveledges to do this
+	k_EGameSearchErrorCode_Failed_Unknown_Error = 9, // unknown error
+};
+
+enum EPlayerResult_t
+{
+	k_EPlayerResultFailedToConnect = 1, // failed to connect after confirming
+	k_EPlayerResultAbandoned = 2,		// quit game without completing it
+	k_EPlayerResultKicked = 3,			// kicked by other players/moderator/server rules
+	k_EPlayerResultIncomplete = 4,		// player stayed to end but game did not conclude successfully ( nofault to player )
+	k_EPlayerResultCompleted = 5,		// player completed game
+};
+
+
+enum ESteamIPv6ConnectivityProtocol
+{
+	k_ESteamIPv6ConnectivityProtocol_Invalid = 0,
+	k_ESteamIPv6ConnectivityProtocol_HTTP = 1,		// because a proxy may make this different than other protocols
+	k_ESteamIPv6ConnectivityProtocol_UDP = 2,		// test UDP connectivity. Uses a port that is commonly needed for other Steam stuff. If UDP works, TCP probably works. 
+};
+
+// For the above transport protocol, what do we think the local machine's connectivity to the internet over ipv6 is like
+enum ESteamIPv6ConnectivityState
+{
+	k_ESteamIPv6ConnectivityState_Unknown = 0,	// We haven't run a test yet
+	k_ESteamIPv6ConnectivityState_Good = 1,		// We have recently been able to make a request on ipv6 for the given protocol
+	k_ESteamIPv6ConnectivityState_Bad = 2,		// We failed to make a request, either because this machine has no ipv6 address assigned, or it has no upstream connectivity
+};
+
+
+// Define compile time assert macros to let us validate the structure sizes.
+#define VALVE_COMPILE_TIME_ASSERT( pred ) typedef char compile_time_assert_type[(pred) ? 1 : -1];
+
+#if defined(__linux__) || defined(__APPLE__) || defined(__FreeBSD__)
+// The 32-bit version of gcc has the alignment requirement for uint64 and double set to
+// 4 meaning that even with #pragma pack(8) these types will only be four-byte aligned.
+// The 64-bit version of gcc has the alignment requirement for these types set to
+// 8 meaning that unless we use #pragma pack(4) our structures will get bigger.
+// The 64-bit structure packing has to match the 32-bit structure packing for each platform.
+#define VALVE_CALLBACK_PACK_SMALL
+#else
+#define VALVE_CALLBACK_PACK_LARGE
+#endif
+
+#if defined( VALVE_CALLBACK_PACK_SMALL )
+#pragma pack( push, 4 )
+#elif defined( VALVE_CALLBACK_PACK_LARGE )
+#pragma pack( push, 8 )
+#else
+#error ???
+#endif 
+
+typedef struct ValvePackingSentinel_t
+{
+	uint32 m_u32;
+	uint64 m_u64;
+	uint16 m_u16;
+	double m_d;
+} ValvePackingSentinel_t;
+
+#pragma pack( pop )
+
+
+#if defined(VALVE_CALLBACK_PACK_SMALL)
+VALVE_COMPILE_TIME_ASSERT(sizeof(ValvePackingSentinel_t) == 24)
+#elif defined(VALVE_CALLBACK_PACK_LARGE)
+VALVE_COMPILE_TIME_ASSERT(sizeof(ValvePackingSentinel_t) == 32)
+#else
+#error ???
+#endif
 
 #endif // STEAMCLIENTPUBLIC_H
