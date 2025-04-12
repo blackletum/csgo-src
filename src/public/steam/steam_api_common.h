@@ -10,8 +10,10 @@
 #ifndef STEAM_API_COMMON_H
 #define STEAM_API_COMMON_H
 
+#define STEAM_API_COMMON_INCLUDED
+
 #include "steamtypes.h"
-#include "steamclientpublic.h"
+#include "steam/steam_api_common.h"
 
 // S_API defines the linkage and calling conventions for steam_api.dll exports
 #if defined( _WIN32 ) && !defined( _X360 )
@@ -233,6 +235,6 @@ public:
 };
 
 // Internal implementation details for all of the above
-#include "steam_api_internal.h"
+#include "steam/steam_api_common.h"
 
 #endif // STEAM_API_COMMON_H

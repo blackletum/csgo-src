@@ -12,13 +12,13 @@
 #include <stdio.h>
 #include "dbg.h"
 #include "SteamCommon.h"
-#include "steam/steamclientpublic.h"
+#include "steam/steam_api_common.h"
 #include "tier1/strtools.h"
 #endif
 
 #ifdef HL1
 #include "steamcommon.h"
-#include "steam/steamclientpublic.h"
+#include "steam/steam_api_common.h"
 #endif
 
 // NOTE: This has to be the last file included!

@@ -11,7 +11,7 @@
 #endif
 
 #include "steam_api_common.h"
-#include "steamclientpublic.h"
+#include "steam/steam_api_common.h"
 #include "steamtypes.h"
 
 

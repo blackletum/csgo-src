@@ -10,7 +10,7 @@
 #pragma once
 #endif
 
-#include "isteamclient.h"
+#include "steam/steam_api_common.h"
 #include "isteamuser.h"
 #include "isteamfriends.h"
 #include "isteamutils.h"
@@ -388,6 +388,6 @@ S_API HSteamUser GetHSteamUser();
 S_API bool S_CALLTYPE SteamAPI_InitSafe();
 #endif
 
-#include "steam_api_internal.h"
+#include "steam/steam_api_common.h"
 
 #endif // STEAM_API_H

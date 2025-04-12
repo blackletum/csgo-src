@@ -11,8 +11,6 @@
 #endif
 
 #include "steam_api_common.h"
-#include "steam_api_internal.h"
-
 
 //-----------------------------------------------------------------------------
 // Purpose: set of relationships to other users

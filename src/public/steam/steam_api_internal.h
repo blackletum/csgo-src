@@ -11,6 +11,10 @@
 #error "This file should only be included from steam_api_common.h"
 #endif
 
+#ifndef STEAM_API_COMMON_INCLUDED
+#error "This file should only be included from steam_api_common.h"
+#endif
+
 #include <string.h>
 #include <steam\steam_api_common.h>
 
