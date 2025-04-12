@@ -40,6 +40,9 @@
 #error ???
 #endif 
 
+#ifndef VALVE_PACKING_SENTINEL_DEFINED
+#define VALVE_PACKING_SENTINEL_DEFINED
+
 typedef struct
 {
 	uint32 m_u32;
@@ -47,6 +50,8 @@ typedef struct
 	uint16 m_u16;
 	double m_d;
 } ValvePackingSentinel_t;
+
+#endif
 
 #pragma pack( pop )
 
