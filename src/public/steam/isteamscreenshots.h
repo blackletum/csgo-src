@@ -77,7 +77,6 @@ public:
 	// The return value is a handle that is valid for the duration of the game process and can be used to apply tags.
 	// JPEG, TGA, and PNG formats are supported.
 	virtual ScreenshotHandle AddVRScreenshotToLibrary( EVRScreenshotType eType, const char *pchFilename, const char *pchVRFilename ) = 0;
-
 };
 
 #define STEAMSCREENSHOTS_INTERFACE_VERSION "STEAMSCREENSHOTS_INTERFACE_VERSION003"
@@ -117,5 +116,5 @@ struct ScreenshotRequested_t
 
 #pragma pack( pop )
 
-
 #endif // ISTEAMSCREENSHOTS_H
+

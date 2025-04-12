@@ -201,7 +201,7 @@ public:
 
 	// Return what we believe your current ipv6 connectivity to "the internet" is on the specified protocol.
 	// This does NOT tell you if the Steam client is currently connected to Steam via ipv6.
-	virtual ESteamIPv6ConnectivityState GetIPv6ConnectivityState ( ESteamIPv6ConnectivityProtocol eProtocol ) = 0;
+	virtual ESteamIPv6ConnectivityState GetIPv6ConnectivityState( ESteamIPv6ConnectivityProtocol eProtocol ) = 0;
 
 	// returns true if currently running on the Steam Deck device
 	virtual bool IsSteamRunningOnSteamDeck() = 0;

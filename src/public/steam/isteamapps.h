@@ -10,10 +10,9 @@
 #pragma once
 #endif
 
-const int k_cubAppProofOfPurchaseKeyMax = 64;			// max bytes of a legacy cd key we support
 #include "steam_api_common.h"
- 
- const int k_cubAppProofOfPurchaseKeyMax = 240;			// max supported length of a legacy cd key 
+
+const int k_cubAppProofOfPurchaseKeyMax = 240;			// max supported length of a legacy cd key 
 
 
 //-----------------------------------------------------------------------------
@@ -69,15 +68,15 @@ public:
 	virtual bool BIsAppInstalled( AppId_t appID ) = 0; // returns true if that app is installed (not necessarily owned)
 	
 	// returns the SteamID of the original owner. If this CSteamID is different from ISteamUser::GetSteamID(),
- 	// the user has a temporary license borrowed via Family Sharing
- 	virtual CSteamID GetAppOwner() = 0; 
+	// the user has a temporary license borrowed via Family Sharing
+	virtual CSteamID GetAppOwner() = 0; 
 
 	// Returns the associated launch param if the game is run via steam://run/<appid>//?param1=value1&param2=value2&param3=value3 etc.
 	// Parameter names starting with the character '@' are reserved for internal use and will always return and empty string.
 	// Parameter names starting with an underscore '_' are reserved for steam features -- they can be queried by the game,
 	// but it is advised that you not param names beginning with an underscore for your own features.
 	// Check for new launch parameters on callback NewUrlLaunchParameters_t
- 	virtual const char *GetLaunchQueryParam( const char *pchKey ) = 0; 
+	virtual const char *GetLaunchQueryParam( const char *pchKey ) = 0; 
 
 	// get download progress for optional DLC
 	virtual bool GetDlcDownloadProgress( AppId_t nAppID, uint64 *punBytesDownloaded, uint64 *punBytesTotal ) = 0; 
@@ -85,38 +84,40 @@ public:
 	// return the buildid of this app, may change at any time based on backend updates to the game
 	virtual int GetAppBuildId() = 0;
 
+	// Request all proof of purchase keys for the calling appid and asociated DLC.
+	// A series of AppProofOfPurchaseKeyResponse_t callbacks will be sent with
+	// appropriate appid values, ending with a final callback where the m_nAppId
+	// member is k_uAppIdInvalid (zero).
+	virtual void RequestAllProofOfPurchaseKeys() = 0;
 
- 	// Request all proof of purchase keys for the calling appid and asociated DLC.
- 	// A series of AppProofOfPurchaseKeyResponse_t callbacks will be sent with
- 	// appropriate appid values, ending with a final callback where the m_nAppId
- 	// member is k_uAppIdInvalid (zero).
- 	virtual void RequestAllProofOfPurchaseKeys() = 0;
- 
- 	STEAM_CALL_RESULT( FileDetailsResult_t )
- 	virtual SteamAPICall_t GetFileDetails( const char* pszFileName ) = 0;
- 
- 	// Get command line if game was launched via Steam URL, e.g. steam://run/<appid>//<command line>/.
- 	// This method of passing a connect string (used when joining via rich presence, accepting an
- 	// invite, etc) is preferable to passing the connect string on the operating system command
- 	// line, which is a security risk.  In order for rich presence joins to go through this
- 	// path and not be placed on the OS command line, you must set a value in your app's
- 	// configuration on Steam.  Ask Valve for help with this.
- 	//
- 	// If game was already running and launched again, the NewUrlLaunchParameters_t will be fired.
- 	virtual int GetLaunchCommandLine( char *pszCommandLine, int cubCommandLine ) = 0;
- 
- 	// Check if user borrowed this game via Family Sharing, If true, call GetAppOwner() to get the lender SteamID
- 	virtual bool BIsSubscribedFromFamilySharing() = 0;
- 
- 	// check if game is a timed trial with limited playtime
- 	virtual bool BIsTimedTrial( uint32* punSecondsAllowed, uint32* punSecondsPlayed ) = 0; 
- 
- 	// set current DLC AppID being played (or 0 if none). Allows Steam to track usage of major DLC extensions
- 	virtual bool SetDlcContext( AppId_t nAppID ) = 0; 
-	
+	STEAM_CALL_RESULT( FileDetailsResult_t )
+	virtual SteamAPICall_t GetFileDetails( const char* pszFileName ) = 0;
+
+	// Get command line if game was launched via Steam URL, e.g. steam://run/<appid>//<command line>/.
+	// This method of passing a connect string (used when joining via rich presence, accepting an
+	// invite, etc) is preferable to passing the connect string on the operating system command
+	// line, which is a security risk.  In order for rich presence joins to go through this
+	// path and not be placed on the OS command line, you must set a value in your app's
+	// configuration on Steam.  Ask Valve for help with this.
+	//
+	// If game was already running and launched again, the NewUrlLaunchParameters_t will be fired.
+	virtual int GetLaunchCommandLine( char *pszCommandLine, int cubCommandLine ) = 0;
+
+	// Check if user borrowed this game via Family Sharing, If true, call GetAppOwner() to get the lender SteamID
+	virtual bool BIsSubscribedFromFamilySharing() = 0;
+
+	// check if game is a timed trial with limited playtime
+	virtual bool BIsTimedTrial( uint32* punSecondsAllowed, uint32* punSecondsPlayed ) = 0; 
+
+	// set current DLC AppID being played (or 0 if none). Allows Steam to track usage of major DLC extensions
+	virtual bool SetDlcContext( AppId_t nAppID ) = 0; 
 };
 
 #define STEAMAPPS_INTERFACE_VERSION "STEAMAPPS_INTERFACE_VERSION008"
+
+// Global interface accessor
+inline ISteamApps *SteamApps();
+STEAM_DEFINE_USER_INTERFACE_ACCESSOR( ISteamApps *, SteamApps, STEAMAPPS_INTERFACE_VERSION );
 
 // callbacks
 #if defined( VALVE_CALLBACK_PACK_SMALL )
@@ -137,36 +138,12 @@ struct DlcInstalled_t
 
 
 //---------------------------------------------------------------------------------
- // Purpose: posted after the user gains executes a Steam URL with command line or query parameters
- // such as steam://run/<appid>//-commandline/?param1=value1&param2=value2&param3=value3 etc
- // while the game is already running.  The new params can be queried
- // with GetLaunchQueryParam and GetLaunchCommandLine
- //---------------------------------------------------------------------------------
- struct NewUrlLaunchParameters_t
-{
-	enum { k_iCallback = k_iSteamAppsCallbacks + 14 };
-};
-
-
-//-----------------------------------------------------------------------------
-// Purpose: response to RequestAppProofOfPurchaseKey/RequestAllProofOfPurchaseKeys
-// for supporting third-party CD keys, or other proof-of-purchase systems.
-//-----------------------------------------------------------------------------
-struct RegisterActivationCodeResponse_t
-{
-	enum { k_iCallback = k_iSteamAppsCallbacks + 8 };
-	ERegisterActivationCodeResult m_eResult;
-	uint32 m_unPackageRegistered;						// package that was registered. Only set on success
-};
-
-
-//---------------------------------------------------------------------------------
-// Purpose: posted after the user gains executes a steam url with query parameters
-// such as steam://run/<appid>//?param1=value1;param2=value2;param3=value3; etc
+// Purpose: posted after the user gains executes a Steam URL with command line or query parameters
+// such as steam://run/<appid>//-commandline/?param1=value1&param2=value2&param3=value3 etc
 // while the game is already running.  The new params can be queried
-// with GetLaunchQueryParam.
+// with GetLaunchQueryParam and GetLaunchCommandLine
 //---------------------------------------------------------------------------------
-struct NewLaunchQueryParameters_t
+struct NewUrlLaunchParameters_t
 {
 	enum { k_iCallback = k_iSteamAppsCallbacks + 14 };
 };
@@ -179,10 +156,10 @@ struct NewLaunchQueryParameters_t
 struct AppProofOfPurchaseKeyResponse_t
 {
 	enum { k_iCallback = k_iSteamAppsCallbacks + 21 };
- 	EResult m_eResult;
- 	uint32	m_nAppID;
- 	uint32	m_cchKeyLength;
- 	char	m_rgchKey[k_cubAppProofOfPurchaseKeyMax];
+	EResult m_eResult;
+	uint32	m_nAppID;
+	uint32	m_cchKeyLength;
+	char	m_rgchKey[k_cubAppProofOfPurchaseKeyMax];
 };
 
 

@@ -12,9 +12,9 @@ typedef unsigned char uint8;
 #endif
 
 #ifdef __GNUC__
-#if __GNUC__ < 4
-#error "Steamworks requires GCC 4.X (4.2 or 4.4 have been tested)"
-#endif
+	#if __GNUC__ < 4
+		#error "Steamworks requires GCC 4.X (4.2 or 4.4 have been tested)"
+	#endif
 #endif
 
 #if defined(__LP64__) || defined(__x86_64__) || defined(_WIN64) || defined(__aarch64__) || defined(__s390x__)
@@ -124,15 +124,15 @@ struct SteamIPAddress_t
 
 	ESteamIPType m_eType;
 
-	bool IsSet() const
-	{
-		if (k_ESteamIPTypeIPv4 == m_eType)
+	bool IsSet() const 
+	{ 
+		if ( k_ESteamIPTypeIPv4 == m_eType )
 		{
 			return m_unIPv4 != 0;
 		}
-		else
+		else 
 		{
-			return m_ipv6Qword[0] != 0 || m_ipv6Qword[1] != 0;
+			return m_ipv6Qword[0] !=0 || m_ipv6Qword[1] != 0; 
 		}
 	}
 

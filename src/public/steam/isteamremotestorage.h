@@ -57,16 +57,6 @@ const uint32 k_cchTagListMax = 1024 + 1;
 const uint32 k_cchFilenameMax = 260;
 const uint32 k_cchPublishedFileURLMax = 256;
 
-//This code is originally from the file that shipped with
-//CSGO apparently but it wasn't in the files for when I was 
-//implementing coplay so uh lets hope it isn't needed lmao 
-//-blackletum 04 11 2025
-// Ways to handle a synchronization conflict
-//enum EResolveConflict
-//{
-//	k_EResolveConflictKeepClient = 1,		// The local version of each file will be used to overwrite the server version
-//	k_EResolveConflictKeepServer = 2,		// The server version of each file will be used to overwrite the local version
-//};
 
 enum ERemoteStoragePlatform
 {
@@ -89,7 +79,6 @@ enum ERemoteStoragePublishedFileVisibility
 	k_ERemoteStoragePublishedFileVisibilityFriendsOnly = 1,
 	k_ERemoteStoragePublishedFileVisibilityPrivate = 2,
 	k_ERemoteStoragePublishedFileVisibilityUnlisted = 3,
-
 };
 
 
@@ -189,6 +178,7 @@ enum ERemoteStorageFilePathType
 	k_ERemoteStorageFilePathType_APIFilename = 2,
 };
 
+
 //-----------------------------------------------------------------------------
 // Purpose: Functions for accessing, reading and writing files stored remotely 
 //			and cached locally
@@ -238,7 +228,7 @@ class ISteamRemoteStorage
 		virtual const char *GetFileNameAndSize( int iFile, int32 *pnFileSizeInBytes ) = 0;
 
 		// configuration management
-		virtual bool GetQuota( int32 *pnTotalBytes, int32 *puAvailableBytes ) = 0;
+		virtual bool GetQuota( uint64 *pnTotalBytes, uint64 *puAvailableBytes ) = 0;
 		virtual bool IsCloudEnabledForAccount() = 0;
 		virtual bool IsCloudEnabledForApp() = 0;
 		virtual void SetCloudEnabledForApp( bool bEnabled ) = 0;
@@ -311,7 +301,7 @@ class ISteamRemoteStorage
 		virtual SteamAPICall_t	PublishVideo( EWorkshopVideoProvider eVideoProvider, const char *pchVideoAccount, const char *pchVideoIdentifier, const char *pchPreviewFile, AppId_t nConsumerAppId, const char *pchTitle, const char *pchDescription, ERemoteStoragePublishedFileVisibility eVisibility, SteamParamStringArray_t *pTags ) = 0;
 		STEAM_CALL_RESULT( RemoteStorageSetUserPublishedFileActionResult_t )
 		virtual SteamAPICall_t	SetUserPublishedFileAction( PublishedFileId_t unPublishedFileId, EWorkshopFileAction eAction ) = 0;
-		STEAM_CALL_RESULT( RemoteStorageSetUserPublishedFileActionResult_t )
+		STEAM_CALL_RESULT( RemoteStorageEnumeratePublishedFilesByUserActionResult_t )
 		virtual SteamAPICall_t	EnumeratePublishedFilesByUserAction( EWorkshopFileAction eAction, uint32 unStartIndex ) = 0;
 		// this method enumerates the public view of workshop files
 		STEAM_CALL_RESULT( RemoteStorageEnumerateWorkshopFilesResult_t )
@@ -319,10 +309,22 @@ class ISteamRemoteStorage
 
 		STEAM_CALL_RESULT( RemoteStorageDownloadUGCResult_t )
 		virtual SteamAPICall_t UGCDownloadToLocation( UGCHandle_t hContent, const char *pchLocation, uint32 unPriority ) = 0;
+
+		// Cloud dynamic state change notification
+		virtual int32 GetLocalFileChangeCount() = 0;
+		virtual const char *GetLocalFileChange( int iFile, ERemoteStorageLocalFileChange *pEChangeType, ERemoteStorageFilePathType *pEFilePathType ) = 0;
+
+		// Indicate to Steam the beginning / end of a set of local file
+		// operations - for example, writing a game save that requires updating two files.
+		virtual bool BeginFileWriteBatch() = 0;
+		virtual bool EndFileWriteBatch() = 0;
 };
 
-#define STEAMREMOTESTORAGE_INTERFACE_VERSION "STEAMREMOTESTORAGE_INTERFACE_VERSION013"
+#define STEAMREMOTESTORAGE_INTERFACE_VERSION "STEAMREMOTESTORAGE_INTERFACE_VERSION016"
 
+// Global interface accessor
+inline ISteamRemoteStorage *SteamRemoteStorage();
+STEAM_DEFINE_USER_INTERFACE_ACCESSOR( ISteamRemoteStorage *, SteamRemoteStorage, STEAMREMOTESTORAGE_INTERFACE_VERSION );
 
 // callbacks
 #if defined( VALVE_CALLBACK_PACK_SMALL )
@@ -332,7 +334,10 @@ class ISteamRemoteStorage
 #else
 #error steam_api_common.h should define VALVE_CALLBACK_PACK_xxx
 #endif 
-	
+
+
+
+
 //-----------------------------------------------------------------------------
 // Purpose: The result of a call to FileShare()
 //-----------------------------------------------------------------------------
@@ -345,7 +350,7 @@ struct RemoteStorageFileShareResult_t
 };
 
 
-// k_iSteamRemoteStorageCallbacks	 + 8 is deprecated! Do not reuse
+// k_iSteamRemoteStorageCallbacks + 8 is deprecated! Do not reuse
 
 
 //-----------------------------------------------------------------------------
@@ -358,6 +363,9 @@ struct RemoteStoragePublishFileResult_t
 	PublishedFileId_t m_nPublishedFileId;
 	bool m_bUserNeedsToAcceptWorkshopLegalAgreement;
 };
+
+// k_iSteamRemoteStorageCallbacks + 10 is deprecated! Do not reuse
+
 
 
 //-----------------------------------------------------------------------------

@@ -248,7 +248,6 @@ public:
 
 	virtual uint32 GetQueryUGCContentDescriptors( UGCQueryHandle_t handle, uint32 index, EUGCContentDescriptorID *pvecDescriptors, uint32 cMaxEntries ) = 0;
 	
-
 	// Release the request to free up memory, after retrieving results
 	virtual bool ReleaseQueryUGCRequest( UGCQueryHandle_t handle ) = 0;
 
@@ -349,8 +348,8 @@ public:
 
 	// SuspendDownloads( true ) will suspend all workshop downloads until SuspendDownloads( false ) is called or the game ends
 	virtual void SuspendDownloads( bool bSuspend ) = 0;
-	
-		// usage tracking
+
+	// usage tracking
 	STEAM_CALL_RESULT( StartPlaytimeTrackingResult_t )
 	virtual SteamAPICall_t StartPlaytimeTracking( PublishedFileId_t *pvecPublishedFileID, uint32 unNumPublishedFileIDs ) = 0;
 	STEAM_CALL_RESULT( StopPlaytimeTrackingResult_t )
@@ -383,7 +382,6 @@ public:
 	// Retrieve information related to the user's acceptance or not of the app's specific Workshop EULA
 	STEAM_CALL_RESULT( WorkshopEULAStatus_t )
 	virtual SteamAPICall_t GetWorkshopEULAStatus() = 0;
-	
 };
 
 #define STEAMUGC_INTERFACE_VERSION "STEAMUGC_INTERFACE_VERSION017"
@@ -407,6 +405,7 @@ struct SteamUGCQueryCompleted_t
 	uint32 m_unNumResultsReturned;
 	uint32 m_unTotalMatchingResults;
 	bool m_bCachedData;	// indicates whether this data was retrieved from the local on-disk cache
+	char m_rgchNextCursor[k_cchPublishedFileURLMax]; // If a paging cursor was used, then this will be the next cursor to get the next result set.
 };
 
 
@@ -441,6 +440,7 @@ struct SubmitItemUpdateResult_t
 	enum { k_iCallback = k_iSteamUGCCallbacks + 4 };
 	EResult m_eResult;
 	bool m_bUserNeedsToAcceptWorkshopLegalAgreement;
+	PublishedFileId_t m_nPublishedFileId;
 };
 
 

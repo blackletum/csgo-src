@@ -11,22 +11,17 @@
 #error "This file should only be included from steam_api_common.h"
 #endif
 
-#ifndef STEAM_API_COMMON_INCLUDED
-#error "This file should only be included from steam_api_common.h"
-#endif
-
 #include <string.h>
-#include <steam\steam_api_common.h>
 
 // Internal functions used to locate/create interfaces
 S_API HSteamPipe S_CALLTYPE SteamAPI_GetHSteamPipe();
 S_API HSteamUser S_CALLTYPE SteamAPI_GetHSteamUser();
 S_API HSteamPipe S_CALLTYPE SteamGameServer_GetHSteamPipe();
 S_API HSteamUser S_CALLTYPE SteamGameServer_GetHSteamUser();
-S_API void* S_CALLTYPE SteamInternal_ContextInit(void* pContextInitData);
-S_API void* S_CALLTYPE SteamInternal_CreateInterface(const char* ver);
-S_API void* S_CALLTYPE SteamInternal_FindOrCreateUserInterface(HSteamUser hSteamUser, const char* pszVersion);
-S_API void* S_CALLTYPE SteamInternal_FindOrCreateGameServerInterface(HSteamUser hSteamUser, const char* pszVersion);
+S_API void *S_CALLTYPE SteamInternal_ContextInit( void *pContextInitData );
+S_API void *S_CALLTYPE SteamInternal_CreateInterface( const char *ver );
+S_API void *S_CALLTYPE SteamInternal_FindOrCreateUserInterface( HSteamUser hSteamUser, const char *pszVersion );
+S_API void *S_CALLTYPE SteamInternal_FindOrCreateGameServerInterface( HSteamUser hSteamUser, const char *pszVersion );
 
 // Macro used to define a type-safe accessor that will always return the version
 // of the interface of the *header file* you are compiling with!  We also bounce
@@ -53,11 +48,11 @@ S_API void* S_CALLTYPE SteamInternal_FindOrCreateGameServerInterface(HSteamUser 
 //
 
 // Internal functions used by the utility CCallback objects to receive callbacks
-S_API void S_CALLTYPE SteamAPI_RegisterCallback(class CCallbackBase* pCallback, int iCallback);
-S_API void S_CALLTYPE SteamAPI_UnregisterCallback(class CCallbackBase* pCallback);
+S_API void S_CALLTYPE SteamAPI_RegisterCallback( class CCallbackBase *pCallback, int iCallback );
+S_API void S_CALLTYPE SteamAPI_UnregisterCallback( class CCallbackBase *pCallback );
 // Internal functions used by the utility CCallResult objects to receive async call results
-S_API void S_CALLTYPE SteamAPI_RegisterCallResult(class CCallbackBase* pCallback, SteamAPICall_t hAPICall);
-S_API void S_CALLTYPE SteamAPI_UnregisterCallResult(class CCallbackBase* pCallback, SteamAPICall_t hAPICall);
+S_API void S_CALLTYPE SteamAPI_RegisterCallResult( class CCallbackBase *pCallback, SteamAPICall_t hAPICall );
+S_API void S_CALLTYPE SteamAPI_UnregisterCallResult( class CCallbackBase *pCallback, SteamAPICall_t hAPICall );
 
 #define _STEAM_CALLBACK_AUTO_HOOK( thisclass, func, param )
 #define _STEAM_CALLBACK_HELPER( _1, _2, SELECTED, ... )		_STEAM_CALLBACK_##SELECTED
@@ -89,17 +84,17 @@ inline CCallResult<T, P>::CCallResult()
 }
 
 template< class T, class P >
-inline void CCallResult<T, P>::Set(SteamAPICall_t hAPICall, T* p, func_t func)
+inline void CCallResult<T, P>::Set( SteamAPICall_t hAPICall, T *p, func_t func )
 {
-	if (m_hAPICall)
-		SteamAPI_UnregisterCallResult(this, m_hAPICall);
+	if ( m_hAPICall )
+		SteamAPI_UnregisterCallResult( this, m_hAPICall );
 
 	m_hAPICall = hAPICall;
 	m_pObj = p;
 	m_Func = func;
 
-	if (hAPICall)
-		SteamAPI_RegisterCallResult(this, hAPICall);
+	if ( hAPICall )
+		SteamAPI_RegisterCallResult( this, hAPICall );
 }
 
 template< class T, class P >
@@ -111,9 +106,9 @@ inline bool CCallResult<T, P>::IsActive() const
 template< class T, class P >
 inline void CCallResult<T, P>::Cancel()
 {
-	if (m_hAPICall != k_uAPICallInvalid)
+	if ( m_hAPICall != k_uAPICallInvalid )
 	{
-		SteamAPI_UnregisterCallResult(this, m_hAPICall);
+		SteamAPI_UnregisterCallResult( this, m_hAPICall );
 		m_hAPICall = k_uAPICallInvalid;
 	}
 }
@@ -125,59 +120,59 @@ inline CCallResult<T, P>::~CCallResult()
 }
 
 template< class T, class P >
-inline void CCallResult<T, P>::Run(void* pvParam)
+inline void CCallResult<T, P>::Run( void *pvParam )
 {
 	m_hAPICall = k_uAPICallInvalid; // caller unregisters for us
-	(m_pObj->*m_Func)((P*)pvParam, false);
+	(m_pObj->*m_Func)((P *)pvParam, false);
 }
 
 template< class T, class P >
-inline void CCallResult<T, P>::Run(void* pvParam, bool bIOFailure, SteamAPICall_t hSteamAPICall)
+inline void CCallResult<T, P>::Run( void *pvParam, bool bIOFailure, SteamAPICall_t hSteamAPICall )
 {
-	if (hSteamAPICall == m_hAPICall)
+	if ( hSteamAPICall == m_hAPICall )
 	{
 		m_hAPICall = k_uAPICallInvalid; // caller unregisters for us
-		(m_pObj->*m_Func)((P*)pvParam, bIOFailure);
+		(m_pObj->*m_Func)((P *)pvParam, bIOFailure);
 	}
 }
 
 template< class T, class P, bool bGameserver >
-inline CCallback< T, P, bGameserver >::CCallback(T* pObj, func_t func)
-	: m_pObj(nullptr), m_Func(nullptr)
+inline CCallback< T, P, bGameserver >::CCallback( T *pObj, func_t func )
+	: m_pObj( nullptr ), m_Func( nullptr )
 {
-	if (bGameserver)
+	if ( bGameserver )
 	{
 		this->SetGameserverFlag();
 	}
-	Register(pObj, func);
+	Register( pObj, func );
 }
 
 template< class T, class P, bool bGameserver >
-inline void CCallback< T, P, bGameserver >::Register(T* pObj, func_t func)
+inline void CCallback< T, P, bGameserver >::Register( T *pObj, func_t func )
 {
-	if (!pObj || !func)
+	if ( !pObj || !func )
 		return;
 
-	if (this->m_nCallbackFlags & CCallbackBase::k_ECallbackFlagsRegistered)
+	if ( this->m_nCallbackFlags & CCallbackBase::k_ECallbackFlagsRegistered )
 		Unregister();
 
 	m_pObj = pObj;
 	m_Func = func;
 	// SteamAPI_RegisterCallback sets k_ECallbackFlagsRegistered
-	SteamAPI_RegisterCallback(this, P::k_iCallback);
+	SteamAPI_RegisterCallback( this, P::k_iCallback );
 }
 
 template< class T, class P, bool bGameserver >
 inline void CCallback< T, P, bGameserver >::Unregister()
 {
 	// SteamAPI_UnregisterCallback removes k_ECallbackFlagsRegistered
-	SteamAPI_UnregisterCallback(this);
+	SteamAPI_UnregisterCallback( this );
 }
 
 template< class T, class P, bool bGameserver >
-inline void CCallback< T, P, bGameserver >::Run(void* pvParam)
+inline void CCallback< T, P, bGameserver >::Run( void *pvParam )
 {
-	(m_pObj->*m_Func)((P*)pvParam);
+	(m_pObj->*m_Func)((P *)pvParam);
 }
 
 #endif // #ifndef API_GEN
@@ -197,19 +192,19 @@ struct CallbackMsg_t
 {
 	HSteamUser m_hSteamUser; // Specific user to whom this callback applies.
 	int m_iCallback; // Callback identifier.  (Corresponds to the k_iCallback enum in the callback structure.)
-	uint8* m_pubParam; // Points to the callback structure
+	uint8 *m_pubParam; // Points to the callback structure
 	int m_cubParam; // Size of the data pointed to by m_pubParam
 };
 #pragma pack( pop )
 
 // Macros to define steam callback structures.  Used internally for debugging
 #ifdef STEAM_CALLBACK_INSPECTION_ENABLED
-#include "../../clientdll/steam_api_callback_inspection.h"
+	#include "../../clientdll/steam_api_callback_inspection.h"
 #else
-#define STEAM_CALLBACK_BEGIN( callbackname, callbackid )	struct callbackname { enum { k_iCallback = callbackid };
-#define STEAM_CALLBACK_MEMBER( varidx, vartype, varname )	vartype varname ; 
-#define STEAM_CALLBACK_MEMBER_ARRAY( varidx, vartype, varname, varcount ) vartype varname [ varcount ];
-#define STEAM_CALLBACK_END(nArgs) };
+	#define STEAM_CALLBACK_BEGIN( callbackname, callbackid )	struct callbackname { enum { k_iCallback = callbackid };
+	#define STEAM_CALLBACK_MEMBER( varidx, vartype, varname )	vartype varname ; 
+	#define STEAM_CALLBACK_MEMBER_ARRAY( varidx, vartype, varname, varcount ) vartype varname [ varcount ];
+	#define STEAM_CALLBACK_END(nArgs) };
 #endif
 
 // Forward declare all of the Steam interfaces.  (Do we really need to do this?)
@@ -279,7 +274,7 @@ enum { k_iSteamStreamClientCallbacks = 3500 };
 enum { k_iSteamAppListCallbacks = 3900 };
 enum { k_iSteamMusicCallbacks = 4000 };
 enum { k_iSteamMusicRemoteCallbacks = 4100 };
-enum { k_iSteamGameNotificationCallbacks = 4400 };
+enum { k_iSteamGameNotificationCallbacks = 4400 }; 
 enum { k_iSteamHTMLSurfaceCallbacks = 4500 };
 enum { k_iSteamVideoCallbacks = 4600 };
 enum { k_iSteamInventoryCallbacks = 4700 };
@@ -323,80 +318,82 @@ class CSteamAPIContext
 {
 public:
 	CSteamAPIContext() { Clear(); }
-	inline void Clear() { memset(this, 0, sizeof(*this)); }
+	inline void Clear() { memset( this, 0, sizeof(*this) ); }
 	inline bool Init(); // NOTE: This is defined in steam_api.h, to avoid this file having to include everything
-	ISteamClient* SteamClient() const { return m_pSteamClient; }
-	ISteamUser* SteamUser() const { return m_pSteamUser; }
-	ISteamFriends* SteamFriends() const { return m_pSteamFriends; }
-	ISteamUtils* SteamUtils() const { return m_pSteamUtils; }
-	ISteamMatchmaking* SteamMatchmaking() const { return m_pSteamMatchmaking; }
-	ISteamGameSearch* SteamGameSearch() const { return m_pSteamGameSearch; }
-	ISteamUserStats* SteamUserStats() const { return m_pSteamUserStats; }
-	ISteamApps* SteamApps() const { return m_pSteamApps; }
+	ISteamClient*		SteamClient() const					{ return m_pSteamClient; }
+	ISteamUser*			SteamUser() const					{ return m_pSteamUser; }
+	ISteamFriends*		SteamFriends() const				{ return m_pSteamFriends; }
+	ISteamUtils*		SteamUtils() const					{ return m_pSteamUtils; }
+	ISteamMatchmaking*	SteamMatchmaking() const			{ return m_pSteamMatchmaking; }
+	ISteamGameSearch*	SteamGameSearch() const				{ return m_pSteamGameSearch; }
+	ISteamUserStats*	SteamUserStats() const				{ return m_pSteamUserStats; }
+	ISteamApps*			SteamApps() const					{ return m_pSteamApps; }
 	ISteamMatchmakingServers* SteamMatchmakingServers() const { return m_pSteamMatchmakingServers; }
-	ISteamNetworking* SteamNetworking() const { return m_pSteamNetworking; }
-	ISteamRemoteStorage* SteamRemoteStorage() const { return m_pSteamRemoteStorage; }
-	ISteamScreenshots* SteamScreenshots() const { return m_pSteamScreenshots; }
-	ISteamHTTP* SteamHTTP() const { return m_pSteamHTTP; }
-	ISteamController* SteamController() const { return m_pController; }
-	ISteamUGC* SteamUGC() const { return m_pSteamUGC; }
-	ISteamAppList* SteamAppList() const { return m_pSteamAppList; }
-	ISteamMusic* SteamMusic() const { return m_pSteamMusic; }
-	ISteamMusicRemote* SteamMusicRemote() const { return m_pSteamMusicRemote; }
-	ISteamHTMLSurface* SteamHTMLSurface() const { return m_pSteamHTMLSurface; }
-	ISteamInventory* SteamInventory() const { return m_pSteamInventory; }
-	ISteamVideo* SteamVideo() const { return m_pSteamVideo; }
-	ISteamParentalSettings* SteamParentalSettings() const { return m_pSteamParentalSettings; }
-	ISteamInput* SteamInput() const { return m_pSteamInput; }
+	ISteamNetworking*	SteamNetworking() const				{ return m_pSteamNetworking; }
+	ISteamRemoteStorage* SteamRemoteStorage() const			{ return m_pSteamRemoteStorage; }
+	ISteamScreenshots*	SteamScreenshots() const			{ return m_pSteamScreenshots; }
+	ISteamHTTP*			SteamHTTP() const					{ return m_pSteamHTTP; }
+	ISteamController*	SteamController() const				{ return m_pController; }
+	ISteamUGC*			SteamUGC() const					{ return m_pSteamUGC; }
+	ISteamAppList*		SteamAppList() const				{ return m_pSteamAppList; }
+	ISteamMusic*		SteamMusic() const					{ return m_pSteamMusic; }
+	ISteamMusicRemote*	SteamMusicRemote() const			{ return m_pSteamMusicRemote; }
+	ISteamHTMLSurface*	SteamHTMLSurface() const			{ return m_pSteamHTMLSurface; }
+	ISteamInventory*	SteamInventory() const				{ return m_pSteamInventory; }
+	ISteamVideo*		SteamVideo() const					{ return m_pSteamVideo; }
+	ISteamParentalSettings* SteamParentalSettings() const	{ return m_pSteamParentalSettings; }
+	ISteamInput*		SteamInput() const					{ return m_pSteamInput; }
 private:
-	ISteamClient* m_pSteamClient;
-	ISteamUser* m_pSteamUser;
-	ISteamFriends* m_pSteamFriends;
-	ISteamUtils* m_pSteamUtils;
-	ISteamMatchmaking* m_pSteamMatchmaking;
-	ISteamGameSearch* m_pSteamGameSearch;
-	ISteamUserStats* m_pSteamUserStats;
-	ISteamApps* m_pSteamApps;
-	ISteamMatchmakingServers* m_pSteamMatchmakingServers;
-	ISteamNetworking* m_pSteamNetworking;
-	ISteamRemoteStorage* m_pSteamRemoteStorage;
-	ISteamScreenshots* m_pSteamScreenshots;
-	ISteamHTTP* m_pSteamHTTP;
-	ISteamController* m_pController;
-	ISteamUGC* m_pSteamUGC;
-	ISteamAppList* m_pSteamAppList;
-	ISteamMusic* m_pSteamMusic;
-	ISteamMusicRemote* m_pSteamMusicRemote;
-	ISteamHTMLSurface* m_pSteamHTMLSurface;
-	ISteamInventory* m_pSteamInventory;
-	ISteamVideo* m_pSteamVideo;
-	ISteamParentalSettings* m_pSteamParentalSettings;
-	ISteamInput* m_pSteamInput;
+	ISteamClient		*m_pSteamClient;
+	ISteamUser			*m_pSteamUser;
+	ISteamFriends		*m_pSteamFriends;
+	ISteamUtils			*m_pSteamUtils;
+	ISteamMatchmaking	*m_pSteamMatchmaking;
+	ISteamGameSearch	*m_pSteamGameSearch;
+	ISteamUserStats		*m_pSteamUserStats;
+	ISteamApps			*m_pSteamApps;
+	ISteamMatchmakingServers *m_pSteamMatchmakingServers;
+	ISteamNetworking	*m_pSteamNetworking;
+	ISteamRemoteStorage *m_pSteamRemoteStorage;
+	ISteamScreenshots	*m_pSteamScreenshots;
+	ISteamHTTP			*m_pSteamHTTP;
+	ISteamController	*m_pController;
+	ISteamUGC			*m_pSteamUGC;
+	ISteamAppList		*m_pSteamAppList;
+	ISteamMusic			*m_pSteamMusic;
+	ISteamMusicRemote	*m_pSteamMusicRemote;
+	ISteamHTMLSurface	*m_pSteamHTMLSurface;
+	ISteamInventory		*m_pSteamInventory;
+	ISteamVideo			*m_pSteamVideo;
+	ISteamParentalSettings *m_pSteamParentalSettings;
+	ISteamInput			*m_pSteamInput;
 };
 
 class CSteamGameServerAPIContext
 {
 public:
 	CSteamGameServerAPIContext() { Clear(); }
-	inline void Clear() { memset(this, 0, sizeof(*this)); }
+	inline void Clear() { memset( this, 0, sizeof(*this) ); }
 	inline bool Init(); // NOTE: This is defined in steam_gameserver.h, to avoid this file having to include everything
 
-	ISteamClient* SteamClient() const { return m_pSteamClient; }
-	ISteamGameServer* SteamGameServer() const { return m_pSteamGameServer; }
-	ISteamUtils* SteamGameServerUtils() const { return m_pSteamGameServerUtils; }
-	ISteamNetworking* SteamGameServerNetworking() const { return m_pSteamGameServerNetworking; }
-	ISteamGameServerStats* SteamGameServerStats() const { return m_pSteamGameServerStats; }
-	ISteamHTTP* SteamHTTP() const { return m_pSteamHTTP; }
-	ISteamInventory* SteamInventory() const { return m_pSteamInventory; }
-	ISteamUGC* SteamUGC() const { return m_pSteamUGC; }
+	ISteamClient *SteamClient() const					{ return m_pSteamClient; }
+	ISteamGameServer *SteamGameServer() const			{ return m_pSteamGameServer; }
+	ISteamUtils *SteamGameServerUtils() const			{ return m_pSteamGameServerUtils; }
+	ISteamNetworking *SteamGameServerNetworking() const	{ return m_pSteamGameServerNetworking; }
+	ISteamGameServerStats *SteamGameServerStats() const	{ return m_pSteamGameServerStats; }
+	ISteamHTTP *SteamHTTP() const						{ return m_pSteamHTTP; }
+	ISteamInventory *SteamInventory() const				{ return m_pSteamInventory; }
+	ISteamUGC *SteamUGC() const							{ return m_pSteamUGC; }
 
 private:
-	ISteamClient* m_pSteamClient;
-	ISteamGameServer* m_pSteamGameServer;
-	ISteamUtils* m_pSteamGameServerUtils;
-	ISteamNetworking* m_pSteamGameServerNetworking;
-	ISteamGameServerStats* m_pSteamGameServerStats;
-	ISteamHTTP* m_pSteamHTTP;
-	ISteamInventory* m_pSteamInventory;
-	ISteamUGC* m_pSteamUGC;
+	ISteamClient				*m_pSteamClient;
+	ISteamGameServer			*m_pSteamGameServer;
+	ISteamUtils					*m_pSteamGameServerUtils;
+	ISteamNetworking			*m_pSteamGameServerNetworking;
+	ISteamGameServerStats		*m_pSteamGameServerStats;
+	ISteamHTTP					*m_pSteamHTTP;
+	ISteamInventory				*m_pSteamInventory;
+	ISteamUGC					*m_pSteamUGC;
 };
+
+

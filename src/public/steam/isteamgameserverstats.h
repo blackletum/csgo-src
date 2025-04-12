@@ -28,21 +28,28 @@ public:
 
 	// requests stat information for a user, usable after a successful call to RequestUserStats()
 	STEAM_FLAT_NAME( GetUserStatInt32 )
- 	virtual bool GetUserStat( CSteamID steamIDUser, const char *pchName, int32 *pData ) = 0;
-  	STEAM_FLAT_NAME( GetUserStatFloat )
- 	virtual bool GetUserStat( CSteamID steamIDUser, const char *pchName, float *pData ) = 0;
-  	virtual bool GetUserAchievement( CSteamID steamIDUser, const char *pchName, bool *pbAchieved ) = 0;
+	virtual bool GetUserStat( CSteamID steamIDUser, const char *pchName, int32 *pData ) = 0;
+
+	STEAM_FLAT_NAME( GetUserStatFloat )
+	virtual bool GetUserStat( CSteamID steamIDUser, const char *pchName, float *pData ) = 0;
+
+	virtual bool GetUserAchievement( CSteamID steamIDUser, const char *pchName, bool *pbAchieved ) = 0;
 
 	// Set / update stats and achievements. 
 	// Note: These updates will work only on stats game servers are allowed to edit and only for 
 	// game servers that have been declared as officially controlled by the game creators. 
 	// Set the IP range of your official servers on the Steamworks page
+
 	STEAM_FLAT_NAME( SetUserStatInt32 )
- 	virtual bool SetUserStat( CSteamID steamIDUser, const char *pchName, int32 nData ) = 0;
-  	STEAM_FLAT_NAME( SetUserStatFloat )
- 	virtual bool SetUserStat( CSteamID steamIDUser, const char *pchName, float fData ) = 0;
-  	virtual bool UpdateUserAvgRateStat( CSteamID steamIDUser, const char *pchName, float flCountThisSession, double dSessionLength ) = 0;
-  	virtual bool SetUserAchievement( CSteamID steamIDUser, const char *pchName ) = 0;
+	virtual bool SetUserStat( CSteamID steamIDUser, const char *pchName, int32 nData ) = 0;
+
+	STEAM_FLAT_NAME( SetUserStatFloat )
+	virtual bool SetUserStat( CSteamID steamIDUser, const char *pchName, float fData ) = 0;
+
+	virtual bool UpdateUserAvgRateStat( CSteamID steamIDUser, const char *pchName, float flCountThisSession, double dSessionLength ) = 0;
+
+	virtual bool SetUserAchievement( CSteamID steamIDUser, const char *pchName ) = 0;
+	virtual bool ClearUserAchievement( CSteamID steamIDUser, const char *pchName ) = 0;
 
 	// Store the current data on the server, will get a GSStatsStored_t callback when set.
 	//
@@ -53,14 +60,14 @@ public:
 	STEAM_CALL_RESULT( GSStatsStored_t )
 	virtual SteamAPICall_t StoreUserStats( CSteamID steamIDUser ) = 0;
 };
-
 #define STEAMGAMESERVERSTATS_INTERFACE_VERSION "SteamGameServerStats001"
 
 // Global accessor
- inline ISteamGameServerStats *SteamGameServerStats();
- STEAM_DEFINE_GAMESERVER_INTERFACE_ACCESSOR( ISteamGameServerStats *, SteamGameServerStats, STEAMGAMESERVERSTATS_INTERFACE_VERSION );
- 
- // callbacks
+inline ISteamGameServerStats *SteamGameServerStats();
+STEAM_DEFINE_GAMESERVER_INTERFACE_ACCESSOR( ISteamGameServerStats *, SteamGameServerStats, STEAMGAMESERVERSTATS_INTERFACE_VERSION );
+
+
+// callbacks
 #if defined( VALVE_CALLBACK_PACK_SMALL )
 #pragma pack( push, 4 )
 #elif defined( VALVE_CALLBACK_PACK_LARGE )

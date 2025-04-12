@@ -64,7 +64,6 @@ public:
 
 #define STEAMMUSICREMOTE_INTERFACE_VERSION "STEAMMUSICREMOTE_INTERFACE_VERSION001"
 
-
 // Global interface accessor
 inline ISteamMusicRemote *SteamMusicRemote();
 STEAM_DEFINE_USER_INTERFACE_ACCESSOR( ISteamMusicRemote *, SteamMusicRemote, STEAMMUSICREMOTE_INTERFACE_VERSION );

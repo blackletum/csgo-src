@@ -86,28 +86,28 @@ public:
 
 	/// Set the name of server as it will appear in the server browser
 	///
-	/// @see k_cbMaxGameServerMapName
-	virtual void SetMapName( const char *pszMapName ) = 0;
+	/// @see k_cbMaxGameServerName
+	virtual void SetServerName( const char *pszServerName ) = 0;
 
 	/// Set name of map to report in the server browser
 	///
-	/// @see k_cbMaxGameServerName
+	/// @see k_cbMaxGameServerMapName
 	virtual void SetMapName( const char *pszMapName ) = 0;
 
 	/// Let people know if your server will require a password
 	virtual void SetPasswordProtected( bool bPasswordProtected ) = 0;
-	
+
 	/// Spectator server port to advertise.  The default value is zero, meaning the
- 	/// service is not used.  If your server receives any info requests on the LAN,
- 	/// this is the value that will be placed into the reply for such local queries.
- 	///
- 	/// This is also the value that will be advertised by the master server.
- 	/// The only exception is if your server is using a FakeIP.  Then then the second
- 	/// fake port number (index 1) assigned to your server will be listed on the master
- 	/// server as the spectator port, if you set this value to any nonzero value.
- 	///
- 	/// This function merely controls the values that are advertised -- it's up to you to
- 	/// configure the server to actually listen on this port and handle any spectator traffic
+	/// service is not used.  If your server receives any info requests on the LAN,
+	/// this is the value that will be placed into the reply for such local queries.
+	///
+	/// This is also the value that will be advertised by the master server.
+	/// The only exception is if your server is using a FakeIP.  Then then the second
+	/// fake port number (index 1) assigned to your server will be listed on the master
+	/// server as the spectator port, if you set this value to any nonzero value.
+	///
+	/// This function merely controls the values that are advertised -- it's up to you to
+	/// configure the server to actually listen on this port and handle any spectator traffic
 	virtual void SetSpectatorPort( uint16 unSpectatorPort ) = 0;
 
 	/// Name of the spectator server.  (Only used if spectator port is nonzero.)
@@ -137,15 +137,15 @@ public:
 	virtual void SetRegion( const char *pszRegion ) = 0;
 
 	/// Indicate whether you wish to be listed on the master server list
- 	/// and/or respond to server browser / LAN discovery packets.
- 	/// The server starts with this value set to false.  You should set all
- 	/// relevant server parameters before enabling advertisement on the server.
- 	///
- 	/// (This function used to be named EnableHeartbeats, so if you are wondering
- 	/// where that function went, it's right here.  It does the same thing as before,
- 	/// the old name was just confusing.)
- 	virtual void SetAdvertiseServerActive( bool bActive ) = 0;
- 
+	/// and/or respond to server browser / LAN discovery packets.
+	/// The server starts with this value set to false.  You should set all
+	/// relevant server parameters before enabling advertisement on the server.
+	///
+	/// (This function used to be named EnableHeartbeats, so if you are wondering
+	/// where that function went, it's right here.  It does the same thing as before,
+	/// the old name was just confusing.)
+	virtual void SetAdvertiseServerActive( bool bActive ) = 0;
+
 //
 // Player list management / authentication.
 //
@@ -153,8 +153,8 @@ public:
 	// Retrieve ticket to be sent to the entity who wishes to authenticate you ( using BeginAuthSession API ). 
 	// pcbTicket retrieves the length of the actual ticket.
 	// SteamNetworkingIdentity is an optional parameter to hold the public IP address of the entity you are connecting to
- 	// if an IP address is passed Steam will only allow the ticket to be used by an entity with that IP address
- 	virtual HAuthTicket GetAuthSessionTicket( void *pTicket, int cbMaxTicket, uint32 *pcbTicket, const SteamNetworkingIdentity *pSnid ) = 0;
+	// if an IP address is passed Steam will only allow the ticket to be used by an entity with that IP address
+	virtual HAuthTicket GetAuthSessionTicket( void *pTicket, int cbMaxTicket, uint32 *pcbTicket, const SteamNetworkingIdentity *pSnid ) = 0;
 
 	// Authenticate ticket ( from GetAuthSessionTicket ) from entity steamID to be sure it is valid and isnt reused
 	// Registers for callbacks if the entity goes offline or cancels the ticket ( see ValidateAuthTicketResponse_t callback and EAuthSessionResponse )
@@ -179,17 +179,17 @@ public:
 	// they will be removed in a future version of the SDK
 	virtual void GetGameplayStats( ) = 0;
 	STEAM_CALL_RESULT( GSReputation_t )
- 	virtual SteamAPICall_t GetServerReputation() = 0;
+	virtual SteamAPICall_t GetServerReputation() = 0;
 
 	// Returns the public IP of the server according to Steam, useful when the server is 
 	// behind NAT and you want to advertise its IP in a lobby for other clients to directly
 	// connect to
 	virtual SteamIPAddress_t GetPublicIP() = 0;
- 
-	// Server browser related query packet processing for shared socket mode.  These are used
-	// when you pass STEAMGAMESERVER_QUERY_PORT_SHARED as the query port to SteamGameServer_Init.
-	// IP address and port are in host order, i.e 127.0.0.1 == 0x7f000001
-	
+
+// Server browser related query packet processing for shared socket mode.  These are used
+// when you pass STEAMGAMESERVER_QUERY_PORT_SHARED as the query port to SteamGameServer_Init.
+// IP address and port are in host order, i.e 127.0.0.1 == 0x7f000001
+
 	// These are used when you've elected to multiplex the game server's UDP socket
 	// rather than having the master server updater use its own sockets.
 	// 
@@ -207,66 +207,70 @@ public:
 	virtual int GetNextOutgoingPacket( void *pOut, int cbMaxOut, uint32 *pNetAdr, uint16 *pPort ) = 0;
 
 //
-// Server clan association//
+// Server clan association
+//
 
 	// associate this game server with this clan for the purposes of computing player compat
- 	STEAM_CALL_RESULT( AssociateWithClanResult_t )
- 	virtual SteamAPICall_t AssociateWithClan( CSteamID steamIDClan ) = 0;
- 
- 	// ask if any of the current players dont want to play with this new player - or vice versa
- 	STEAM_CALL_RESULT( ComputeNewPlayerCompatibilityResult_t )
- 	virtual SteamAPICall_t ComputeNewPlayerCompatibility( CSteamID steamIDNewPlayer ) = 0;
+	STEAM_CALL_RESULT( AssociateWithClanResult_t )
+	virtual SteamAPICall_t AssociateWithClan( CSteamID steamIDClan ) = 0;
+	
+	// ask if any of the current players dont want to play with this new player - or vice versa
+	STEAM_CALL_RESULT( ComputeNewPlayerCompatibilityResult_t )
+	virtual SteamAPICall_t ComputeNewPlayerCompatibility( CSteamID steamIDNewPlayer ) = 0;
+
+
+
 
 	// Handles receiving a new connection from a Steam user.  This call will ask the Steam
- 	// servers to validate the users identity, app ownership, and VAC status.  If the Steam servers 
- 	// are off-line, then it will validate the cached ticket itself which will validate app ownership 
- 	// and identity.  The AuthBlob here should be acquired on the game client using SteamUser()->InitiateGameConnection()
- 	// and must then be sent up to the game server for authentication.
- 	//
- 	// Return Value: returns true if the users ticket passes basic checks. pSteamIDUser will contain the Steam ID of this user. pSteamIDUser must NOT be NULL
- 	// If the call succeeds then you should expect a GSClientApprove_t or GSClientDeny_t callback which will tell you whether authentication
- 	// for the user has succeeded or failed (the steamid in the callback will match the one returned by this call)
- 	//
- 	// DEPRECATED!  This function will be removed from the SDK in an upcoming version.
- 	//              Please migrate to BeginAuthSession and related functions.
- 	virtual bool SendUserConnectAndAuthenticate_DEPRECATED( uint32 unIPClient, const void *pvAuthBlob, uint32 cubAuthBlobSize, CSteamID *pSteamIDUser ) = 0;
- 
- 	// Creates a fake user (ie, a bot) which will be listed as playing on the server, but skips validation.  
- 	// 
- 	// Return Value: Returns a SteamID for the user to be tracked with, you should call EndAuthSession()
- 	// when this user leaves the server just like you would for a real user.
- 	virtual CSteamID CreateUnauthenticatedUserConnection() = 0;
- 
- 	// Should be called whenever a user leaves our game server, this lets Steam internally
- 	// track which users are currently on which servers for the purposes of preventing a single
- 	// account being logged into multiple servers, showing who is currently on a server, etc.
- 	//
- 	// DEPRECATED!  This function will be removed from the SDK in an upcoming version.
- 	//              Please migrate to BeginAuthSession and related functions.
- 	virtual void SendUserDisconnect_DEPRECATED( CSteamID steamIDUser ) = 0;
- 
- 	// Update the data to be displayed in the server browser and matchmaking interfaces for a user
- 	// currently connected to the server.  For regular users you must call this after you receive a
- 	// GSUserValidationSuccess callback.
- 	// 
- 	// Return Value: true if successful, false if failure (ie, steamIDUser wasn't for an active player)
- 	virtual bool BUpdateUserData( CSteamID steamIDUser, const char *pchPlayerName, uint32 uScore ) = 0;
- 
- // Deprecated functions.  These will be removed in a future version of the SDK.
- // If you really need these, please contact us and help us understand what you are
- // using them for.
- 
- 	STEAM_PRIVATE_API(
- 		virtual void SetMasterServerHeartbeatInterval_DEPRECATED( int iHeartbeatInterval ) = 0;
- 		virtual void ForceMasterServerHeartbeat_DEPRECATED() = 0;
- 	)
- };
- 
- #define STEAMGAMESERVER_INTERFACE_VERSION "SteamGameServer015"
- 
- // Global accessor
- inline ISteamGameServer *SteamGameServer();
- STEAM_DEFINE_GAMESERVER_INTERFACE_ACCESSOR( ISteamGameServer *, SteamGameServer, STEAMGAMESERVER_INTERFACE_VERSION );
+	// servers to validate the users identity, app ownership, and VAC status.  If the Steam servers 
+	// are off-line, then it will validate the cached ticket itself which will validate app ownership 
+	// and identity.  The AuthBlob here should be acquired on the game client using SteamUser()->InitiateGameConnection()
+	// and must then be sent up to the game server for authentication.
+	//
+	// Return Value: returns true if the users ticket passes basic checks. pSteamIDUser will contain the Steam ID of this user. pSteamIDUser must NOT be NULL
+	// If the call succeeds then you should expect a GSClientApprove_t or GSClientDeny_t callback which will tell you whether authentication
+	// for the user has succeeded or failed (the steamid in the callback will match the one returned by this call)
+	//
+	// DEPRECATED!  This function will be removed from the SDK in an upcoming version.
+	//              Please migrate to BeginAuthSession and related functions.
+	virtual bool SendUserConnectAndAuthenticate_DEPRECATED( uint32 unIPClient, const void *pvAuthBlob, uint32 cubAuthBlobSize, CSteamID *pSteamIDUser ) = 0;
+
+	// Creates a fake user (ie, a bot) which will be listed as playing on the server, but skips validation.  
+	// 
+	// Return Value: Returns a SteamID for the user to be tracked with, you should call EndAuthSession()
+	// when this user leaves the server just like you would for a real user.
+	virtual CSteamID CreateUnauthenticatedUserConnection() = 0;
+
+	// Should be called whenever a user leaves our game server, this lets Steam internally
+	// track which users are currently on which servers for the purposes of preventing a single
+	// account being logged into multiple servers, showing who is currently on a server, etc.
+	//
+	// DEPRECATED!  This function will be removed from the SDK in an upcoming version.
+	//              Please migrate to BeginAuthSession and related functions.
+	virtual void SendUserDisconnect_DEPRECATED( CSteamID steamIDUser ) = 0;
+
+	// Update the data to be displayed in the server browser and matchmaking interfaces for a user
+	// currently connected to the server.  For regular users you must call this after you receive a
+	// GSUserValidationSuccess callback.
+	// 
+	// Return Value: true if successful, false if failure (ie, steamIDUser wasn't for an active player)
+	virtual bool BUpdateUserData( CSteamID steamIDUser, const char *pchPlayerName, uint32 uScore ) = 0;
+
+// Deprecated functions.  These will be removed in a future version of the SDK.
+// If you really need these, please contact us and help us understand what you are
+// using them for.
+
+	STEAM_PRIVATE_API(
+		virtual void SetMasterServerHeartbeatInterval_DEPRECATED( int iHeartbeatInterval ) = 0;
+		virtual void ForceMasterServerHeartbeat_DEPRECATED() = 0;
+	)
+};
+
+#define STEAMGAMESERVER_INTERFACE_VERSION "SteamGameServer015"
+
+// Global accessor
+inline ISteamGameServer *SteamGameServer();
+STEAM_DEFINE_GAMESERVER_INTERFACE_ACCESSOR( ISteamGameServer *, SteamGameServer, STEAMGAMESERVER_INTERFACE_VERSION );
 
 // callbacks
 #if defined( VALVE_CALLBACK_PACK_SMALL )

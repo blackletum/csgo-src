@@ -142,20 +142,12 @@ public:
 
 #define STEAMHTTP_INTERFACE_VERSION "STEAMHTTP_INTERFACE_VERSION003"
 
-
-
 // Global interface accessor
-
 inline ISteamHTTP *SteamHTTP();
-
 STEAM_DEFINE_USER_INTERFACE_ACCESSOR( ISteamHTTP *, SteamHTTP, STEAMHTTP_INTERFACE_VERSION );
 
-
-
 // Global accessor for the gameserver client
-
 inline ISteamHTTP *SteamGameServerHTTP();
-
 STEAM_DEFINE_GAMESERVER_INTERFACE_ACCESSOR( ISteamHTTP *, SteamGameServerHTTP, STEAMHTTP_INTERFACE_VERSION );
 
 // callbacks

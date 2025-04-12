@@ -33,9 +33,9 @@ public:
 #define STEAMAPPLIST_INTERFACE_VERSION "STEAMAPPLIST_INTERFACE_VERSION001"
 
 // Global interface accessor
- inline ISteamAppList *SteamAppList();
- STEAM_DEFINE_USER_INTERFACE_ACCESSOR( ISteamAppList *, SteamAppList, STEAMAPPLIST_INTERFACE_VERSION );
- 
+inline ISteamAppList *SteamAppList();
+STEAM_DEFINE_USER_INTERFACE_ACCESSOR( ISteamAppList *, SteamAppList, STEAMAPPLIST_INTERFACE_VERSION );
+
 // callbacks
 #if defined( VALVE_CALLBACK_PACK_SMALL )
 #pragma pack( push, 4 )
@@ -50,18 +50,18 @@ public:
 // Purpose: Sent when a new app is installed (not downloaded yet)
 //---------------------------------------------------------------------------------
 STEAM_CALLBACK_BEGIN( SteamAppInstalled_t, k_iSteamAppListCallbacks + 1 )
- STEAM_CALLBACK_MEMBER( 0, AppId_t, m_nAppID )			// ID of the app that installs
- STEAM_CALLBACK_MEMBER( 1, int, m_iInstallFolderIndex ) // library folder the app is installed 
- STEAM_CALLBACK_END( 2 )
+STEAM_CALLBACK_MEMBER( 0, AppId_t, m_nAppID )			// ID of the app that installs
+STEAM_CALLBACK_MEMBER( 1, int, m_iInstallFolderIndex ) // library folder the app is installed 
+STEAM_CALLBACK_END( 2 )
 
 
 //---------------------------------------------------------------------------------
 // Purpose: Sent when an app is uninstalled
 //---------------------------------------------------------------------------------
 STEAM_CALLBACK_BEGIN( SteamAppUninstalled_t, k_iSteamAppListCallbacks + 2 )
- STEAM_CALLBACK_MEMBER( 0, AppId_t, m_nAppID )			// ID of the app that installs
- STEAM_CALLBACK_MEMBER( 1, int, m_iInstallFolderIndex ) // library folder the app was installed 
- STEAM_CALLBACK_END(2)
+STEAM_CALLBACK_MEMBER( 0, AppId_t, m_nAppID )			// ID of the app that installs
+STEAM_CALLBACK_MEMBER( 1, int, m_iInstallFolderIndex ) // library folder the app was installed 
+STEAM_CALLBACK_END(2)
 
 
 #pragma pack( pop )
