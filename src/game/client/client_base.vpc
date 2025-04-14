@@ -250,8 +250,6 @@ $Project
 		$File	"clientshadowmgr.cpp"
 		$File	"clientsideeffects.cpp"
 		$File	"clientsideeffects_test.cpp"
-		$File	"clientsteamcontext.cpp"
-		$File	"clientsteamcontext.h"
 		$File	"colorcorrectionmgr.cpp"
 		$File	"commentary_modelviewer.cpp"
 		$File	"commentary_modelviewer.h"
