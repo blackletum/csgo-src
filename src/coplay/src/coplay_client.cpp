@@ -13,6 +13,7 @@
 #include <inetchannel.h>
 #include <inetchannelinfo.h>
 #include "coplay_connection.h"
+#include "steam/steam_api_internal.h"
 
 CCoplayClient::CCoplayClient()
 {

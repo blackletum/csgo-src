@@ -6,6 +6,7 @@
 
 #include "steamnetworkingtypes.h"
 #include "steam_api_common.h"
+#include "steam/steam_api_internal.h"
 
 struct SteamNetAuthenticationStatus_t;
 struct SteamNetworkingFakeIPResult_t;

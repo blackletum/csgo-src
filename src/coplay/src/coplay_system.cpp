@@ -17,6 +17,7 @@
 #include <vgui/ISystem.h>
 #include <tier0/icommandline.h>
 #include <tier3/tier3.h>
+#include "steam/steam_api_internal.h"
 
 std::string queuedcommand;
 static CCoplaySystem g_CoplaySystem;

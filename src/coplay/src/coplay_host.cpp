@@ -17,6 +17,7 @@
 #include "coplay_host.h"
 #include "coplay_connection.h"
 #include "coplay_system.h"
+#include "steam/steam_api_internal.h"
 
 
 void ChangeLobbyType(IConVar* var, const char* pOldValue, float flOldValue)
