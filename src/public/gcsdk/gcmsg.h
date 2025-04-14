@@ -13,6 +13,7 @@
 
 #include "msgbase.h"
 #include "messagelist.h"
+#include "steam_api_flat.h"
 
 #pragma pack( push, 1 )
 

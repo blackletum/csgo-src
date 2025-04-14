@@ -17,6 +17,7 @@
 #include "tier1/utlpair.h"
 #include "job.h"
 #include "workthreadpool.h"
+#include "steam_api_flat.h"
 class GCConVar;
 
 #include "tier0/memdbgon.h"

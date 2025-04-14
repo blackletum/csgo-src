@@ -14,6 +14,7 @@
 #include "gclogger.h"
 #include "gcconstants.h"
 #include "refcount.h"
+#include "steam_api_flat.h"
 
 namespace GCSDK
 {

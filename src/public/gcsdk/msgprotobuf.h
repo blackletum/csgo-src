@@ -13,6 +13,7 @@
 #include "msgbase.h"
 #include "gcmsg.h"
 #include "tier0/tslist.h"
+#include "steamtypes.h"
 
 // eliminates a conflict with TYPE_BOOL in OSX
 #ifdef TYPE_BOOL

@@ -31,6 +31,27 @@ typedef unsigned char uint8;
 #endif
 #endif
 
+// Code added from CSMoE to hopefully help with some missing definitions
+
+//-----------------------------------------------------------------------------
+// GID (GlobalID) stuff
+// This is a globally unique identifier.  It's guaranteed to be unique across all
+// racks and servers for as long as a given universe persists.
+//-----------------------------------------------------------------------------
+// NOTE: for GID parsing/rendering and other utils, see gid.h
+typedef uint64 GID_t;
+
+const GID_t k_GIDNil = 0xffffffffffffffffull;
+
+// For convenience, we define a number of types that are just new names for GIDs
+typedef uint64 JobID_t;			// Each Job has a unique ID
+typedef GID_t TxnID_t;			// Each financial transaction has a unique ID
+
+const GID_t k_TxnIDNil = k_GIDNil;
+const GID_t k_TxnIDUnknown = 0;
+
+const JobID_t k_JobIDNil = 0xffffffffffffffffull;
+
 typedef unsigned char uint8;
 typedef signed char int8;
 
