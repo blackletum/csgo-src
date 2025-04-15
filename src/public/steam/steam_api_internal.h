@@ -7,9 +7,9 @@
 // 
 //-----------------------------------------------------------------------------
 
-#ifdef STEAM_CALLBACK_BEGIN
-#error "This file should only be included from steam_api_common.h"
-#endif
+//#ifdef STEAM_CALLBACK_BEGIN
+//#error "This file should only be included from steam_api_common.h"
+//#endif
 
 #include <string.h>
 

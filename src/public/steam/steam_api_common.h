@@ -1,4 +1,5 @@
 //====== Copyright Valve Corporation, All rights reserved. ====================
+// Add the following preprocessor directives to define VALVE_CALLBACK_PACK_xxx based on the platform or configuration.
 //
 // Steamworks SDK minimal include
 //
@@ -12,6 +13,7 @@
 
 #include "steamtypes.h"
 #include "steamclientpublic.h"
+#include "isteamclient.h"
 
 // S_API defines the linkage and calling conventions for steam_api.dll exports
 #if defined( _WIN32 ) && !defined( _X360 )

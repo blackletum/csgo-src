@@ -16,6 +16,10 @@
 #include "filesystem.h"
 #include "../vgui2/src/vgui_key_translation.h"
 
+#include "steam_api_common.h" 
+#include "steam_api_internal.h" 
+
+
 #undef PostMessage
 #undef MessageBox
 
