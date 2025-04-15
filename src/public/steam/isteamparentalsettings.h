@@ -39,18 +39,18 @@ public:
 	virtual bool BIsParentalLockEnabled() = 0;
 	virtual bool BIsParentalLockLocked() = 0;
 
-	virtual bool BIsAppBlocked( AppId_t nAppID ) = 0;
-	virtual bool BIsAppInBlockList( AppId_t nAppID ) = 0;
+	virtual bool BIsAppBlocked(AppId_t nAppID) = 0;
+	virtual bool BIsAppInBlockList(AppId_t nAppID) = 0;
 
-	virtual bool BIsFeatureBlocked( EParentalFeature eFeature ) = 0;
-	virtual bool BIsFeatureInBlockList( EParentalFeature eFeature ) = 0;
+	virtual bool BIsFeatureBlocked(EParentalFeature eFeature) = 0;
+	virtual bool BIsFeatureInBlockList(EParentalFeature eFeature) = 0;
 };
 
 #define STEAMPARENTALSETTINGS_INTERFACE_VERSION "STEAMPARENTALSETTINGS_INTERFACE_VERSION001"
 
 // Global interface accessor
-inline ISteamParentalSettings *SteamParentalSettings();
-STEAM_DEFINE_USER_INTERFACE_ACCESSOR( ISteamParentalSettings *, SteamParentalSettings, STEAMPARENTALSETTINGS_INTERFACE_VERSION );
+inline ISteamParentalSettings* SteamParentalSettings();
+STEAM_DEFINE_USER_INTERFACE_ACCESSOR(ISteamParentalSettings*, SteamParentalSettings, STEAMPARENTALSETTINGS_INTERFACE_VERSION);
 
 //-----------------------------------------------------------------------------
 // Purpose: Callback for querying UGC
