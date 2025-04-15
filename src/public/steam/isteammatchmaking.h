@@ -11,9 +11,9 @@
 #endif
 
 #include "steamtypes.h"
-#include "steamclientpublic.h"
+#include "steam_api_common.h"
 #include "matchmakingtypes.h" 
-#include "isteamclient.h"
+
 #include "isteamfriends.h"
 
 // lobby type description

@@ -10,7 +10,7 @@
 #pragma once
 #endif
 
-#include "isteamclient.h"
+#include "steam_api_common.h"
 #include "isteamremotestorage.h"
 
 // size limit on stat or achievement name (UTF-8 encoded)

@@ -10,7 +10,7 @@
 #pragma once
 #endif
 
-#include "isteamclient.h"
+#include "steam_api_common.h"
 
 #define MASTERSERVERUPDATERPORT_USEGAMESOCKETSHARE	((uint16)-1)
 

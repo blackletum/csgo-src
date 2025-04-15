@@ -12,7 +12,7 @@
 #endif
 
 #include "steamtypes.h"
-#include "steamclientpublic.h"
+#include "steam_api_common.h"
 
 // Define compile time assert macros to let us validate the structure sizes.
 #define VALVE_COMPILE_TIME_ASSERT( pred ) typedef char compile_time_assert_type[(pred) ? 1 : -1];

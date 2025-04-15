@@ -11,7 +11,7 @@
 #endif
 
 #include "steamtypes.h"
-#include "steamclientpublic.h"
+#include "steam_api_common.h"
 
 
 // list of possible errors returned by SendP2PPacket() API

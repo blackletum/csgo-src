@@ -10,6 +10,10 @@
 #pragma once
 #endif
 
+// Basic stuff
+#include "steam_api_common.h"
+
+// All of the interfaces
 #include "isteamclient.h"
 #include "isteamuser.h"
 #include "isteamfriends.h"
@@ -23,13 +27,18 @@
 #include "isteammusic.h"
 #include "isteammusicremote.h"
 #include "isteamhttp.h"
-#include "isteamunifiedmessages.h"
 #include "isteamcontroller.h"
 #include "isteamugc.h"
 #include "isteamapplist.h"
 #include "isteamhtmlsurface.h"
 #include "isteaminventory.h"
 #include "isteamvideo.h"
+#include "isteamparentalsettings.h"
+#include "isteaminput.h"
+#include "isteamremoteplay.h"
+#include "isteamnetworkingmessages.h"
+#include "isteamnetworkingsockets.h"
+#include "isteamnetworkingutils.h"
 
 
 // Steam API export macro

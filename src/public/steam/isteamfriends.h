@@ -10,8 +10,7 @@
 #pragma once
 #endif
 
-#include "isteamclient.h"
-#include "steamclientpublic.h"
+#include "steam_api_common.h"
 
 
 //-----------------------------------------------------------------------------
