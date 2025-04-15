@@ -271,7 +271,7 @@ const uint32 k_unServerFlagPrivate		= 0x20;		// server shouldn't list on master 
 #elif defined( VALVE_CALLBACK_PACK_LARGE )
 #pragma pack( push, 8 )
 #else
-#error isteamclient.h must be included
+#error steam_api_common.h should define VALVE_CALLBACK_PACK_xxx
 #endif 
 
 

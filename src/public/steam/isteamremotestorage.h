@@ -28,7 +28,7 @@ const uint32 k_unMaxCloudFileChunkSize = 100 * 1024 * 1024;
 #elif defined( VALVE_CALLBACK_PACK_LARGE )
 #pragma pack( push, 8 )
 #else
-#error isteamclient.h must be included
+#error steam_api_common.h should define VALVE_CALLBACK_PACK_xxx
 #endif 
 struct SteamParamStringArray_t
 {
@@ -318,7 +318,7 @@ class ISteamRemoteStorage
 #elif defined( VALVE_CALLBACK_PACK_LARGE )
 #pragma pack( push, 8 )
 #else
-#error isteamclient.h must be included
+#error steam_api_common.h should define VALVE_CALLBACK_PACK_xxx
 #endif 
 
 //-----------------------------------------------------------------------------

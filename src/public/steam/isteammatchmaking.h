@@ -25,6 +25,8 @@ enum ELobbyType
 	k_ELobbyTypeInvisible = 3,		// returned by search, but not visible to other friends 
 									//    useful if you want a user in two lobbies, for example matching groups together
 									//	  a user can be in only one regular lobby, and up to two invisible lobbies
+	k_ELobbyTypePrivateUnique = 4,	// private, unique and does not delete when empty - only one of these may exist per unique keypair set
+	// can only create from webapi
 };
 
 // lobby search filter tools
@@ -259,6 +261,10 @@ public:
 	CALL_BACK( LobbyChatUpdate_t );
 };
 #define STEAMMATCHMAKING_INTERFACE_VERSION "SteamMatchMaking009"
+
+// Global interface accessor
+inline ISteamMatchmaking* SteamMatchmaking();
+STEAM_DEFINE_USER_INTERFACE_ACCESSOR(ISteamMatchmaking*, SteamMatchmaking, STEAMMATCHMAKING_INTERFACE_VERSION);
 
 
 //-----------------------------------------------------------------------------
@@ -552,7 +558,7 @@ enum EChatMemberStateChange
 #elif defined( VALVE_CALLBACK_PACK_LARGE )
 #pragma pack( push, 8 )
 #else
-#error isteamclient.h must be included
+#error steam_api_common.h should define VALVE_CALLBACK_PACK_xxx
 #endif 
 
 //-----------------------------------------------------------------------------
