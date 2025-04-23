@@ -13,7 +13,7 @@
 #endif
 
 #include "tier1/interface.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "bitbuf.h"
 #include "inetchannel.h"
 #include "inetmsghandler.h"

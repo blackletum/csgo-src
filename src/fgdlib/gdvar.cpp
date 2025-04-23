@@ -4,7 +4,7 @@
 
 #include "fgdlib/fgdlib.h"
 #include "fgdlib/gamedata.h"
-#include "fgdlib/wcKeyValues.h"
+#include "fgdlib/wckeyvalues.h"
 #include "fgdlib/gdvar.h"
 
 // memdbgon must be the last include file in a .cpp file!!!

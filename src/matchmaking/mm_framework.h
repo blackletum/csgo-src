@@ -32,7 +32,7 @@
 #include "tier2/tier2.h"
 #include "vstdlib/jobthread.h"
 
-#include "extKeyValues.h"
+#include "extkeyvalues.h"
 #include "steam_apihook.h"
 
 

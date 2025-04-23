@@ -4,7 +4,7 @@
 //
 //===========================================================================//
 
-#include "extKeyValues.h"
+#include "extkeyvalues.h"
 
 #include <ctype.h>
 #include "fmtstr.h"
