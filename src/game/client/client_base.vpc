@@ -948,7 +948,7 @@ $Project
 		$File	"$SRCDIR\public\vgui\IImage.h"
 		$File	"$SRCDIR\public\vgui\IInput.h"
 		$File	"$SRCDIR\public\vgui\IInputInternal.h"
-		$File	"$SRCDIR\public\vstdlib\ikeyvaluessystem.h"
+		$File	"$SRCDIR\public\vstdlib\IKeyValuesSystem.h"
 		$File	"$SRCDIR\public\vgui\ILocalize.h"
 		$File	"$SRCDIR\public\vgui_controls\Image.h"
 		$File	"$SRCDIR\public\vgui_controls\ImageList.h"

@@ -23,7 +23,7 @@
 #include "materialsystem/materialsystem_config.h"
 #include "vertexshaderdx8.h"
 #include "recording.h"
-#include "vstdlib/ikeyvaluessystem.h"
+#include "vstdlib/IKeyValuesSystem.h"
 #include "winutils.h"
 #include "tier0/vprof_telemetry.h"
 #include "tier0/miniprofiler.h"

@@ -52,7 +52,7 @@ $Project
 		$File	"$SRCDIR\public\vstdlib\cvar.h"
 		$File	"$SRCDIR\public\vstdlib\coroutine.h"
 		$File	"$SRCDIR\public\vstdlib\jobthread.h"
-		$File	"$SRCDIR\public\vstdlib\ikeyvaluessystem.h"
+		$File	"$SRCDIR\public\vstdlib\IKeyValuesSystem.h"
 		$File	"$SRCDIR\public\vstdlib\iprocessutils.h"
 		$File	"$SRCDIR\public\tier1\mempool.h"
 		$File	"$SRCDIR\public\vstdlib\osversion.h"

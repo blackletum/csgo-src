@@ -64,7 +64,7 @@
 #include "vscript_server.h"
 #include "toolframework/itoolframework.h"
 #include "videocfg/videocfg.h"
-#include "vstdlib/ikeyvaluessystem.h"
+#include "vstdlib/IKeyValuesSystem.h"
 #include "ilagcompensationmanager.h"
 #include "bittools.h"
 #include "cellcoord.h"

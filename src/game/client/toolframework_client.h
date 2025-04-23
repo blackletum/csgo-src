@@ -12,7 +12,7 @@
 #endif
 
 #include "toolframework/itoolentity.h"
-#include "vstdlib/ikeyvaluessystem.h"
+#include "vstdlib/IKeyValuesSystem.h"
 
 
 //-----------------------------------------------------------------------------

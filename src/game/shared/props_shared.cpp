@@ -12,7 +12,7 @@
 #include "animation.h"
 #include <vcollide_parse.h>
 #include <bone_setup.h>
-#include "vstdlib/ikeyvaluessystem.h"
+#include "vstdlib/IKeyValuesSystem.h"
 
 #ifdef CLIENT_DLL
 #include "gamestringpool.h"

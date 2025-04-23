@@ -15,7 +15,7 @@
 #include "particle_parse.h"
 #include "rendertexture.h"
 #include "model_types.h"
-#include "vstdlib/ikeyvaluessystem.h"
+#include "vstdlib/IKeyValuesSystem.h"
 
 #ifdef PORTAL
 	#include "portalrender.h"

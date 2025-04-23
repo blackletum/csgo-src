@@ -961,7 +961,7 @@ $Project
 		$File	"$SRCDIR\public\ihandleentity.h"
 		$File	"$SRCDIR\public\ihltv.h"
 		$File	"$SRCDIR\public\ihltvdirector.h"
-		$File	"$SRCDIR\public\vstdlib\ikeyvaluessystem.h"
+		$File	"$SRCDIR\public\vstdlib\IKeyValuesSystem.h"
 		$File	"$SRVSRCDIR\ilagcompensationmanager.h"
 		$File	"$SRCDIR\public\vgui\ILocalize.h"
 		$File	"$SRCDIR\public\materialsystem\imaterial.h"

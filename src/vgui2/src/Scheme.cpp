@@ -17,7 +17,7 @@
 #include "vgui/ISurface.h"
 #include "vgui/IPanel.h"
 #include "vgui/ISystem.h"
-#include "vstdlib/ikeyvaluessystem.h"
+#include "vstdlib/IKeyValuesSystem.h"
 
 #include "vgui/ILocalize.h"
 #include "utlvector.h"
