@@ -5,7 +5,7 @@
 // $NoKeywords: $
 //=============================================================================//
 
-#include <vstdlib/ikeyvaluessystem.h>
+#include <vstdlib/IKeyValuesSystem.h>
 #include <KeyValues.h>
 #include "tier1/mempool.h"
 #include "utlsymbol.h"

@@ -12,7 +12,7 @@
 #include <vgui/ILocalize.h>
 #include <vgui/IPanel.h>
 #include "filesystem.h"
-#include <vstdlib/ikeyvaluessystem.h>
+#include <vstdlib/IKeyValuesSystem.h>
 
 #include <stdio.h>
 
