@@ -9,7 +9,7 @@
 #include "gamelayer.h"
 #include "gamerect.h"
 #include "tier1/utlstring.h"
-#include "tier1/utlstringmap.h"
+#include "tier1/UtlStringMap.h"
 #include "tier1/utlbuffer.h"
 #include "gameuisystemmgr.h"
 #include "tier1/fmtstr.h"

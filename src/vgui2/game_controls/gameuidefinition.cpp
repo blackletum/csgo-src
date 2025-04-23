@@ -11,7 +11,7 @@
 #include "gametext.h"
 #include "hitarea.h"
 #include "graphicgroup.h"
-#include "tier1/utlstringmap.h"
+#include "tier1/UtlStringMap.h"
 #include "tier1/utlbuffer.h"
 #include "gameuisystem.h"
 #include "gameuiscript.h"

@@ -13,7 +13,7 @@
 #include "filesystem_tools.h"
 #include "tier2/fileutils.h"
 #include "gamebspfile.h"
-#include "tier1/utlstringmap.h"
+#include "tier1/UtlStringMap.h"
 #include "tools_minidump.h"
 #include "cmdlib.h"
 

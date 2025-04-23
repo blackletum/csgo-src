@@ -16,7 +16,7 @@
 #include "mathlib/femodelbuilder.h"
 #include "tier1/utlhashtable.h"
 #include "bitvec.h"
-#include "tier1/utlstringmap.h"
+#include "tier1/UtlStringMap.h"
 #include "tier1/utlsortvector.h"
 #include "mdlobjects/vpropbreakabledata.h"
 
