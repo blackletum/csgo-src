@@ -11,7 +11,7 @@
 #include "animdata.h"
 #include "inputsystem/inputenums.h"
 #include "inputsystem/analogcode.h"
-#include "inputsystem/buttoncode.h"
+#include "inputsystem/ButtonCode.h"
 #include "gameuisystemmgr.h"
 #include "graphicgroup.h"
 #include "inputgameui.h"

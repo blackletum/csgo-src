@@ -12,7 +12,7 @@
 #pragma once
 #endif
 
-#include "inputsystem/buttoncode.h"
+#include "inputsystem/ButtonCode.h"
 
 enum KEYREPEAT_ALIASES
 {

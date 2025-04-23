@@ -17,7 +17,7 @@
 
 #include "rendersystem/vertexdata.h"
 #include "rendersystem/indexdata.h"
-#include "inputsystem/buttoncode.h"
+#include "inputsystem/ButtonCode.h"
 #include "gameuischeme.h"
 #include "igameuisystemmgr.h"
 

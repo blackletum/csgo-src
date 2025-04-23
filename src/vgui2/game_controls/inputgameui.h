@@ -24,7 +24,7 @@
 #include "utlvector.h"
 #include "utllinkedlist.h"
 #include "KeyValues.h"
-#include "inputsystem/buttoncode.h"
+#include "inputsystem/ButtonCode.h"
 #include "vgui/cursor.h"
 #include "vstdlib/ieventsystem.h"
 
