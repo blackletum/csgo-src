@@ -8,7 +8,7 @@
 #include "SDL_opengl.h"
 
 #include "appframework/ilaunchermgr.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "filesystem.h"
 
 #include "togl/rendermechanism.h"
