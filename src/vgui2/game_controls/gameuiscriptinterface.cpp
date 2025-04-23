@@ -4,7 +4,7 @@
 //
 //===========================================================================//
 
-#include "gameuiscriptInterface.h"
+#include "gameuiscriptinterface.h"
 #include "gameuisystemmgr.h"
 #include "gameuidefinition.h"
 #include "gamelayer.h"
