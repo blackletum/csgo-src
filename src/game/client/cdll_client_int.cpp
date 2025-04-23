@@ -17,7 +17,7 @@
 #include "steam/steam_api.h"
 #include "smoke_fog_overlay.h"
 #include "view.h"
-#include "ienginevgui.h"
+#include "iengineVGUI.h"
 #include "iefx.h"
 #include "enginesprite.h"
 #include "networkstringtable_clientdll.h"

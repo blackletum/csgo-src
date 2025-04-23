@@ -18,7 +18,7 @@
 #include "vguicenterprint.h"
 #include "vgui/KeyCode.h"
 #include <KeyValues.h>
-#include "ienginevgui.h"
+#include "iengineVGUI.h"
 #include "c_playerresource.h"
 #include "cstrike15/c_cs_playerresource.h"
 #include "ihudlcd.h"

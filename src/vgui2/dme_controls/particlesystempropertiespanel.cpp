@@ -7,7 +7,7 @@
 #include "dme_controls/ParticleSystemPropertiesPanel.h"
 #include "tier1/KeyValues.h"
 #include "tier1/utlbuffer.h"
-#include "vgui/ivgui.h"
+#include "vgui/iVGUI.h"
 #include "vgui_controls/button.h"
 #include "vgui_controls/listpanel.h"
 #include "vgui_controls/splitter.h"

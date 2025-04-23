@@ -6,7 +6,7 @@
 //=============================================================================//
 #include "cbase.h"
 #include "vgui_int.h"
-#include "ienginevgui.h"
+#include "iengineVGUI.h"
 #include "itextmessage.h"
 #include "vguicenterprint.h"
 #include "iloadingdisc.h"

@@ -34,7 +34,7 @@
 #include "toolutils/savewindowpositions.h"
 #include "tier3/tier3.h"
 #include "tier2/fileutils.h"
-#include "vgui/ivgui.h"
+#include "vgui/iVGUI.h"
 
 using namespace vgui;
 

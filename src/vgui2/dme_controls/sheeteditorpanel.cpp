@@ -12,7 +12,7 @@
 #include "materialsystem/imaterialvar.h"
 #include "vguimatsurface/imatsystemsurface.h"
 #include "matsys_controls/matsyscontrols.h"
-#include "vgui/ivgui.h"
+#include "vgui/iVGUI.h"
 #include "vgui_controls/propertypage.h"
 #include "vgui_controls/propertysheet.h"
 #include "vgui_controls/textentry.h"

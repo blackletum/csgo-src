@@ -23,7 +23,7 @@
 #include "vgui/isurface.h"
 #include "vgui/ischeme.h"
 #include "vgui/iinput.h"
-#include "vgui/ivgui.h"
+#include "vgui/iVGUI.h"
 #include "vgui/cursor.h"
 #include "movieobjects/dmemakefile.h"
 #include "movieobjects/dmemdlmakefile.h"

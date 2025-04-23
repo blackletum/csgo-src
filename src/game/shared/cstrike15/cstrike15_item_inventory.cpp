@@ -17,7 +17,7 @@
 #endif
 #include "KeyValues.h"
 #include "filesystem.h"
-#include "ienginevgui.h"
+#include "iengineVGUI.h"
 #include "cs_gamerules.h"
 //#include "econ_notifications.h"
 //#include "econ/econ_item_preset.h"

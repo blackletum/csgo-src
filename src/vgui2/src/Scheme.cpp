@@ -11,7 +11,7 @@
 
 #include "vgui/IScheme.h"
 #include "vgui_surfacelib/fontmanager.h"
-#include "vgui/vgui.h"
+#include "vgui/VGUI.h"
 
 #include "KeyValues.h"
 #include "vgui/ISurface.h"

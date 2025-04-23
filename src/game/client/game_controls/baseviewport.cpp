@@ -46,7 +46,7 @@
 #include "baseviewport.h"
 #include <filesystem.h>
 #include <convar.h>
-#include "ienginevgui.h"
+#include "iengineVGUI.h"
 #include "iclientmode.h"
 #include "vgui_int.h"
 

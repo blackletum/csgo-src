@@ -28,7 +28,7 @@
 #include "math.h"
 #include "tier1/convar_serverbounded.h"
 #include "c_baseplayer.h"
-#include "ienginevgui.h"
+#include "iengineVGUI.h"
 #include "inputsystem/iinputstacksystem.h"
 
 

@@ -10,7 +10,7 @@
 #include "toolutils/scripteditorpanel.h"
 #include "vgui/iinput.h"
 #include "vgui/ischeme.h"
-#include "vgui/ivgui.h"
+#include "vgui/iVGUI.h"
 #include "vgui/isurface.h"
 #include "vgui_controls/button.h"
 #include "vgui_controls/textentry.h"

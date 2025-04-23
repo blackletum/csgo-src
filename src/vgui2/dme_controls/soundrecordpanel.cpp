@@ -12,7 +12,7 @@
 #include "dme_controls/dmecontrols.h"
 #include "vgui_controls/messagebox.h"
 #include "soundemittersystem/isoundemittersystembase.h"
-#include "vgui/ivgui.h"
+#include "vgui/iVGUI.h"
 #include "mathlib/mathlib.h"
 
 // FIXME: Move sound code out of the engine + into a library!

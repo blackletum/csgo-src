@@ -8,7 +8,7 @@
 #include "c_vguiscreen.h"
 #include "vgui_controls/ImagePanel.h"
 #include <vgui/IVGui.h>
-#include "ienginevgui.h"
+#include "iengineVGUI.h"
 #include "fmtstr.h"
 #include "vgui_controls/ImagePanel.h"
 #include <vgui/ISurface.h>

@@ -17,7 +17,7 @@
 #include "datacache/idatacache.h"
 #include "datacache/imdlcache.h"
 #include "vphysics_interface.h"
-#include "vgui/ivgui.h"
+#include "vgui/iVGUI.h"
 #include "vgui/isurface.h"
 #include "inputsystem/iinputsystem.h"
 #include "tier0/icommandline.h"

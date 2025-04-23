@@ -16,7 +16,7 @@
 #pragma once
 #endif
 
-#include "vgui/vgui.h"
+#include "vgui/VGUI.h"
 #include "fontabc.h"
 
 abstract_class ITextMessage 

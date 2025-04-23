@@ -1081,7 +1081,7 @@ $Project
 		$File	"$SRVSRCDIR\vehicle_baseserver.h"
 		$File	"$SRCDIR\game\shared\vehicle_viewblend_shared.h"
 		$File	"$SRCDIR\public\vphysics\vehicles.h"
-		$File	"$SRCDIR\public\vgui\vgui.h"
+		$File	"$SRCDIR\public\vgui\VGUI.h"
 		$File	"$SRCDIR\public\vphysics_interface.h"
 		$File	"$SRCDIR\game\shared\vphysics_sound.h"
 		$File	"$SRCDIR\public\mathlib\vplane.h"

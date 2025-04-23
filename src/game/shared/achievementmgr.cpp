@@ -49,7 +49,7 @@
 #ifdef _GAMECONSOLE
 #include "gameui/igameui.h"
 #include "ixboxsystem.h"
-#include "ienginevgui.h"
+#include "iengineVGUI.h"
 #endif  // _GAMECONSOLE
 
 #include "matchmaking/imatchframework.h"

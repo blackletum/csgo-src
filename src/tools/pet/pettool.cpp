@@ -30,7 +30,7 @@
 #include "particles/particles.h"
 #include "dmserializers/idmserializers.h"
 #include "dme_controls/dmepanel.h"
-#include "vgui/ivgui.h"
+#include "vgui/iVGUI.h"
 #include "engine/IVDebugOverlay.h"
 
 using namespace vgui;

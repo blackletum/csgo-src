@@ -7,7 +7,7 @@
 #include "cbase.h"
 #ifdef SERVER_USES_VGUI
 #include "vgui_gamedll_int.h"
-#include "ienginevgui.h"
+#include "iengineVGUI.h"
 #include <vgui/ISurface.h>
 #include <vgui/IVGui.h>
 #include <vgui/IInput.h>

@@ -11,7 +11,7 @@
 #include "toolframework/itooldictionary.h"
 #include "toolframework/ienginetool.h"
 #include "toolutils/enginetools_int.h"
-#include "ienginevgui.h"
+#include "iengineVGUI.h"
 #include "icvar.h"
 #include "toolutils/vgui_tools.h"
 #include "mathlib/mathlib.h"

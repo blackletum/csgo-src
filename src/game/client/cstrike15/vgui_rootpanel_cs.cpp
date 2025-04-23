@@ -6,7 +6,7 @@
 //=============================================================================//
 #include "cbase.h"
 #include "vgui_int.h"
-#include "ienginevgui.h"
+#include "iengineVGUI.h"
 #include "c_csrootpanel.h"
 #include "view_shared.h"
 

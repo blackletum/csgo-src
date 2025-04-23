@@ -78,7 +78,7 @@
 #include "player_voice_listener.h"
 
 #ifdef _WIN32
-#include "ienginevgui.h"
+#include "iengineVGUI.h"
 #include "vgui_gamedll_int.h"
 #include "vgui_controls/AnimationController.h"
 #endif

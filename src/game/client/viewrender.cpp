@@ -45,7 +45,7 @@
 #include "smoke_fog_overlay.h"
 #include "materialsystem/imaterialsystemhardwareconfig.h"
 #include "vgui_int.h"
-#include "ienginevgui.h"
+#include "iengineVGUI.h"
 #include "ScreenSpaceEffects.h"
 #include "toolframework_client.h"
 #include "c_func_reflective_glass.h"

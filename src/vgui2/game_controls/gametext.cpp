@@ -7,7 +7,7 @@
 
 #include "gametext.h"
 #include "vgui/ilocalize.h"
-#include "vgui/vgui.h"
+#include "vgui/VGUI.h"
 #include <ctype.h>
 #include "gameuisystemsurface.h"
 #include "gameuisystemmgr.h"

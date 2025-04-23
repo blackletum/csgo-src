@@ -90,7 +90,7 @@ $Project "vgui2"
 		$File	"$SRCDIR\public\tier1\utlrbtree.h"
 		$File	"$SRCDIR\public\tier1\utlvector.h"
 		$File	"$SRCDIR\public\mathlib\vector2d.h"
-		$File	"$SRCDIR\public\vgui\vgui.h"
+		$File	"$SRCDIR\public\vgui\VGUI.h"
 		$File	"$SRCDIR\public\vstdlib\vstdlib.h"
 		$File	"$SRCDIR\common\vgui_surfacelib\Win32Font.h"	[$WINDOWS||$X360||$PS3||$POSIX]
 		$File	"$SRCDIR\common\vgui_surfacelib\OSXFont.h"		[$OSXALL]		

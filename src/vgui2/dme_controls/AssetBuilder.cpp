@@ -19,7 +19,7 @@
 #include "vgui_controls/PropertySheet.h"
 #include "vgui_controls/PropertyPage.h"
 #include "vgui/ischeme.h"
-#include "vgui/ivgui.h"
+#include "vgui/iVGUI.h"
 #include "vgui/isurface.h"
 #include "tier1/tier1.h"
 #include "movieobjects/dmemakefile.h"

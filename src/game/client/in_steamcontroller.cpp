@@ -31,7 +31,7 @@
 #include "tier1/convar_serverbounded.h"
 #include "inputsystem/iinputsystem.h"
 #include "inputsystem/iinputstacksystem.h"
-#include "ienginevgui.h"
+#include "iengineVGUI.h"
 
 //Debugging for SteamController
 #include "engine/ivdebugoverlay.h"

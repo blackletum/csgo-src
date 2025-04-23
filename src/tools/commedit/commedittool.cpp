@@ -23,7 +23,7 @@
 #include "dme_controls/AttributeStringChoicePanel.h"
 #include "tier2/fileutils.h"
 #include "tier3/tier3.h"
-#include "vgui/ivgui.h"
+#include "vgui/iVGUI.h"
 #include "toolutils/ConsolePage.h"
 
 

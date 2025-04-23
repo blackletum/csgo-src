@@ -21,7 +21,7 @@
 #include "hud.h"
 #include "hudelement.h"
 #include "vgui_int.h"
-#include "ienginevgui.h"
+#include "iengineVGUI.h"
 #include "inputsystem/iinputsystem.h"
 
 

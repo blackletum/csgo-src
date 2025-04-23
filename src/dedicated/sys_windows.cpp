@@ -26,7 +26,7 @@
 #include "appframework/appframework.h"
 #include "materialsystem/imaterialsystem.h"
 #include "istudiorender.h"
-#include "vgui/ivgui.h"
+#include "vgui/iVGUI.h"
 #include "console/TextConsoleWin32.h"
 #include "icvar.h"
 #include "datacache/idatacache.h"

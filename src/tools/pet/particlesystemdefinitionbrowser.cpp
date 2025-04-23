@@ -8,7 +8,7 @@
 #include "tier1/KeyValues.h"
 #include "tier1/utlbuffer.h"
 #include "iregistry.h"
-#include "vgui/ivgui.h"
+#include "vgui/iVGUI.h"
 #include "vgui_controls/listpanel.h"
 #include "vgui_controls/inputdialog.h"
 #include "vgui_controls/messagebox.h"

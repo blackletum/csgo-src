@@ -10,7 +10,7 @@
 #include "vgui_controls/Label.h"
 #include <vgui/IVGui.h>
 #include "weapon_c4.h"
-#include "ienginevgui.h"
+#include "iengineVGUI.h"
 
 using namespace vgui;
 

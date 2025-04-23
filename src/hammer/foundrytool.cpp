@@ -38,7 +38,7 @@
 #include "toolutils/toolwindowfactory.h"
 #include "tier3/tier3.h"
 #include "tier2/fileutils.h"
-#include "vgui/ivgui.h"
+#include "vgui/iVGUI.h"
 #include "ihammer.h"
 #include "mainfrm.h"
 #include "vgui/keycode.h"

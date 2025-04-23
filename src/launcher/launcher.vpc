@@ -90,7 +90,7 @@ $Project "launcher"
 		$File	"$SRCDIR\public\string_t.h"
 		$File	"$SRCDIR\public\tier1\strtools.h"
 		$File	"$SRCDIR\public\mathlib\vector2d.h"
-		$File	"$SRCDIR\public\vgui\vgui.h"
+		$File	"$SRCDIR\public\vgui\VGUI.h"
 		$File	"$SRCDIR\public\vstdlib\vstdlib.h"
 	}
 

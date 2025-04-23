@@ -45,7 +45,7 @@
 #include "sys.h" // Sys_GetRegKeyValue()
 #include "vgui_drawtreepanel.h"
 #include "vgui_vprofpanel.h"
-#include "vgui/vgui.h"
+#include "vgui/VGUI.h"
 #include "vgui/IInput.h"
 #include <vgui/IInputInternal.h>
 #include "vgui_controls/AnimationController.h"
