@@ -102,7 +102,7 @@ TIER0_SRC:= \
 
 
 TIER1_SRC:= \
-	../../../tier1/keyvalues.cpp \
+	../../../tier1/KeyValues.cpp \
 	../../../tier1/checksum_crc.cpp \
 	../../../tier1/checksum_md5.cpp \
 	../../../tier1/convar.cpp \
