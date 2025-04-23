@@ -15,7 +15,7 @@
 #include "tier1/interface.h"
 #include <vgui/vgui.h>
 
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 
 class KeyValues;
 

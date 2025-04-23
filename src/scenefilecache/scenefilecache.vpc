@@ -31,7 +31,7 @@ $Project "SceneFileCache"
 
 	$Folder	"Public Header Files"
 	{
-		$File	"$SRCDIR\public\appframework\iappsystem.h"
+		$File	"$SRCDIR\public\appframework\IAppSystem.h"
 		$File	"$SRCDIR\public\tier1\interface.h"
 		$File	"$SRCDIR\public\scenefilecache\ISceneFileCache.h"
 		$File	"$SRCDIR\public\tier1\utlbuffer.h"

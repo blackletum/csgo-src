@@ -13,7 +13,7 @@
 #endif
 
 #include "vgui_surfacelib/ifontsurface.h"
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 
 class IMaterial; 
 

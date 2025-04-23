@@ -945,7 +945,7 @@ $Project
 		$File	"$SRCDIR\public\globalvars_base.h"
 		$File	"$SRCDIR\game\shared\groundlink.h"
 		$File	"$SRCDIR\public\iachievementmgr.h"
-		$File	"$SRCDIR\public\appframework\iappsystem.h"
+		$File	"$SRCDIR\public\appframework\IAppSystem.h"
 		$File	"$SRCDIR\public\icliententity.h"
 		$File	"$SRCDIR\public\iclientnetworkable.h"
 		$File	"$SRCDIR\public\iclientrenderable.h"

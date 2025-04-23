@@ -21,7 +21,7 @@
 #include "gameuischeme.h"
 #include "igameuisystemmgr.h"
 
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 #include "tier3/tier3dm.h"
 
 #include "tier1/utlstring.h"

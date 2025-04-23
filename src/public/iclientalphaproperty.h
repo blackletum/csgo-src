@@ -13,7 +13,7 @@
 
 #include "interface.h"
 #include "iclientunknown.h"
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 #include "const.h"
 
 

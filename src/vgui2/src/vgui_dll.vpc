@@ -99,7 +99,7 @@ $Project "vgui2"
 
 	$Folder	"Interfaces"
 	{
-		$File	"$SRCDIR\public\appframework\iappsystem.h"
+		$File	"$SRCDIR\public\appframework\IAppSystem.h"
 		$File	"$SRCDIR\public\vgui\IBorder.h"
 		$File	"$SRCDIR\public\vgui\IClientPanel.h"
 		$File	"$SRCDIR\public\vgui\IHTML.h"

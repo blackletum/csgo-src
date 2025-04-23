@@ -24,7 +24,7 @@
 #include "tier1/utlvector.h"
 #include "tier1/utldict.h"
 #include "tier1/UtlStringMap.h"
-#include "iappsystem.h"
+#include "IAppSystem.h"
 
 //-----------------------------------------------------------------------------
 // forward declarations

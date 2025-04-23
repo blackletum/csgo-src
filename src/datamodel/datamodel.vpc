@@ -57,7 +57,7 @@ $Project "Datamodel"
 		$File	"$SRCDIR\public\tier0\basetypes.h"
 		$File	"$SRCDIR\public\tier0\dbg.h"
 		$File	"$SRCDIR\public\tier0\fasttimer.h"
-		$File	"$SRCDIR\public\appframework\iappsystem.h"
+		$File	"$SRCDIR\public\appframework\IAppSystem.h"
 		$File	"$SRCDIR\public\tier0\platform.h"
 		$File	"$SRCDIR\public\string_t.h"
 	}

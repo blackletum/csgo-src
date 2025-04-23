@@ -66,7 +66,7 @@ $Project "vguimatsurface"
 		$File	"$SRCDIR\common\vgui_surfacelib\FontAmalgam.h"
 		$File	"$SRCDIR\common\vgui_surfacelib\FontManager.h"
 		$File	"$SRCDIR\common\vgui\HtmlWindow.h"				[$WINDOWS]
-		$File	"$SRCDIR\public\appframework\iappsystem.h"
+		$File	"$SRCDIR\public\appframework\IAppSystem.h"
 		$File	"$SRCDIR\public\materialsystem\imaterial.h"
 		$File	"$SRCDIR\public\materialsystem\imaterialsystem.h"
 		$File	"$SRCDIR\public\materialsystem\imaterialvar.h"

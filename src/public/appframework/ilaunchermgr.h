@@ -21,7 +21,7 @@
 #endif
 
 #include "tier0/threadtools.h"
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 #include "inputsystem/iinputsystem.h"
 
 #include "togl/glmgrbasics.h"

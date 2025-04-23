@@ -11,7 +11,7 @@
 #endif
 
 #include "tier0/platform.h"
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 
 
 // This is the packet payload without any header bytes (which are attached for actual sending)

@@ -1050,7 +1050,7 @@ $Project $EPROJ
 		$File	"$SRCDIR\public\gamebspfile.h"
 		$File	"$SRCDIR\public\gametrace.h"
 		$File	"$SRCDIR\public\globalvars_base.h"
-		$File	"$SRCDIR\public\appframework\iappsystem.h"
+		$File	"$SRCDIR\public\appframework\IAppSystem.h"
 		$File	"$SRCDIR\public\ibsppack.h"
 		$File	"$SRCDIR\public\icliententitylist.h"
 		$File	"$SRCDIR\public\engine\IClientLeafSystem.h"

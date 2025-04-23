@@ -11,7 +11,7 @@
 #endif
 
 #include "interface.h"
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 
 
 #define VENGINE_HLDS_API_VERSION "VENGINE_HLDS_API_VERSION002"

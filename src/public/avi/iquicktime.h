@@ -15,7 +15,7 @@
 #endif
 
   
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 
 #define QUICKTIME_LOOP_MOVIE	0x01
 #define QUICKTIME_PRELOAD		0x02

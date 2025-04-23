@@ -9,7 +9,7 @@
 #include "client.h"
 #include "tier2/fileutils.h"
 #include "vstdlib/iprocessutils.h"
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 #include "appframework/IAppSystemGroup.h"
 #include "appframework/AppFramework.h"
 #include "../utils/common/bsplib.h"

@@ -12,7 +12,7 @@
 #endif
 
 #include "interface.h"
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 
 
 abstract_class IDedicatedExports : public IAppSystem

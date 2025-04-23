@@ -16,7 +16,7 @@
 
 #include "tier0/platwindow.h"
 #include "appframework/IAppSystemGroup.h"
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 #include "interface.h"
 #include "filesystem.h"
 #include "filesystem_init.h"

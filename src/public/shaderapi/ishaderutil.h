@@ -15,7 +15,7 @@
 
 
 #include "materialsystem/imaterial.h"
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 #include "shaderapi/ishaderapi.h"
 
 //-----------------------------------------------------------------------------

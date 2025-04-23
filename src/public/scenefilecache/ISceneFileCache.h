@@ -11,7 +11,7 @@
 #endif
 
 #include "interface.h"
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 
 // the file cache can support persisting some calcs
 struct SceneCachedData_t

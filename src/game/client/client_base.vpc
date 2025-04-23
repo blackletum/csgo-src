@@ -922,7 +922,7 @@ $Project
 		$File	"$SRCDIR\public\globalvars_base.h"
 		$File	"$SRCDIR\public\vgui_controls\HTML.h"
 		$File	"$SRCDIR\public\iachievementmgr.h"
-		$File	"$SRCDIR\public\appframework\iappsystem.h"
+		$File	"$SRCDIR\public\appframework\IAppSystem.h"
 		$File	"$SRCDIR\public\icliententity.h"
 		$File	"$SRCDIR\public\icliententitylist.h"
 		$File	"$SRCDIR\public\engine\IClientLeafSystem.h"
