@@ -33,7 +33,7 @@
 #include "tier1/strtools.h"
 #endif
 #include "sys_utils.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "generatordefinition.h"
 
 DECLARE_LOGGING_CHANNEL( LOG_VPC );

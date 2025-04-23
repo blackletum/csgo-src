@@ -41,7 +41,7 @@
 #include "tier1/strtools.h"
 #endif
 #include "sys_utils.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "generatordefinition.h"
 #include "environment_utils.h"
 #include "tier1/UtlStringMap.h"
