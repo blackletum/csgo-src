@@ -16,7 +16,7 @@
 
 #include "dme_controls/inotifyui.h"
 #include "datamodel/dmehandle.h"
-#include "materialsystem/materialsystemutil.h"
+#include "materialsystem/MaterialSystemUtil.h"
 #include "tier1/utlstring.h"
 
 

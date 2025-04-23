@@ -244,7 +244,7 @@ protected:
 
  
 #if defined( _X360 )
-#include "UtlMap.h"
+#include "utlmap.h"
 MEMALLOC_DEFINE_EXTERNAL_TRACKING( XMem_CIndexBuffer );
 #endif
 

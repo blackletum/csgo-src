@@ -15,7 +15,7 @@
 #include "igameuisystemmgr.h"
 #include "gamegraphic.h"
 #include "dmxloader/dmxelement.h"
-#include "materialsystem/materialsystemutil.h"
+#include "materialsystem/MaterialSystemUtil.h"
 #include "bitmap/psheet.h"
 #include "rendersystem/irenderdevice.h"
 #include "mathlib/vertexcolor.h"

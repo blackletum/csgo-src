@@ -11,7 +11,7 @@
 #endif
 
 #include "movieobjects/dmeclip.h"
-#include "materialsystem/materialsystemutil.h"
+#include "materialsystem/MaterialSystemUtil.h"
 #include "datamodel/dmelementfactoryhelper.h"
 
 

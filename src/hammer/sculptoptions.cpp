@@ -22,7 +22,7 @@
 #include "Material.h"
 #include "materialsystem/imaterial.h"
 #include "materialsystem/imaterialsystem.h"
-#include "materialsystem/materialsystemutil.h"
+#include "materialsystem/MaterialSystemUtil.h"
 #include "materialsystem/itexture.h"
 #include "../materialsystem/itextureinternal.h"
 #include "pixelwriter.h"

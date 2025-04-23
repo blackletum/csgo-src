@@ -15,7 +15,7 @@
 #include "datamodel/dmattributevar.h"
 #include "datamodel/dmehandle.h"
 #include "avi/iavi.h"
-#include "materialsystem/materialsystemutil.h"
+#include "materialsystem/MaterialSystemUtil.h"
 #include "tier1/utlmap.h"
 #include "videocache/iremotevideomaterial.h"
 

@@ -13,7 +13,7 @@
 #include "toolutils/dmemdlrenderable.h"
 #include "datamodel/dmelement.h"
 #include "toolframework/itoolentity.h"
-#include "materialsystem/materialsystemutil.h"
+#include "materialsystem/MaterialSystemUtil.h"
 
 
 //-----------------------------------------------------------------------------

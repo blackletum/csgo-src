@@ -13,7 +13,7 @@
 #include "tier1/KeyValues.h"
 #include "materialsystem/imaterial.h"
 #include "materialsystem/imaterialsystem.h"
-#include "materialsystem/materialsystemutil.h"
+#include "materialsystem/MaterialSystemUtil.h"
 #include "materialsystem/itexture.h"
 #include "vtf/vtf.h"
 #include "pixelwriter.h"

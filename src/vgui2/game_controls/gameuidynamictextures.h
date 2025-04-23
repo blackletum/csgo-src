@@ -16,7 +16,7 @@
 #include "tier1/utldict.h"
 #include "tier1/utlstring.h"
 #include "tier1/utlstringmap.h"
-#include "materialsystem/materialsystemutil.h"
+#include "materialsystem/MaterialSystemUtil.h"
 #include "materialsystem/imaterialproxy.h"
 #include "bitmap/texturepacker.h"
 

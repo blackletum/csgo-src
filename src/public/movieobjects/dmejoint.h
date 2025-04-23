@@ -15,7 +15,7 @@
 // Valve includes
 #include "movieobjects/dmedag.h"
 #include "materialsystem/imaterial.h"
-#include "materialsystem/materialsystemutil.h"
+#include "materialsystem/MaterialSystemUtil.h"
 
 
 // Forward declarations

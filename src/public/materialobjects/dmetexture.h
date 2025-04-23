@@ -11,7 +11,7 @@
 #endif
 
 #include "datamodel/dmelement.h"
-#include "materialsystem/materialsystemutil.h"
+#include "materialsystem/MaterialSystemUtil.h"
 #include "materialobjects/dmeimage.h"
 #include "tier1/functors.h"
 

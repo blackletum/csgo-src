@@ -13,7 +13,7 @@
 
 #include "movieobjects/dmeshape.h"
 #include "movieobjects/dmevertexdata.h"
-#include "materialsystem/materialsystemutil.h"
+#include "materialsystem/MaterialSystemUtil.h"
 #include "mathlib/vector.h"
 #include "tier1/utllinkedlist.h"
 #include "color.h"
