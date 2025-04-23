@@ -9,7 +9,7 @@
 #include "iclientmode.h"
 
 #include <color.h>
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include <vgui/ISurface.h>
 #include <vgui/ISystem.h>
 #include <vgui/IVGui.h>

@@ -9,7 +9,7 @@
 #include <vgui/ISurface.h>
 #include <vgui/IVGui.h>
 #include <vgui_controls/BuildGroup.h>
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include <vgui_controls/Label.h>
 #include <vgui_controls/Slider.h>
 #include <vgui_controls/ComboBox.h>

@@ -11,7 +11,7 @@
 #include "materialsystem/imaterial.h"
 #include "materialsystem/imaterialsystem.h"
 #include "tier0/dbg.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "pixelwriter.h"
 #include "materialsystem/imaterialvar.h"
 #include "materialsystem/itexture.h"

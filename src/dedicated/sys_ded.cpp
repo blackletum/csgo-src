@@ -30,7 +30,7 @@
 #ifdef _WIN32
 #include <windows.h> 
 #include <direct.h>
-#include "keyvalues.h"
+#include "KeyValues.h"
 #else
 #define _chdir chdir
 #include <unistd.h>

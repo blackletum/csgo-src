@@ -14,7 +14,7 @@
 #include "sendproxy.h"
 #include "particle_smokegrenade.h"
 #include "cs_player.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "bot_manager.h"
 #include "Effects/inferno.h"
 #endif

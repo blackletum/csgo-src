@@ -13,7 +13,7 @@
 #include <malloc.h>
 #include "tier1/strtools.h"
 #include "materialpatch.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 
 void LoadSurfaceProperties( void );
 

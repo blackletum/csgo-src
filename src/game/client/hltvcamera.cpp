@@ -16,7 +16,7 @@
 #include "vgui/ILocalize.h"
 #include "vguicenterprint.h"
 #include "game/client/iviewport.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "matchmaking/imatchframework.h"
 #include "iloadingdisc.h"
 #include "view_shared.h"

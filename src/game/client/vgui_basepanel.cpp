@@ -7,7 +7,7 @@
 //=============================================================================//
 #include "cbase.h"
 #include "vgui_basepanel.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include <vgui/IScheme.h>
 #include <vgui/IVGui.h>
 

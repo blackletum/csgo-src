@@ -23,7 +23,7 @@
 
 #include "utlvector.h"
 #include "utllinkedlist.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "inputsystem/buttoncode.h"
 #include "vgui/cursor.h"
 #include "vstdlib/ieventsystem.h"

@@ -40,7 +40,7 @@
 #include <imapoverview.h>
 #include "c_playerresource.h"
 #include "c_soundscape.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "text_message.h"
 #include "panelmetaclassmgr.h"
 #include "vguicenterprint.h"

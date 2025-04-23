@@ -9,7 +9,7 @@
 
 #include "client_pch.h"
 #include "vgui_vprofpanel.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "vgui_budgetpanel.h"
 #include "vprof_engine.h"
 #include "vprof_record.h"

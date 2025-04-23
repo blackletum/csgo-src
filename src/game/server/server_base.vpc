@@ -985,7 +985,7 @@ $Project
 		$File	"$SRCDIR\public\engine\ivdebugoverlay.h"
 		$File	"$SRCDIR\game\shared\IVehicle.h"
 		$File	"$SRCDIR\public\engine\ivmodelinfo.h"
-		$File	"$SRCDIR\public\tier1\keyvalues.h"
+		$File	"$SRCDIR\public\tier1\KeyValues.h"
 		$File	"$SRCDIR\public\tier0\l2cache.h"
 		$File	"$SRVSRCDIR\logic_playerproxy.h"	
 		$File	"$SRVSRCDIR\logicrelay.h"

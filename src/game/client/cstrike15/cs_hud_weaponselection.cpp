@@ -14,7 +14,7 @@
 #include "cs_gamerules.h"
 #include "c_cs_player.h"
 
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include <vgui/IScheme.h>
 #include <vgui/ISurface.h>
 #include <vgui/ISystem.h>

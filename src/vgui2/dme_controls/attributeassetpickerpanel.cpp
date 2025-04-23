@@ -12,7 +12,7 @@
 #include "matsys_controls/VtfPicker.h"
 #include "matsys_controls/TGAPicker.h"
 #include "matsys_controls/VMTPicker.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 
 
 using namespace vgui;

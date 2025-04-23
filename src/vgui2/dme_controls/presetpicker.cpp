@@ -5,7 +5,7 @@
 //===========================================================================//
 
 #include "dme_controls/presetpicker.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier1/utlbuffer.h"
 #include "vgui/ivgui.h"
 #include "vgui_controls/button.h"

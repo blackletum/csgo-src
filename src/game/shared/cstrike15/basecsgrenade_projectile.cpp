@@ -23,7 +23,7 @@ extern ConVar sv_gravity;
 	#include "cs_player.h"
 	#include "soundent.h"
 	#include "te_effect_dispatch.h"
-	#include "keyvalues.h"
+	#include "KeyValues.h"
 	#include "cs_gamestats.h"
 	#include "cs_simple_hostage.h"
 	#include "Effects/chicken.h"

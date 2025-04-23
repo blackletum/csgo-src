@@ -33,7 +33,7 @@
 
 #include "client.h"
 
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "filesystem.h"
 #include "filesystem_engine.h"
 #include "server.h"

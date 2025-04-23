@@ -21,7 +21,7 @@
 #include <vgui/IVGui.h>
 #include <vgui/IClientPanel.h>
 #include <vgui/IScheme.h>
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include <string.h>
 #include <assert.h>
 #include <stdio.h>

@@ -7,7 +7,7 @@
 
 #include "cbase.h"
 #include "networkstringtable_clientdll.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "panelmetaclassmgr.h"
 #include <vgui_controls/Controls.h>
 #include "mathlib/vmatrix.h"

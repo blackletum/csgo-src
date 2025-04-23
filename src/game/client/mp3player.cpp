@@ -8,7 +8,7 @@
 
 #if 0
 #include "mp3player.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "filesystem.h"
 
 #include "vgui_controls/MenuButton.h"

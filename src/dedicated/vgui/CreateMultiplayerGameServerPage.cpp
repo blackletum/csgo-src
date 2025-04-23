@@ -15,7 +15,7 @@
 using namespace vgui;
 
 #include <vgui_controls/Controls.h>
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include <vgui_controls/ListPanel.h>
 #include <vgui_controls/ComboBox.h>
 #include <vgui_controls/MessageBox.h>

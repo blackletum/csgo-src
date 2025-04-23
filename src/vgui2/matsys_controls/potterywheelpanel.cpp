@@ -22,7 +22,7 @@
 #include "istudiorender.h"
 #include "materialsystem/imaterialsystemhardwareconfig.h"
 #include "tier2/renderutils.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "materialsystem/imesh.h"
 #include "shaderapi/ishaderapi.h"
 #include "view_shared.h"

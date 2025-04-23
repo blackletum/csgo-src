@@ -51,7 +51,7 @@
 #include "materialobjects/dmeprecompiledtexture.h"
 #include "vstdlib/jobthread.h"
 #include "tier1/checksum_crc.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 
 #define FF_PROCESS 1
 #define FF_TRYAGAIN 2

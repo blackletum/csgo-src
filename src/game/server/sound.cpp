@@ -23,7 +23,7 @@
 #include "ndebugoverlay.h"
 #include "soundscape.h"
 #include "igamesystem.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "filesystem.h"
 #include "ambientgeneric.h"
 

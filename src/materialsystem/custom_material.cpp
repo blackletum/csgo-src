@@ -11,7 +11,7 @@
 #include "composite_texture.h"
 #include "materialsystem/base_visuals_data_processor.h"
 #include "materialsystem_global.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "tier0/vprof.h"
 #include "imaterialinternal.h"
 

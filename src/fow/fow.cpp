@@ -3,7 +3,7 @@
 #include "fow_viewer.h"
 #include "fow_trisoup.h"
 #include "fow_horizontalslice.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "utlbuffer.h"
 #include "filesystem.h"
 #include "vstdlib/jobthread.h"

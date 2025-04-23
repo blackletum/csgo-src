@@ -4,7 +4,7 @@
 //
 //=====================================================================================//
 
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "vgui_basepanel.h"
 #include <vgui/IVGui.h>
 #include <vgui/ILocalize.h>

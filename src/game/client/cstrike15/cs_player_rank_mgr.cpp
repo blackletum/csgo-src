@@ -8,7 +8,7 @@
 #include "achievementmgr.h"
 #include "achievements_cs.h"
 #include "cs_client_gamestats.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "c_playerresource.h"
 #include "cs_hud_chat.h"
 

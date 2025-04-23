@@ -11,7 +11,7 @@
 #endif
 
 #include "vgui_surfacelib/fonttexturecache.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "materialsystem/itexture.h"
 #include "materialsystem/imaterial.h"
 #include "tier1/utlbuffer.h"

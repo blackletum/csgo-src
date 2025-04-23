@@ -9,7 +9,7 @@
 #include "matsys_controls/matsyscontrols.h"
 #include "VGuiMatSurface/IMatSystemSurface.h"
 #include "materialsystem/imaterial.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "bitmap/psheet.h"
 #include "vgui/IScheme.h"
 #include "vgui/IVGui.h"

@@ -20,7 +20,7 @@
 #include "tier0/vprof.h"
 #include "iclientmode.h"
 #include <vgui_controls/Panel.h>
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "filesystem.h"
 #include "matsys_controls/matsyscontrols.h"
 

@@ -5,7 +5,7 @@
 //=============================================================================//
 
 #include "cbase.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "cs_weapon_parse.h"
 #include "cs_shareddefs.h"
 #include "weapon_csbase.h"

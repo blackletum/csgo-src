@@ -7,7 +7,7 @@
 //=============================================================================//
 
 #include "vmtdoc.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier1/utlbuffer.h"
 #include "datamodel/dmelement.h"
 #include "datamodel/dmattributevar.h"

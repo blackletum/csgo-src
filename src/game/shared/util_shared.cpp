@@ -14,7 +14,7 @@
 #include "mathlib/IceKey.H"
 #include "checksum_crc.h"
 #include "particle_parse.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "icommandline.h"
 
 #ifdef CLIENT_DLL

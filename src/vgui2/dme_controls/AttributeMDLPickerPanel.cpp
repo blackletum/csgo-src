@@ -12,7 +12,7 @@
 #include "vgui_controls/FileOpenDialog.h"
 #include "dme_controls/AttributeTextEntry.h"
 #include "matsys_controls/MDLPicker.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 
 
 using namespace vgui;

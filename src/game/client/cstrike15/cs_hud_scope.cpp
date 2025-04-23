@@ -18,7 +18,7 @@
 
 #include <vgui/IScheme.h>
 #include <vgui/ISurface.h>
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include <vgui_controls/AnimationController.h>
 #include "predicted_viewmodel.h"
 #if defined( INCLUDE_SCALEFORM )

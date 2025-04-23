@@ -11,7 +11,7 @@
 #include "utlbuffer.h"
 #include "chunkfile.h"
 #include "utlencode.h"
-#include "fgdlib/wckeyvalues.h"
+#include "fgdlib/wcKeyValues.h"
 #include "vmfmeshdatasupport.h"
 
 

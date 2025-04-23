@@ -8,7 +8,7 @@
 #include "cbase.h"
 #include "EnvMessage.h"
 #include "engine/IEngineSound.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "filesystem.h"
 #include "color.h"
 #include "GameStats.h"

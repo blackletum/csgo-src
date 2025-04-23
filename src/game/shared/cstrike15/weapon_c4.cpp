@@ -10,7 +10,7 @@
 #include "cs_gamerules.h"
 #include "decals.h"
 #include "SoundEmitterSystem/isoundemittersystembase.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "fx_cs_shared.h"
 #include "obstacle_pushaway.h"
 #include "particle_parse.h"

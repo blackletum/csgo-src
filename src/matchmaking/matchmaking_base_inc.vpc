@@ -111,7 +111,7 @@ $Project
 
 	$Folder "Utils"
 	{
-		$File	"extkeyvalues.h"
+		$File	"extKeyValues.h"
 		$File	"extkeyvalues.cpp"
 	}
 

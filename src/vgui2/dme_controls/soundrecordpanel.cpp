@@ -6,7 +6,7 @@
 
 #include "dme_controls/soundrecordpanel.h"
 #include "filesystem.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "vgui_controls/Button.h"
 #include "vgui_controls/TextEntry.h"
 #include "dme_controls/dmecontrols.h"

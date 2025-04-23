@@ -6,7 +6,7 @@
 
 #include "cbase.h"
 #include "IconPanel.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 
 // NOTE: This has to be the last file included!
 #include "tier0/memdbgon.h"

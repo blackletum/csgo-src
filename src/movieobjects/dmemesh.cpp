@@ -20,7 +20,7 @@
 #include "movieobjects/dmedrawsettings.h"
 #include "movieobjects/dmmeshcomp.h"
 #include "tier3/tier3.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier0/dbg.h"
 #include "datamodel/dmelementfactoryhelper.h"
 #include "materialsystem/imaterialsystem.h"

@@ -21,7 +21,7 @@
 
 #include <string>
 #include "steam/steamtypes.h"				// needed for RTime32
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "tier1/utldict.h"
 #include "econ_item_constants.h"
 #include "tier1/utlhashmaplarge.h"

@@ -15,7 +15,7 @@
 #include "VGUI_Border.h"
 #include "vgui_internal.h"
 #include "VPanel.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"

@@ -7,7 +7,7 @@
 #include "dme_controls/AssetBuilder.h"
 #include "dme_controls/DmePanel.h"
 #include "dme_controls/dmecontrols_utils.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "vgui_controls/ListPanel.h"
 #include "vgui_controls/MenuButton.h"
 #include "vgui_controls/TextEntry.h"

@@ -27,7 +27,7 @@
 #include "draw.h"
 #include "decal_private.h"
 #include "l_studio.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "materialsystem/imaterial.h"
 #include "gl_shader.h"
 #include "ivideomode.h"

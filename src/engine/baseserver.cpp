@@ -51,7 +51,7 @@
 #include <proto_oob.h>
 #include <vstdlib/random.h>
 #include <irecipientfilter.h>
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include <tier0/vprof.h>
 #include <cdll_int.h>
 #include <eiface.h>

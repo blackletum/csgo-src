@@ -15,7 +15,7 @@
 #if defined( INCLUDE_SCALEFORM )
 #include "itempickup_scaleform.h"
 #endif
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "filesystem.h"
 #include "ienginevgui.h"
 #include "cs_gamerules.h"

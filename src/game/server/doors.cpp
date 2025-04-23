@@ -14,7 +14,7 @@
 #include "physics_npc_solver.h"
 
 #ifdef CSTRIKE_DLL
-#include "keyvalues.h"
+#include "KeyValues.h"
 #endif
 
 // memdbgon must be the last include file in a .cpp file!!!

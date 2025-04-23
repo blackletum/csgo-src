@@ -15,7 +15,7 @@
 #include "nav_area.h"
 #include "cs_gamerules.h"
 #include "shared_util.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "tier0/icommandline.h"
 #include "fmtstr.h"
 

@@ -8,7 +8,7 @@
 
 #include "gamelayer.h"
 #include "gamerect.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "materialsystem/imaterial.h"
 #include "materialsystem/imaterialvar.h"
 #include "tier1/utlbuffer.h"

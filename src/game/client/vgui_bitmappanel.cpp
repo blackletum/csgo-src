@@ -8,7 +8,7 @@
 #include "cbase.h"
 #pragma warning (disable: 4514)
 #include "vgui_bitmappanel.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "panelmetaclassmgr.h"
 #include "vgui_bitmapimage.h"
 

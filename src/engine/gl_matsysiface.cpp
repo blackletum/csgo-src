@@ -19,7 +19,7 @@
 #include "utlrbtree.h"
 #include "istudiorender.h"
 #include "tier0/dbg.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "vstdlib/random.h"
 #include "lightcache.h"
 #include "sysexternal.h"

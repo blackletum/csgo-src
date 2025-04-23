@@ -5,7 +5,7 @@
 // $NoKeywords: $
 //=============================================================================//
 #include "cbase.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "materialsystem/imaterialvar.h"
 #include "materialsystem/imaterial.h"
 #include "materialsystem/itexture.h"

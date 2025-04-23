@@ -61,7 +61,7 @@
 #include "replayserver.h"
 #include "replayhistorymanager.h"
 #endif
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "sv_logofile.h"
 #include "cl_steamauth.h"
 #include "sv_steamauth.h"

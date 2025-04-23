@@ -18,7 +18,7 @@
 #include "vgui/ILocalize.h"
 #include "vguicenterprint.h"
 #include "game/client/iviewport.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 
 #ifdef CSTRIKE_DLL
 	#include "c_cs_player.h"

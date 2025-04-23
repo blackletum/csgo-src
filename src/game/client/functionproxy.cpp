@@ -6,7 +6,7 @@
 //=============================================================================//
 #include "cbase.h"
 #include "functionproxy.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "materialsystem/imaterialvar.h"
 #include "materialsystem/imaterial.h"
 #include "iclientrenderable.h"

@@ -10,7 +10,7 @@
 #include "engine/IEngineSound.h"
 #include "cs_player.h"
 #include "dlight.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "weapon_csbase.h"
 #include "cs_gamerules.h"
 #include "animation.h"

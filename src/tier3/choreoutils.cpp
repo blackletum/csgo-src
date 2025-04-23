@@ -10,7 +10,7 @@
 #include "studio.h"
 #include "../game/shared/choreoscene.h"
 #include "../game/shared/choreoevent.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "bone_setup.h"
 #include "soundchars.h"
 

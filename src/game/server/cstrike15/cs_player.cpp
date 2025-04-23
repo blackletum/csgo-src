@@ -38,7 +38,7 @@
 #include "weapon_decoy.h"
 #include "weapon_sensorgrenade.h"
 //#include "weapon_carriable_item.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "engine/IEngineSound.h"
 #include "bot.h"
 #include "studio.h"

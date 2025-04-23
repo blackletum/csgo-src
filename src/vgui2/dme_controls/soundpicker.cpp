@@ -9,7 +9,7 @@
 
 #include "filesystem.h"
 #include "dme_controls/soundpicker.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "vgui_controls/ListPanel.h"
 #include "vgui_controls/Button.h"
 #include "vgui_controls/PropertySheet.h"

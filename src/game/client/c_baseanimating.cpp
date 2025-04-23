@@ -26,7 +26,7 @@
 #include "engine/ivmodelinfo.h"
 #include "engine/ivdebugoverlay.h"
 #include "c_te_effect_dispatch.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "c_rope.h"
 #include "isaverestore.h"
 #include "datacache/imdlcache.h"

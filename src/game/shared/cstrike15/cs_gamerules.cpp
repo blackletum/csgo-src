@@ -20,7 +20,7 @@
 #include "weapon_csbase.h"
 #include "basecsgrenade_projectile.h"
 #include "cs_shareddefs.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "cs_achievement_constants.h"
 #include "iachievementmgr.h"
 #include "matchmaking/imatchframework.h"

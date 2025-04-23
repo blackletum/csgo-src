@@ -9,11 +9,11 @@
 //=============================================================================//
 #include "cbase.h"
 #include "panelmetaclassmgr.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include <vgui_controls/Panel.h>
 #include "utldict.h"
 #include "filesystem.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"

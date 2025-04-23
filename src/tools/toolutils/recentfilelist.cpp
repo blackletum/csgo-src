@@ -7,7 +7,7 @@
 #include "toolutils/recentfilelist.h"
 #include "vgui_controls/menu.h"
 #include "iregistry.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"

@@ -41,7 +41,7 @@
 #include <algorithm>
 #include "mdlcombine.h"
 #include "vtfcombine.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 
 #ifdef _CERT
 #define NO_LOG_MDLCACHE 1

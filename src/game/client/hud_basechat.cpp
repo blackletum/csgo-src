@@ -17,7 +17,7 @@
 #include <vgui/ILocalize.h>
 #include "vguicenterprint.h"
 #include "vgui/KeyCode.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "ienginevgui.h"
 #include "c_playerresource.h"
 #include "cstrike15/c_cs_playerresource.h"

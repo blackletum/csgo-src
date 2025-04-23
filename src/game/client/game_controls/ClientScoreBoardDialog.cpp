@@ -23,7 +23,7 @@
 #include <vgui/IVGui.h>
 #include <vstdlib/ikeyvaluessystem.h>
 
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include <vgui_controls/ImageList.h>
 #include <vgui_controls/Label.h>
 #include <vgui_controls/SectionedListPanel.h>

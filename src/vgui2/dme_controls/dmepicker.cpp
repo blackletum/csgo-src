@@ -5,7 +5,7 @@
 //=============================================================================
 
 #include "dme_controls/DmePicker.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "vgui_controls/TextEntry.h"
 #include "vgui_controls/ListPanel.h"
 #include "vgui_controls/Button.h"

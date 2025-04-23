@@ -9,7 +9,7 @@
 #include "gl_model_private.h"
 #include "gl_matsysiface.h"
 #include "dt_common.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include <vstdlib/random.h> // RandomFloat
 #include "collisionutils.h" // ray triangle test
 #include "cmodel_private.h"

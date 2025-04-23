@@ -11,7 +11,7 @@
 #include "worldsize.h"
 #include "fgdlib/gamedata.h"
 #include "fgdlib/helperinfo.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "filesystem_tools.h"
 #include "tier1/strtools.h"
 #include "utlmap.h"

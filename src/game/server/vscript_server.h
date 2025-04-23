@@ -8,7 +8,7 @@
 #define VSCRIPT_SERVER_H
 
 #include "vscript/ivscript.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "vscript_shared.h"
 
 #if defined( _WIN32 )

@@ -10,7 +10,7 @@
 #include "datamodel.h"
 #include "dependencygraph.h"
 #include "dmattributeinternal.h"
-#include "dmserializerkeyvalues.h"
+#include "dmserializerKeyValues.h"
 #include "dmserializerkeyvalues2.h"
 #include "dmserializerbinary.h"
 #include "undomanager.h"

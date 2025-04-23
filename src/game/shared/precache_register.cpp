@@ -7,7 +7,7 @@
 #include "cbase.h"
 #include "precache_register.h"
 #include "tier0/platform.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier2/tier2.h"
 #include "datacache/iresourceaccesscontrol.h"
 #include "filesystem.h"

@@ -76,7 +76,7 @@
 // note that GameUI project uses ..\public\vgui and ..\public\vgui_controls, not ..\utils\vgui\include
 #include <vgui/vgui.h>
 #include <vgui/Cursor.h>
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include <vgui/ILocalize.h>
 #include <vgui/IPanel.h>
 #include <vgui/IScheme.h>

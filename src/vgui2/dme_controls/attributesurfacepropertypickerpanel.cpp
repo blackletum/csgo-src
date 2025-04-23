@@ -8,7 +8,7 @@
 
 #include "dme_controls/AttributeSurfacePropertyPickerPanel.h"
 #include "dme_controls/AttributeTextEntry.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "filesystem.h"
 
 

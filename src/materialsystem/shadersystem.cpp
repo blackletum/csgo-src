@@ -21,7 +21,7 @@
 #include "tier0/icommandline.h"
 #include "shaderlib/cshader.h"
 #include "tier1/convar.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "shader_dll_verify.h"
 #include "tier0/vprof.h"
 #include "tier1/tier1_logging.h"

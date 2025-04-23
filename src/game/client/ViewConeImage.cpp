@@ -7,7 +7,7 @@
 //=============================================================================//
 #include "cbase.h"
 #include "ViewConeImage.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include <vgui_controls/Panel.h>
 #include "VGuiMatSurface/IMatSystemSurface.h"
 

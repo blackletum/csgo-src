@@ -8,7 +8,7 @@
 #include "econ_entity_creation.h"
 #include "utldict.h"
 #include "filesystem.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "attribute_manager.h"
 #include "vgui/ILocalize.h"
 #include "tier3/tier3.h"

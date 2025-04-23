@@ -32,7 +32,7 @@
 #include "tier1/callqueue.h"
 #include "mathlib/vmatrix.h"
 #include "tier1/strtools.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier1/mempool.h"
 #include "texturemanager.h"
 #include "cdll_int.h"

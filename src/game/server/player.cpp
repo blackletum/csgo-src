@@ -51,7 +51,7 @@
 #include "gamevars_shared.h"
 #include "world.h"
 #include "physobj.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "coordsize.h"
 #include "vphysics/player_controller.h"
 #include "saverestore_utlvector.h"

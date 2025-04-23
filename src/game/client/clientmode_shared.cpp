@@ -20,7 +20,7 @@
 #include <vgui/IPanel.h>
 #include <vgui/IInput.h>
 #include "engine/IEngineSound.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include <vgui_controls/AnimationController.h>
 #include "vgui_int.h"
 #include "hud_macros.h"

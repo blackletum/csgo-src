@@ -12,7 +12,7 @@
 #include <vgui/ILocalize.h>
 #include <vgui/ISurface.h>
 #include <filesystem.h>
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include <convar.h>
 #include <game/client/iviewport.h>
 #include "spectatorgui.h"

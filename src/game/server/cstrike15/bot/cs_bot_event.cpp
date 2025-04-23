@@ -9,7 +9,7 @@
 
 #include "cbase.h"
 #include "cs_gamerules.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 
 #include "cs_bot.h"
 

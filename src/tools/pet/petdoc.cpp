@@ -7,7 +7,7 @@
 //=============================================================================//
 
 #include "petdoc.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier1/utlbuffer.h"
 #include "toolutils/enginetools_int.h"
 #include "filesystem.h"

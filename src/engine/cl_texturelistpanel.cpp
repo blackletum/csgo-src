@@ -25,7 +25,7 @@ void VGui_UpdateTextureListPanel() {}
 #include <vgui_controls/TreeViewListControl.h>
 #include <vgui/ISystem.h>
 #include "tier0/vprof.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "vgui_helpers.h"
 #include "utlsymbol.h"
 #include "tier1/UtlStringMap.h"

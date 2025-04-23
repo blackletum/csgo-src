@@ -10,7 +10,7 @@
 #include <vgui/ISurface.h>
 #include <vgui_controls/Panel.h>
 #include "panelmetaclassmgr.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include <vgui/IPanel.h>
 
 // memdbgon must be the last include file in a .cpp file!!!

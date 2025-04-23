@@ -20,7 +20,7 @@
 #include "pixelwriter.h"
 #include "vtf/vtf.h"
 #include "tier1/convar.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier0/vprof.h"
 
 // memdbgon must be the last include file in a .cpp file!!!

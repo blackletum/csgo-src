@@ -13,7 +13,7 @@
 #endif
 
 #include "tier1/interface.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include <vgui/vgui.h>
 #include <vgui/KeyCode.h>
 

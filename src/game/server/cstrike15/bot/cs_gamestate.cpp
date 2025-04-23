@@ -8,7 +8,7 @@
 // Author: Michael S. Booth (mike@turtlerockstudios.com), 2003
 
 #include "cbase.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 
 #include "cs_bot.h"
 #include "cs_gamestate.h"

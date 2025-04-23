@@ -29,7 +29,7 @@
 #include "tier0/tslist.h"
 #include "tier0/vprof.h"
 #include "tier0/microprofiler.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "paint.h"
 #include "tier1/fmtstr.h"
 #include "bsplog.h"

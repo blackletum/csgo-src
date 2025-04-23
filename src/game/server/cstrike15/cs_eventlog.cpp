@@ -9,7 +9,7 @@
 #include "../EventLog.h"
 #include "team.h"
 #include "cs_gamerules.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 
 #define LOG_DETAIL_ENEMY_ATTACKS		0x01
 #define LOG_DETAIL_TEAMMATE_ATTACKS		0x02

@@ -11,7 +11,7 @@
 #include <vgui_controls/ListPanel.h>
 #include <vgui/ILocalize.h>
 #include <vgui/ISystem.h>
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "convar.h"
 
 // memdbgon must be the last include file in a .cpp file!!!

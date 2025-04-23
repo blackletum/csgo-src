@@ -20,7 +20,7 @@
 #include "vgui_controls/checkbutton.h"
 #include "matsys_controls/colorpickerpanel.h"
 #include "particles/particles.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier1/utlbuffer.h"
 #include "tier2/renderutils.h"
 

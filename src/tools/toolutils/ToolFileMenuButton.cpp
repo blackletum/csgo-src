@@ -6,7 +6,7 @@
 
 #include "toolutils/toolfilemenubutton.h"
 #include "toolutils/toolmenubutton.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier1/utlstring.h"
 #include "vgui_controls/menu.h"
 #include "vgui_controls/frame.h"

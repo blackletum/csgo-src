@@ -5,7 +5,7 @@
 //=============================================================================
 
 #include "cbase.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "econ_gcmessages.h"
 #include "econ_item_system.h"
 #include "econ_item_inventory.h"

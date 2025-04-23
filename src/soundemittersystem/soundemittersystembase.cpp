@@ -5,7 +5,7 @@
 //===========================================================================//
 
 
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "filesystem.h"
 #include "utldict.h"
 #include "tier2/interval.h"

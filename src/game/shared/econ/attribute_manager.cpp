@@ -9,7 +9,7 @@
 #include "saverestore.h"
 #include "saverestore_utlvector.h"
 #include "fmtstr.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "econ_item_system.h"
 
 #define PROVIDER_PARITY_BITS		6

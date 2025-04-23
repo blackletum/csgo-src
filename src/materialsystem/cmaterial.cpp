@@ -21,7 +21,7 @@
 #include <malloc.h>
 #endif //!_PS3
 #include "filesystem.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "mempool.h"
 #include "shaderapi/ishaderutil.h"
 #include "vtf/vtf.h"

@@ -12,7 +12,7 @@
 #include "npcevent.h"
 #include "ai_basenpc.h"
 #include "ai_hull.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "engine/IEngineSound.h"
 #include "physics_bone_follower.h"
 #include "ai_baseactor.h"

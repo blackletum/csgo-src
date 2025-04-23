@@ -8,7 +8,7 @@
 #include "hegrenade_projectile.h"
 #include "soundent.h"
 #include "cs_player.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "weapon_csbase.h"
 #include "decals.h"
 

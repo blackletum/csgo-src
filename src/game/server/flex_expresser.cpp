@@ -17,7 +17,7 @@
 #include "vstdlib/random.h"
 #include "engine/IEngineSound.h"
 #include "tier1/strtools.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "ai_basenpc.h"
 #include "ai_navigator.h"
 #include "ai_moveprobe.h"

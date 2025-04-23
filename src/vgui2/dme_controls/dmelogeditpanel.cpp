@@ -8,7 +8,7 @@
 #include "movieobjects/dmelog.h"
 #include "vgui_controls/button.h"
 #include "vgui_controls/combobox.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 
 using namespace vgui;
 

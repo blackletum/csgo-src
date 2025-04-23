@@ -6,7 +6,7 @@
 
 #include "tier2/renderutils.h"
 #include "tier2/tier2.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "materialsystem/imaterialsystem.h"
 #include "materialsystem/imesh.h"
 #include "materialsystem/imaterial.h"

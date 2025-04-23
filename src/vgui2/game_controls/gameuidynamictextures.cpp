@@ -21,7 +21,7 @@
 #include "materialsystem/imesh.h"
 #include "rendersystem/irenderdevice.h"
 #include "rendersystem/irendercontext.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "materialsystem/IMaterialProxy.h"
 #include "materialsystem/imaterialproxyfactory.h"
 #include "gameuisystemmgr.h"

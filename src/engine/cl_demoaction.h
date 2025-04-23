@@ -12,7 +12,7 @@
 #endif
 
 // Forward declarations
-#include <keyvalues.h>
+#include <KeyValues.h>
 
 class CUtlBuffer;
 class CBaseDemoAction;

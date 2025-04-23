@@ -47,7 +47,7 @@ $Project "Datamodel"
 		$File	"DmElementFramework.h"
 		$File	"$SRCDIR\public\datamodel\dmelementhandle.h"
 		$File	"dmserializerbinary.h"
-		$File	"dmserializerkeyvalues.h"
+		$File	"dmserializerKeyValues.h"
 		$File	"dmserializerkeyvalues2.h"
 		$File	"undomanager.h"
 	}

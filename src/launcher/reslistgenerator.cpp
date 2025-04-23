@@ -15,7 +15,7 @@
 #include "tier1/utlvector.h"
 #include "tier1/utlbuffer.h"
 #include "tier0/icommandline.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"

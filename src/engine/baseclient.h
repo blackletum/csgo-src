@@ -16,7 +16,7 @@
 #include <protocol.h>
 #include <iservernetworkable.h>
 #include <bspfile.h>
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include <bitvec.h>
 #include <igameevents.h>
 #include "smartptr.h"

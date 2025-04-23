@@ -10,7 +10,7 @@
 #include "cbase.h"
 #include "cs_shareddefs.h"
 #include "engine/IEngineSound.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 
 #include "bot.h"
 #include "bot_util.h"

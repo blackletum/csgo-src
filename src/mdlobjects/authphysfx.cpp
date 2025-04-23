@@ -4,7 +4,7 @@
 #include "mathlib/femodeldesc.h"
 #include "rubikon/param_types.h"
 #include "tier1/utlstringtoken.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier2/fileutils.h"
 #include "tier2/p4helpers.h"
 #include "mathlib/disjoint_set_forest.h"

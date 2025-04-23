@@ -9,7 +9,7 @@
 #include "materialsystem/imaterialsystemhardwareconfig.h"
 #include "materialsystem/imesh.h"
 #include "vgui/IVGui.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "vgui_controls/Frame.h"
 #include "tier1/convar.h"
 #include "tier0/dbg.h"

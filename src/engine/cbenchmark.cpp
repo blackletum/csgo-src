@@ -13,7 +13,7 @@
 #include "cbenchmark.h"
 #include "filesystem_engine.h"
 #include "sys.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "sv_uploaddata.h"
 #include "FindSteamServers.h"
 #include "vstdlib/random.h"

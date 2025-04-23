@@ -37,7 +37,7 @@ typedef int SOCKET;
 #include "tier0/vprof.h"
 #include "materialsystem/imaterialsystem.h"
 #include "materialsystem/imaterialsystemhardwareconfig.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "shaderapidx8.h"
 #include "materialsystem/IShader.h"
 #include "materialsystem/ishadersystem.h"

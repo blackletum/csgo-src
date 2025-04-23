@@ -26,7 +26,7 @@
 #include "MapPoint.h"
 #include "UtlVector.h"
 #include "visgroup.h"
-#include "fgdlib/wckeyvalues.h"
+#include "fgdlib/wcKeyValues.h"
 #include "tier1/smartptr.h"
 #include "tier1/utlobjectreference.h"
 

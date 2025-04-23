@@ -17,7 +17,7 @@
 #include "cs_gamerules.h"
 #include "game.h"
 #include "bot.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "obstacle_pushaway.h"
 #include "props_shared.h"
 #include "te_effect_dispatch.h"

@@ -8,7 +8,7 @@
 #include "materialsystem/imaterialproxy.h"
 #include "materialsystem/imaterial.h"
 #include "materialsystem/imaterialvar.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "mathlib/vmatrix.h"
 #include "functionproxy.h"
 

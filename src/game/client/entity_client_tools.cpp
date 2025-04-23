@@ -6,7 +6,7 @@
 
 #include "cbase.h"
 #include "toolframework/itoolentity.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "Sprite.h"
 #include "enginesprite.h"
 #include "beamdraw.h"

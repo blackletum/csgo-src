@@ -14,7 +14,7 @@
 #include <filesystem.h>
 #include "utlstack.h"
 #include "utlvector.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 
 using namespace vgui;
 

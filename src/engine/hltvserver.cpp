@@ -12,7 +12,7 @@
 #include <server_class.h>
 #include <inetmessage.h>
 #include <tier0/vprof.h>
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include <edict.h>
 #include <eiface.h>
 #include <PlayerState.h>

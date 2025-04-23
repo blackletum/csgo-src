@@ -43,7 +43,7 @@
 #include "istudiorender.h"
 #include "studio_render.h"
 #include "SoundEmitterSystem/isoundemittersystembase.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier0/icommandline.h"
 #include "mdlobjects/dmehitbox.h"
 #include "mdlobjects/dmehitboxset.h"

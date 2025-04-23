@@ -18,7 +18,7 @@
 #include "tier0/icommandline.h"
 #include "tier0/systeminformation.h"
 #include "tier1/utlbuffer.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "matchmaking/imatchframework.h"
 #include "edict.h"
 #include "cdll_engine_int.h"

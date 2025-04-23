@@ -6,7 +6,7 @@
 
 #include "cbase.h"
 #include <ctype.h>
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "engine/IEngineSound.h"
 #include "SoundEmitterSystem/isoundemittersystembase.h"
 #include "igamesystem.h"

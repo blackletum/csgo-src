@@ -33,7 +33,7 @@
 #include <vstdlib/random.h>
 #include "sys_dll.h"
 #include "datacache/idatacache.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #ifndef DEDICATED
 #include "vgui_baseui_interface.h"
 #include "vgui/ISystem.h"

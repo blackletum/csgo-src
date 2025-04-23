@@ -12,7 +12,7 @@
 /*
 #include "AI_Criteria.h"
 #include "ai_speech.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "engine/IEngineSound.h"
 */
 

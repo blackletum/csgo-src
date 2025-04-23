@@ -23,7 +23,7 @@
 #include "vgui_controls/perforcefilelistframe.h"
 #include "vgui/MouseCode.h"
 #include "vgui/IInput.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier2/fileutils.h"
 
 

@@ -35,7 +35,7 @@
 #include "movieobjects/dmeanimationset.h"
 #include "movieobjects/dmeflexrules.h"
 
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "materialsystem/imesh.h"
 #include "dme_controls/BaseAnimationSetEditor.h"
 #include "dme_controls/BaseAnimationSetEditorController.h"

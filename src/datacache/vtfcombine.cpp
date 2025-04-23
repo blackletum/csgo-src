@@ -1,7 +1,7 @@
 #include "datacache/imdlcache.h"
 #include "vtfcombine.h"
 #include "strtools.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "filesystem.h"
 #include "vtf/vtf.h"
 #include "tier0/cache_hints.h"

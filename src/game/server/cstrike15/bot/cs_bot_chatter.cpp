@@ -12,7 +12,7 @@
 #include "cs_player.h"
 #include "shared_util.h"
 #include "engine/IEngineSound.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 
 #include "bot.h"
 #include "bot_util.h"

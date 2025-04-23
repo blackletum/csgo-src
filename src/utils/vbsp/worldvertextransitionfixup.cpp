@@ -8,7 +8,7 @@
 #include "vbsp.h"
 #include "tier1/UtlBuffer.h"
 #include "tier1/UtlVector.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "materialpatch.h"
 
 struct entitySideList_t

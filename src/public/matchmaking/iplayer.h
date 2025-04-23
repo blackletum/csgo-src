@@ -8,7 +8,7 @@
 #ifndef _IPLAYER_H_
 #define _IPLAYER_H_
 
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 
 struct UserProfileData
 {

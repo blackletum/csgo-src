@@ -8,7 +8,7 @@
 #include "cbase.h"
 #include "EventLog.h"
 #include "team.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "nav.h"
 #include "nav_area.h"
 

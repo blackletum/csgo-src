@@ -7,7 +7,7 @@
 #include "cbase.h"
 #include "molotov_projectile.h"
 
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "weapon_csbase.h"
 #include "particle_parse.h"
 

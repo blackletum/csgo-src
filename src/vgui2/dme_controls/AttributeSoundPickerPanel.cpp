@@ -8,7 +8,7 @@
 
 #include "dme_controls/AttributeSoundPickerPanel.h"
 #include "dme_controls/soundpicker.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "dme_controls/AttributeTextEntry.h"
 #include "datamodel/dmelement.h"
 

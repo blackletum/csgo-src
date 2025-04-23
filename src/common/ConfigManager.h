@@ -10,7 +10,7 @@
 #pragma once
 #endif
 
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "utlvector.h"
 #include "filesystem_init.h"
 

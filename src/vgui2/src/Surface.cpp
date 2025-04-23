@@ -43,7 +43,7 @@
 
 #include <vgui/Cursor.h>
 #include <vgui/KeyCode.h>
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include <vgui/MouseCode.h>
 
 #include "vgui_internal.h"

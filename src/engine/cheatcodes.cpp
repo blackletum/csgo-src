@@ -6,7 +6,7 @@
 
 #include "cheatcodes.h"
 #include "cmd.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "filesystem.h"
 #include "tier2/tier2.h"
 #include "inputsystem/iinputsystem.h"

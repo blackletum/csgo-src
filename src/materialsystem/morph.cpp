@@ -15,7 +15,7 @@
 #include "IHardwareConfigInternal.h"
 #include "pixelwriter.h"
 #include "itextureinternal.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "texturemanager.h"
 #include "imaterialsysteminternal.h"
 #include "imatrendercontextinternal.h"

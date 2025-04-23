@@ -16,7 +16,7 @@
 #include "igameevents.h"
 #include "VPanel.h"
 #include "utlvector.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 
 #include <vgui/vgui.h>
 #include <vgui/IClientPanel.h>

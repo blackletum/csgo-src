@@ -21,7 +21,7 @@
 #include "PhysDll.h"
 #include "UtlSymbol.h"
 #include "tier1/strtools.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "map.h"
 #include "tier3/tier3.h"
 #include "phyfile.h"

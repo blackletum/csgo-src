@@ -13,7 +13,7 @@
 #include <vgui/IInput.h>
 #include "tier0/vprof.h"
 #include <vgui_controls/Panel.h>
-#include <keyvalues.h>
+#include <KeyValues.h>
 
 using namespace vgui;
 

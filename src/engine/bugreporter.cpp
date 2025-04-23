@@ -41,7 +41,7 @@
 #include <vgui/ISurface.h>
 #include <vgui/IInput.h>
 #include <vgui/IVGui.h>
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include <vgui_controls/BuildGroup.h>
 #include <vgui_controls/Tooltip.h>
 #include <vgui_controls/TextImage.h>

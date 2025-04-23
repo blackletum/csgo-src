@@ -10,7 +10,7 @@
 #include "tier1/tier1.h"
 #include "tier1/strtools.h"
 #include "filesystem.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "utlbuffer.h"
 #include "mathlib/IceKey.H"
 #include "tier0/icommandline.h"

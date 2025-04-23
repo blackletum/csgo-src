@@ -8,7 +8,7 @@
 #include "cbase.h"
 #include "ai_criteria.h"
 #include "ai_speech.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "engine/IEngineSound.h"
 
 // memdbgon must be the last include file in a .cpp file!!!

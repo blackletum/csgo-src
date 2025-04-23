@@ -5,7 +5,7 @@
 //=============================================================================
 #include "cbase.h"
 #include "cs_gameplay_hints.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "fmtstr.h"
 #include "filesystem.h"
 #include "vgui/ILocalize.h"

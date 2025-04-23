@@ -29,7 +29,7 @@
 #include "tier0/vprof.h"
 #include "filesystem.h"
 #include "bitbuf.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "particles_simple.h"
 #include "fx_water.h"
 #include "hltvcamera.h"

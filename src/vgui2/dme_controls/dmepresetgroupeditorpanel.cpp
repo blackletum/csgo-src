@@ -22,7 +22,7 @@
 #include "vgui/MouseCode.h"
 #include "vgui/IInput.h"
 #include "vgui/ISurface.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier1/utldict.h"
 #include "dme_controls/presetpicker.h"
 #include "vgui_controls/FileOpenDialog.h"

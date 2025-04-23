@@ -11,7 +11,7 @@
 #include "tier0/icommandline.h"
 #include "tier1/utlrbtree.h"
 #include "tier1/strtools.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier1/convar.h"
 #include "tier0/vprof.h"
 #include "tier1/tier1.h"

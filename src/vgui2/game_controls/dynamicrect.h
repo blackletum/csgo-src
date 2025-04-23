@@ -15,7 +15,7 @@
 #include "gamerect.h"
 #include "dmxloader/dmxelement.h"
 #include "tier1/utlvector.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 
 
 //-----------------------------------------------------------------------------

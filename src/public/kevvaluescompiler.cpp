@@ -5,7 +5,7 @@
 //=============================================================================
 #include "keyvaluescompiler.h"
 #include "filesystem.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier2/tier2.h"
 
 bool CRunTimeKeyValuesStringTable::ReadStringTable( int numStrings, CUtlBuffer& buf )

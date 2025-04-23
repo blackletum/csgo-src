@@ -32,7 +32,7 @@
 	#include "cs_player.h"
 	#include "soundent.h"
 	#include "bot/cs_bot.h"
-	#include "keyvalues.h"
+	#include "KeyValues.h"
 	#include "triggers.h"
 	#include "cs_gamestats.h"
 	#include "recipientfilter.h"

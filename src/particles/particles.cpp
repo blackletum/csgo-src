@@ -19,7 +19,7 @@
 #include "materialsystem/itexture.h"
 #include "materialsystem/imesh.h"
 #include "tier0/vprof.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier1/lzmaDecoder.h"
 #include "random_floats.h"
 #include "vtf/vtf.h"

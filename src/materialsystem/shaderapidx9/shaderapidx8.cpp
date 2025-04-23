@@ -68,14 +68,14 @@ mat_fullbright 1 doesn't work properly on alpha materials in testroom_standards
 #include "tier0/icommandline.h"
 #include "materialsystem/ishadersystem.h"
 #include "tier1/convar.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "vstdlib/vstrtools.h"
 #include "color.h"
 #ifdef RECORDING
 #include "materialsystem/IShader.h"
 #endif
 #include "../stdshaders/common_hlsl_cpp_consts.h" // hack hack hack!
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "bitmap/imageformat.h"
 #include "materialsystem/idebugtextureinfo.h"
 #include "tier1/utllinkedlist.h"

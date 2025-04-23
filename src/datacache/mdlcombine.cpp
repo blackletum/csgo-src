@@ -6,7 +6,7 @@
 #include "mathlib/mathlib.h"
 #include <math.h>
 #include "tier1/characterset.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "vtfcombine.h"
 
 // beware: this does not do any type of byte swapping for handling of endian issues!

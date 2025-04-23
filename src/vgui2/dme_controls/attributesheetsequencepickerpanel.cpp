@@ -11,7 +11,7 @@
 #include "dme_controls/AttributeTextEntry.h"
 #include "matsys_controls/sheetsequencepanel.h"
 #include "movieobjects/dmeparticlesystemdefinition.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "dme_controls/AttributeWidgetFactory.h"
 #include "movieobjects/dmeeditortypedictionary.h"
 

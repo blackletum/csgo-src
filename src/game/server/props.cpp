@@ -22,7 +22,7 @@
 #include "utlrbtree.h"
 #include "tier1/strtools.h"
 #include "physics_impact_damage.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "filesystem.h"
 #include "scriptevent.h"
 #include "entityblocker.h"

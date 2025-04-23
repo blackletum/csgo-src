@@ -9,7 +9,7 @@
 #include "multiplay_gamerules.h"
 #include "viewport_panel_names.h"
 #include "gameeventdefs.h"
-#include <keyvalues.h>
+#include <KeyValues.h>
 #include "filesystem.h"
 #include "mp_shareddefs.h"
 #include "gametypes/igametypes.h"

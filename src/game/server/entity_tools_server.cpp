@@ -9,7 +9,7 @@
 #include "toolframework/itoolentity.h"
 #include "entitylist.h"
 #include "toolframework/itoolsystem.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "icliententity.h"
 #include "iserverentity.h"
 #include "sceneentity.h"

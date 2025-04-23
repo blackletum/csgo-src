@@ -8,7 +8,7 @@
 #include "gameuiscript.h"
 #include "gameuiscriptinterface.h"
 #include "gameuidefinition.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "fmtstr.h"
 
 

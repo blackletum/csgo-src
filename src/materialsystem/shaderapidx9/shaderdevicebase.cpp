@@ -8,7 +8,7 @@
 #define DISABLE_PROTECTED_THINGS
 #include "togl/rendermechanism.h"
 #include "shaderdevicebase.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier1/convar.h"
 #include "tier1/utlbuffer.h"
 #include "tier0/icommandline.h"

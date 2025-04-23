@@ -35,6 +35,6 @@ $Project "Fgdlib"
 		$File	"$SRCDIR\public\fgdlib\helperinfo.h"
 		$File	"$SRCDIR\public\fgdlib\ieditortexture.h"
 		$File	"$SRCDIR\public\fgdlib\inputoutput.h"
-		$File	"$SRCDIR\public\fgdlib\wckeyvalues.h"
+		$File	"$SRCDIR\public\fgdlib\wcKeyValues.h"
 	}
 }

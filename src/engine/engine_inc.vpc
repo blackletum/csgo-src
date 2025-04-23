@@ -1125,7 +1125,7 @@ $Project $EPROJ
 		$File	"$SRCDIR\public\jpeglib\jmorecfg.h"
 		$File	"$SRCDIR\public\jpeglib\jpeglib.h"
 		$File	"$SRCDIR\public\vgui\KeyCode.h"
-		$File	"$SRCDIR\public\tier1\keyvalues.h"
+		$File	"$SRCDIR\public\tier1\KeyValues.h"
 		$File	"$SRCDIR\public\vgui_controls\Label.h"
 		$File	"$SRCDIR\public\vgui_controls\ListPanel.h"
 		$File	"$SRCDIR\public\lumpfiles.h"

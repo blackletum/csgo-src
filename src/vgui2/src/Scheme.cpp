@@ -13,7 +13,7 @@
 #include "vgui_surfacelib/fontmanager.h"
 #include "vgui/vgui.h"
 
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "vgui/ISurface.h"
 #include "vgui/IPanel.h"
 #include "vgui/ISystem.h"
