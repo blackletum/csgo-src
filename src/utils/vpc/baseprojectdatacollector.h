@@ -10,9 +10,9 @@
 #endif
 
 #ifdef STEAM
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #else
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #endif
 #include "tier1/utlstack.h"
 

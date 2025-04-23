@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier1/utlstack.h"
 
 class CSpecificConfig
