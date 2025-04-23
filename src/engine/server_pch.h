@@ -40,7 +40,7 @@
 #include "eiface.h"
 #include "filesystem.h"
 #include "filesystem_engine.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "console.h"
 #include "proto_oob.h"
 #include "edict.h"

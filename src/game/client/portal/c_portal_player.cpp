@@ -17,7 +17,7 @@
 #include "portalrender.h"
 #include "toolframework/itoolframework.h"
 #include "toolframework_client.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "ScreenSpaceEffects.h"
 #include "portal_shareddefs.h"
 #include "ivieweffects.h"		// for screenshake

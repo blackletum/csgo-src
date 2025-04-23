@@ -7,7 +7,7 @@
 #include "ilaunchabledll.h"
 #include "bundled_module_info.h"
 #include "tier1/interface.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 
 DEFINE_LOGGING_CHANNEL_NO_TAGS( LOG_VPC, "VPC" );
 

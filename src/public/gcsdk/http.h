@@ -11,7 +11,7 @@
 #endif
 
 #include "steam/steamhttpenums.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier1/netadr.h"
 
 class CMsgHttpRequest;

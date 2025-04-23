@@ -21,7 +21,7 @@
 #include "particles/particles.h"
 #include "dynamicdrawhelper.h"
 #include "tier0/vprof.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "scenesystem/iscenesystem.h"
 #include "icommandline.h"
 #include "inputsystem/iinputstacksystem.h"

@@ -17,7 +17,7 @@
 #include "checksum_crc.h"
 #include "ViewerSettings.h"
 #include "matsyswin.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "utlbuffer.h" 
 #include "expression.h"
 #include "ProgressDialog.h"

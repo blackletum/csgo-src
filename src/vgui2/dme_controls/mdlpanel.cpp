@@ -9,7 +9,7 @@
 #include <materialsystem/IMaterialSystemHardwareConfig.h>
 #include "materialsystem/imesh.h"
 #include "vgui/ivgui.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "movieobjects/dmemdl.h"
 #include "movieobjects/dmetransform.h"
 #include "movieobjects/dmedag.h"

@@ -38,7 +38,7 @@
 #include "tier0/icommandline.h"
 #include "mathlib/vmatrix.h"
 #include "icvar.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "convar.h"
 
 #include "tier2/tier2.h"

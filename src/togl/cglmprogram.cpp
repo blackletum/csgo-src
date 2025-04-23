@@ -8,7 +8,7 @@
 
 #include "filesystem.h"
 #include "tier1/fmtstr.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier0/fasttimer.h"
 
 #if GLMDEBUG && defined( _MSC_VER )

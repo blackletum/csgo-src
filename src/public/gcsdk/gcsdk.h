@@ -47,7 +47,7 @@
 #include "tier1/tsmultimempool.h"
 #include "tier1/checksum_crc.h"
 #include "tier1/fmtstr.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier1/strtools.h"
 #include "tier1/utlsymbol.h"
 #include "tier1/utlsymbollarge.h"

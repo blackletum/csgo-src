@@ -16,7 +16,7 @@
 #include "shadershadowdx10.h"
 #include "meshdx10.h"
 #include "shaderapidx10_global.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier2/tier2.h"
 #include "tier0/icommandline.h"
 #include "inputlayoutdx10.h"

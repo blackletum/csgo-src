@@ -34,7 +34,7 @@
 #include "vcollide_parse.h"
 #include "tier1/strtools.h"
 #include "tier2/tier2.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "tier1/smartptr.h"
 #include "tier2/p4helpers.h"
 #include "datamodel/dmattributevar.h"

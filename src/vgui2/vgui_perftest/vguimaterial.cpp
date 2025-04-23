@@ -29,7 +29,7 @@
 #include "toolutils/enginetools_int.h"
 #include "bitmap/imageformat.h"
 #include "vtf/vtf.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "tier1/utllinkedlist.h"
 #include "materialsystem/imesh.h"
 #include <vstdlib/random.h>

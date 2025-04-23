@@ -27,7 +27,7 @@
 #include "bitmap/tgaloader.h"
 #include "vgui_controls/imagepanel.h"
 #include "imageutils.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"

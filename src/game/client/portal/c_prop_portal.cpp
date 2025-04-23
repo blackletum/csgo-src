@@ -19,7 +19,7 @@
 #include "portal_render_targets.h"		// Access to static references to Portal-specific render textures
 #include "toolframework/itoolframework.h"
 #include "toolframework_client.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "rendertexture.h"
 #include "prop_portal_shared.h"
 #include "particles_new.h"

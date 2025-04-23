@@ -27,7 +27,7 @@
 #define closesocket close
 #endif
 #include "tier1/strtools.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "utlbuffer.h"
 #include "tier1/checksum_crc.h"
 #include "tier1/convar.h"

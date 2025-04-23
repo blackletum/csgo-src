@@ -7,7 +7,7 @@
 #include "filesystem.h"
 #include "tier1/strtools.h"
 #include "tier1/utllinkedlist.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 #include "materialsystem/imaterial.h"
 #include "materialsystem/imaterialsystem.h"
 #include "materialsystem/materialsystemutil.h"

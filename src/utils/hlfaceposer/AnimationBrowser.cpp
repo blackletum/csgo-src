@@ -14,7 +14,7 @@
 #include "faceposer_models.h"
 #include "tabwindow.h"
 #include "inputproperties.h"
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "FileSystem.h"
 #include "tier1/KeyValues.h"
 #include "tier1/UtlBuffer.h"

@@ -7,7 +7,7 @@
 #ifndef URLRETRIEVETHREAD_H
 #define URLRETRIEVETHREAD_H
 
-#include "keyvalues.h"
+#include "KeyValues.h"
 #include "cs_weapon_parse.h"
 
 bool BlackMarket_DownloadPrices( void );

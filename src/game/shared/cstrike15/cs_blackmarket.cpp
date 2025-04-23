@@ -9,7 +9,7 @@
 #include "cs_blackmarket.h"
 #include "weapon_csbase.h"
 #include "filesystem.h"
-#include <keyvalues.h>
+#include "KeyValues.h"
 #include "cs_gamestats.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
