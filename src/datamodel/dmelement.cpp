@@ -10,7 +10,7 @@
 #include "tier1/utllinkedlist.h"
 #include "tier1/utlbuffer.h"
 #include "datamodel/dmattribute.h"
-#include "Color.h"
+#include "color.h"
 #include "mathlib/mathlib.h"
 #include "mathlib/vmatrix.h"
 #include "datamodel/dmelementfactoryhelper.h"

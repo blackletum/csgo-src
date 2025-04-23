@@ -21,7 +21,7 @@
 #include "DispManager.h"
 #include "mathlib/Vector4d.h"
 #include "UtlVector.h"
-#include "Color.h"
+#include "color.h"
 #include "smoothinggroupmgr.h"
 #include "detailobjects.h"
 

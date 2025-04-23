@@ -9,7 +9,7 @@
 #define RENDER_H
 #pragma once
 
-#include "Color.h"
+#include "color.h"
 #include "utlstack.h"
 #include "hammer_mathlib.h"
 #include "MaterialSystem\imesh.h"
