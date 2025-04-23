@@ -54,7 +54,7 @@
 #include "tier1/utlsymbol.h"
 #include "tier1/utllinkedlist.h"
 #include "tier1/utlstring.h"
-#include "tier1/UtlSortVector.h"
+#include "tier1/utlsortvector.h"
 #include "bspfile.h"
 #include "tier1/utldict.h"
 #include "tier1/tier1.h"

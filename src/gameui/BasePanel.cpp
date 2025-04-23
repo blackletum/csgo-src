@@ -65,7 +65,7 @@ using namespace vgui;
 #include "inputsystem/iinputsystem.h"
 #include "ixboxsystem.h"
 #include "iachievementmgr.h"
-#include "UtlSortVector.h"
+#include "utlsortvector.h"
 
 #include "game/client/IGameClientExports.h"
 

@@ -5,7 +5,7 @@
 #ifndef CS_RESPONSE_SYSTEM_H
 #define CS_RESPONSE_SYSTEM_H
 
-#include "UtlSortVector.h"
+#include "utlsortvector.h"
 
 class ResponseSystemImplementationCLI : public ResponseRules::CResponseSystem
 {

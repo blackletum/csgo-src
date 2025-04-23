@@ -17,7 +17,7 @@
 #include <vgui_controls/Image.h>
 
 #include <utlvector.h>
-#include <UtlSortVector.h>
+#include <utlsortvector.h>
 
 class KeyValues;
 

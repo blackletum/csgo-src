@@ -20,7 +20,7 @@
 #include "tier1/utlintrusivelist.h"
 #include "tier1/utlvector.h"
 #include "tier1/utllinkedlist.h"
-#include "tier1/UtlSortVector.h"
+#include "tier1/utlsortvector.h"
 #include "tier1/utlmap.h"
 #include "tier1/checksum_md5.h"
 

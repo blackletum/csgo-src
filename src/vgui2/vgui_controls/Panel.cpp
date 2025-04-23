@@ -33,7 +33,7 @@
 #include "vgui_controls/Menu.h"
 #include "vgui_controls/MenuItem.h"
 
-#include "UtlSortVector.h"
+#include "utlsortvector.h"
 
 #include "tier1/utldict.h"
 #include "tier1/utlbuffer.h"
