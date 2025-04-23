@@ -20,7 +20,7 @@
 #include "iengineVGUI.h"
 #include "toolui.h"
 #include "toolutils/toolmenubar.h"
-#include "vgui/ilocalize.h"
+#include "vgui/ILocalize.h"
 #include "toolutils/enginetools_int.h"
 #include "toolutils/vgui_tools.h"
 #include "icvar.h"

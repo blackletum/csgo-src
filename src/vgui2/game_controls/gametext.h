@@ -14,7 +14,7 @@
 
 
 #include "vgui_surfacelib/ifontsurface.h"
-#include "vgui/ilocalize.h"
+#include "vgui/ILocalize.h"
 #include "gamegraphic.h"
 #include "dmxloader/dmxelement.h"
 #include "animdata.h"

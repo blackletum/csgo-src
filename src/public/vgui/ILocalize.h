@@ -12,7 +12,7 @@
 #pragma once
 #endif
 
-#include "localize/ilocalize.h"
+#include "localize/ILocalize.h"
 
 // Everything moved to localize lib; this is here for backward compat.
 namespace vgui

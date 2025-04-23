@@ -19,7 +19,7 @@ $Project "localize"
 {
 	$Folder	"Public Header Files"
 	{
-		$File "$SRCDIR\public\localize\ilocalize.h"
+		$File "$SRCDIR\public\localize\ILocalize.h"
 	}
 
 	$Folder "Source Files"

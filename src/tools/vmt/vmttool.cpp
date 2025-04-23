@@ -19,7 +19,7 @@
 #include "vgui_controls/FileOpenDialog.h"
 #include "filesystem.h"
 #include "vmtdoc.h"
-#include "vgui/ilocalize.h"
+#include "vgui/ILocalize.h"
 #include "dme_controls/elementpropertiestree.h"
 #include "matsys_controls/vmtpanel.h"
 #include "vmttool.h"

@@ -6,7 +6,7 @@
 //===========================================================================//
 
 #include "gametext.h"
-#include "vgui/ilocalize.h"
+#include "vgui/ILocalize.h"
 #include "vgui/VGUI.h"
 #include <ctype.h>
 #include "gameuisystemsurface.h"

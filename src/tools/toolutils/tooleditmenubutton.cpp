@@ -10,7 +10,7 @@
 #include "toolutils/enginetools_int.h"
 #include "datamodel/idatamodel.h"
 #include "vgui_controls/menu.h"
-#include "vgui/ilocalize.h"
+#include "vgui/ILocalize.h"
 #include "tier2/tier2.h"
 
 // memdbgon must be the last include file in a .cpp file!!!

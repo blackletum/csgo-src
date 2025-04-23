@@ -21,7 +21,7 @@
 
 #include "filesystem.h"
 
-#include "localize/ilocalize.h"
+#include "localize/ILocalize.h"
 #include "tier1/utlvector.h"
 #include "tier1/utlrbtree.h"
 #include "tier1/utlsymbol.h"

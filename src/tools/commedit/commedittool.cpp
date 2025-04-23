@@ -12,7 +12,7 @@
 #include "vgui_controls/FileOpenDialog.h"
 #include "vgui_controls/PropertySheet.h"
 #include "filesystem.h"
-#include "vgui/ilocalize.h"
+#include "vgui/ILocalize.h"
 #include "dme_controls/elementpropertiestree.h"
 #include "tier0/icommandline.h"
 #include "materialsystem/imaterialsystem.h"
