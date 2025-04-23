@@ -11,7 +11,7 @@
 
 #include "datalinker_interface.h"
 #include "mathlib/ssemath.h"
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 
 
 class Vector4DAligned;

@@ -11,7 +11,7 @@
 // this is needed so that pointers to members match with those in CStrike15
 #pragma pointers_to_members( full_generality, virtual_inheritance )
 
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 #include "inputsystem/InputEnums.h"
 #include "inputsystem/ButtonCode.h"
 #include "refcount.h"

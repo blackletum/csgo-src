@@ -7,7 +7,7 @@
 #pragma once
 #endif
 
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 #include "mathlib/camera.h"
 #include "rendersystem/irenderdevice.h"
 #include "rendersystem/irendercontext.h"

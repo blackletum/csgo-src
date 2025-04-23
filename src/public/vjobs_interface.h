@@ -2,7 +2,7 @@
 #ifndef VJOBSINTERFACE_HDR
 #define VJOBSINTERFACE_HDR
 
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 
 #define VJOBS_INTERFACE_VERSION "VJobs01"
 

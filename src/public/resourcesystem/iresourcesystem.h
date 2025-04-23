@@ -13,7 +13,7 @@
 #pragma once
 #endif
 
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 #include "resourcefile/resourceintrospection.h"
 #include "resourcefile/resourcedictionary.h"
 #include "resourcefile/resourcetype.h"

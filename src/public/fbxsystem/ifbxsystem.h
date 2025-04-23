@@ -12,7 +12,7 @@
 #include <fbxsdk.h>
 
 // Valve includes
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 #include "tier0/logging.h"
 
 

@@ -7,7 +7,7 @@
 #pragma once
 #endif
 
-#include "appframework/iappsystem.h"
+#include "appframework/IAppSystem.h"
 #include "materialsystem2/imaterial2.h"
 
 // TODO: Split out common enums and typedefs out of irenderdevice.h and include the lighter-weight .h file here
