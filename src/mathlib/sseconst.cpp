@@ -67,16 +67,15 @@ const fltx4 g_QuatMultRowSign[4] =
 #endif
 
 
-const uint32 ALIGN16 g_SIMD_clear_signmask[4] ALIGN16_POST = {0x7fffffff,0x7fffffff,0x7fffffff,0x7fffffff};
-const uint32 ALIGN16 g_SIMD_signmask[4] ALIGN16_POST = { 0x80000000, 0x80000000, 0x80000000, 0x80000000 };
-const uint32 ALIGN16 g_SIMD_lsbmask[4] ALIGN16_POST = { 0xfffffffe, 0xfffffffe, 0xfffffffe, 0xfffffffe };
-const uint32 ALIGN16 g_SIMD_clear_wmask[4] ALIGN16_POST = { 0xffffffff, 0xffffffff, 0xffffffff, 0 };
-const uint32 ALIGN16 g_SIMD_AllOnesMask[4] ALIGN16_POST = { 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff }; // ~0,~0,~0,~0
-const uint32 ALIGN16 g_SIMD_Low16BitsMask[4] ALIGN16_POST = { 0xffff, 0xffff, 0xffff, 0xffff }; // 0xffff x 4
+const int32 ALIGN16 g_SIMD_clear_signmask[4] ALIGN16_POST = {0x7fffffff,0x7fffffff,0x7fffffff,0x7fffffff};
+const int32 ALIGN16 g_SIMD_signmask[4] ALIGN16_POST = { 0x80000000, 0x80000000, 0x80000000, 0x80000000 };
+const int32 ALIGN16 g_SIMD_lsbmask[4] ALIGN16_POST = { 0xfffffffe, 0xfffffffe, 0xfffffffe, 0xfffffffe };
+const int32 ALIGN16 g_SIMD_clear_wmask[4] ALIGN16_POST = { 0xffffffff, 0xffffffff, 0xffffffff, 0 };
+const int32 ALIGN16 g_SIMD_AllOnesMask[4] ALIGN16_POST = { 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff }; // ~0,~0,~0,~0
+const int32 ALIGN16 g_SIMD_Low16BitsMask[4] ALIGN16_POST = { 0xffff, 0xffff, 0xffff, 0xffff }; // 0xffff x 4
 
 
-const uint32 ALIGN16 g_SIMD_ComponentMask[4][4] ALIGN16_POST =
-
+const int32 ALIGN16 g_SIMD_ComponentMask[4][4] ALIGN16_POST =
 {
 	{ 0xFFFFFFFF, 0, 0, 0 }, { 0, 0xFFFFFFFF, 0, 0 }, { 0, 0, 0xFFFFFFFF, 0 }, { 0, 0, 0, 0xFFFFFFFF }
 };
@@ -86,7 +85,7 @@ const fltx4 g_SIMD_Identity[4] =
 	{ 1.0, 0, 0, 0 }, { 0, 1.0, 0, 0 }, { 0, 0, 1.0, 0 }, { 0, 0, 0, 1.0 }
 };
 
-const uint32 ALIGN16 g_SIMD_SkipTailMask[4][4] ALIGN16_POST =
+const int32 ALIGN16 g_SIMD_SkipTailMask[4][4] ALIGN16_POST =
 {
 	{ 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff },
 	{ 0xffffffff, 0x00000000, 0x00000000, 0x00000000 },
@@ -94,7 +93,7 @@ const uint32 ALIGN16 g_SIMD_SkipTailMask[4][4] ALIGN16_POST =
 	{ 0xffffffff, 0xffffffff, 0xffffffff, 0x00000000 },
 };
 
-const uint32 ALIGN16 g_SIMD_EveryOtherMask[4] = { 0u, 0xffffffffu, 0u, 0xffffffffu };
+const int32 ALIGN16 g_SIMD_EveryOtherMask[4] = { 0, ~0, 0, ~0 };
 
 
 

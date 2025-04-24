@@ -26,8 +26,8 @@ static const uint32 _sincos_inv_masks[] = { (uint32)~0x0, (uint32)0x0 };
 	#define _PS_EXTERN_CONST(Name, Val) \
 		const __declspec(align(16)) float _ps_##Name[4] = { Val, Val, Val, Val }
 
-	#define _PS_EXTERN_CONST_TYPE(name, type, val) \
-		const type name[4] = { (type)(val), (type)(val), (type)(val), (type)(val) }
+	#define _PS_EXTERN_CONST_TYPE(Name, Type, Val) \
+		const __declspec(align(16)) Type _ps_##Name[4] = { Val, Val, Val, Val }; \
 
 	#define _EPI32_CONST(Name, Val) \
 		static const __declspec(align(16)) __int32 _epi32_##Name[4] = { Val, Val, Val, Val }
@@ -38,8 +38,8 @@ static const uint32 _sincos_inv_masks[] = { (uint32)~0x0, (uint32)0x0 };
 	#define _PS_EXTERN_CONST(Name, Val) \
 		const float _ps_##Name[4] __attribute__((aligned(16))) = { Val, Val, Val, Val }
 
-	#define _PS_EXTERN_CONST_TYPE(name, type, val) \
-		const type name[4] = { (type)(val), (type)(val), (type)(val), (type)(val) }
+	#define _PS_EXTERN_CONST_TYPE(Name, Type, Val) \
+		const Type _ps_##Name[4]  __attribute__((aligned(16))) = { Val, Val, Val, Val }; \
 
 	#define _EPI32_CONST(Name, Val) \
 		static const int32 _epi32_##Name[4]  __attribute__((aligned(16))) = { Val, Val, Val, Val }
