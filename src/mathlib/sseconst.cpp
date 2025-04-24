@@ -94,7 +94,7 @@ const uint32 ALIGN16 g_SIMD_SkipTailMask[4][4] ALIGN16_POST =
 	{ 0xffffffff, 0xffffffff, 0xffffffff, 0x00000000 },
 };
 
-const uint32 ALIGN16 g_SIMD_EveryOtherMask[4] = { 0, ~0, 0, ~0 };
+const uint32 ALIGN16 g_SIMD_EveryOtherMask[4] = { 0u, 0xffffffffu, 0u, 0xffffffffu };
 
 
 
