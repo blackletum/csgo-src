@@ -6,6 +6,9 @@
 
 // These are redefined in the project settings to prevent anyone from using them.
 // We in this module are of a higher caste and thus are privileged in their use.
+
+#pragma GCC optimize ("no-builtin-pow")
+
 #ifdef strncpy
 	#undef strncpy
 #endif
