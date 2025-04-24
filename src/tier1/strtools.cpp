@@ -1599,12 +1599,18 @@ int _V_UCS2ToUTF8( const ucs2 *pUCS2, char *pUTF8, int cubDestSizeInBytes )
 	size_t nMaxUTF8 = cubDestSizeInBytes;
 	char *pIn = (char *)pUCS2;
 	char *pOut = (char *)pUTF8;
-	if ( conv_t > 0 )
+	if (conv_t != (iconv_t)-1)
 	{
-		cchResult = 0;
-		cchResult = iconv( conv_t, &pIn, &nLenUnicde, &pOut, &nMaxUTF8 );
-		iconv_close( conv_t );
-		if ( (int)cchResult < 0 )
+		const size_t nBytesToWrite = nMaxUTF8;
+		cchResult = iconv(conv_t, &pIn, &nLenUnicde, &pOut, &nMaxUTF8);
+
+		// Calculate how many bytes were actually written and use that to
+		// null-terminate our output string.
+		const size_t nBytesWritten = nBytesToWrite - nMaxUTF8;
+		pUTF8[nBytesWritten] = 0;
+
+		iconv_close(conv_t);
+		if ((int)cchResult < 0)
 			cchResult = 0;
 		else
 			cchResult = nMaxUTF8;
@@ -1635,12 +1641,11 @@ int _V_UTF8ToUCS2( const char *pUTF8, int cubSrcInBytes, ucs2 *pUCS2, int cubDes
 	size_t nMaxUTF8 = cubDestSizeInBytes;
 	char *pIn = (char *)pUTF8;
 	char *pOut = (char *)pUCS2;
-	if ( conv_t > 0 )
+	if (conv_t != (iconv_t)-1)
 	{
-		cchResult = 0;
-		cchResult = iconv( conv_t, &pIn, &nLenUnicde, &pOut, &nMaxUTF8 );
-		iconv_close( conv_t );
-		if ( (int)cchResult < 0 )
+		cchResult = iconv(conv_t, &pIn, &nLenUnicde, &pOut, &nMaxUTF8);
+		iconv_close(conv_t);
+		if ((int)cchResult < 0)
 			cchResult = 0;
 		else
 			cchResult = cubSrcInBytes;

@@ -102,11 +102,11 @@ int V_UnicodeToUTF8( const wchar_t *pUnicode, char *pUTF8, int cubDestSizeInByte
 		size_t nMaxUTF8 = cubDestSizeInBytes;
 		char *pIn = (char *)pUnicode;
 		char *pOut = (char *)pUTF8;
-		if ( conv_t > 0 )
+		if (conv_t > (iconv_t)0)
 		{
-			cchResult = iconv( conv_t, &pIn, &nLenUnicde, &pOut, &nMaxUTF8 );
-			iconv_close( conv_t );
-			if ( (int)cchResult < 0 )
+			cchResult = iconv(conv_t, &pIn, &nLenUnicde, &pOut, &nMaxUTF8);
+			iconv_close(conv_t);
+			if ((int)cchResult < 0)
 				cchResult = 0;
 			else
 				cchResult = nMaxUTF8;
@@ -143,12 +143,12 @@ int V_UCS2ToUnicode( const ucs2 *pUCS2, wchar_t *pUnicode, int cubDestSizeInByte
 	size_t nMaxUTF8 = cubDestSizeInBytes;
 	char *pIn = (char *)pUCS2;
 	char *pOut = (char *)pUnicode;
-	if ( conv_t > 0 )
+	if (conv_t > (iconv_t)0)
 	{
 		cchResult = 0;
-		cchResult = iconv( conv_t, &pIn, &nLenUnicde, &pOut, &nMaxUTF8 );
-		iconv_close( conv_t );
-		if ( (int)cchResult < 0 )
+		cchResult = iconv(conv_t, &pIn, &nLenUnicde, &pOut, &nMaxUTF8);
+		iconv_close(conv_t);
+		if ((int)cchResult < 0)
 			cchResult = 0;
 		else
 			cchResult = nMaxUTF8;
@@ -176,15 +176,15 @@ int V_UnicodeToUCS2( const wchar_t *pUnicode, int cubSrcInBytes, char *pUCS2, in
 	size_t nMaxUCS2 = cubDestSizeInBytes;
 	char *pIn = (char*)pUnicode;
 	char *pOut = pUCS2;
-	if ( conv_t > 0 )
+	if (conv_t > (iconv_t)0)
 	{
 		cchResult = 0;
-		cchResult = iconv( conv_t, &pIn, &nLenUnicde, &pOut, &nMaxUCS2 );
-		iconv_close( conv_t );
-		if ( (int)cchResult < 0 )
+		cchResult = iconv(conv_t, &pIn, &nLenUnicde, &pOut, &nMaxUCS2);
+		iconv_close(conv_t);
+		if ((int)cchResult < 0)
 			cchResult = 0;
 		else
-			cchResult = cubSrcInBytes / sizeof( wchar_t );
+			cchResult = cubSrcInBytes / sizeof(wchar_t);
 	}
 #endif
 	return cchResult;	
@@ -220,12 +220,12 @@ VSTRTOOLS_INTERFACE int V_UCS2ToUTF8( const ucs2 *pUCS2, char *pUTF8, int cubDes
 	size_t nMaxUTF8 = cubDestSizeInBytes;
 	char *pIn = (char *)pUCS2;
 	char *pOut = (char *)pUTF8;
-	if ( conv_t > 0 )
+	if (conv_t > (iconv_t)0)
 	{
 		cchResult = 0;
-		cchResult = iconv( conv_t, &pIn, &nLenUnicde, &pOut, &nMaxUTF8 );
-		iconv_close( conv_t );
-		if ( (int)cchResult < 0 )
+		cchResult = iconv(conv_t, &pIn, &nLenUnicde, &pOut, &nMaxUTF8);
+		iconv_close(conv_t);
+		if ((int)cchResult < 0)
 			cchResult = 0;
 		else
 			cchResult = nMaxUTF8;
@@ -260,12 +260,12 @@ VSTRTOOLS_INTERFACE int V_UTF8ToUCS2( const char *pUTF8, int cubSrcInBytes, ucs2
 	size_t nMaxUTF8 = cubDestSizeInBytes;
 	char *pIn = (char *)pUTF8;
 	char *pOut = (char *)pUCS2;
-	if ( conv_t > 0 )
+	if (conv_t > (iconv_t)0)
 	{
 		cchResult = 0;
-		cchResult = iconv( conv_t, &pIn, &nLenUnicde, &pOut, &nMaxUTF8 );
-		iconv_close( conv_t );
-		if ( (int)cchResult < 0 )
+		cchResult = iconv(conv_t, &pIn, &nLenUnicde, &pOut, &nMaxUTF8);
+		iconv_close(conv_t);
+		if ((int)cchResult < 0)
 			cchResult = 0;
 		else
 			cchResult = cubSrcInBytes;
