@@ -409,19 +409,26 @@ bool OSTypesAreCompatible( EOSType eOSTypeDetected, EOSType eOSTypeRequired )
 
 bool Is64BitOS()
 {
-	typedef BOOL (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL);
-	static LPFN_ISWOW64PROCESS pfnIsWow64Process = (LPFN_ISWOW64PROCESS)GetProcAddress( GetModuleHandle("kernel32"), "IsWow64Process" );
+#ifdef _WIN32
+	typedef BOOL (WINAPI *LPFN_ISWOW64PROCESS)(HANDLE, PBOOL);
+	static LPFN_ISWOW64PROCESS pfnIsWow64Process = 
+		(LPFN_ISWOW64PROCESS)GetProcAddress(GetModuleHandle("kernel32"), "IsWow64Process");
 
 	static BOOL bIs64bit = FALSE;
 	static bool bInitialized = false;
-	if ( bInitialized ) 
+	if (bInitialized) 
 		return bIs64bit == (BOOL)TRUE;
 	else
 	{
 		bInitialized = true;
 		return pfnIsWow64Process && pfnIsWow64Process(GetCurrentProcess(), &bIs64bit) && bIs64bit;
 	}
+#else
+	// Assume 64-bit on 64-bit platforms
+	return sizeof(void*) == 8;
+#endif
 }
+
 
 // these strings "windows", "macos", "linux" are part of the
 // interface, which is why they're hard-coded here, rather than using
