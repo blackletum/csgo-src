@@ -67,6 +67,8 @@ ifneq "$(ENABLE_BUILD_DEBUG)" ""
     BUILD_DEBUG_ECHO = $(ECHO)
 endif
 
+VALVE_NO_AUTO_P4 := 1
+
 # SPEW_UPDATED_DEPENDENCIES spews the list of dependencies whose current timestamps invalidate this rule.
 #  This is only done when ENABLE_BUILD_DEBUG is 1
 ifeq ("$(ENABLE_BUILD_DEBUG)","1")
@@ -128,7 +130,7 @@ DEFINES += -DVPROF_LEVEL=1 -DGNUC
 # 32bit systems, which means we don't break on filesystems with inodes > 32bit.
 DEFINES += -D_FILE_OFFSET_BITS=64
 
-LDFLAGS = $(CFLAGS) $(GCC_ExtraLinkerFlags) $(OptimizerLevel) -lm
+LDFLAGS = $(CFLAGS) $(GCC_ExtraLinkerFlags) $(OptimizerLevel)
 GENDEP_CXXFLAGS = -MD -MP -MF $(@:.o=.P) 
 MAP_FLAGS =
 
@@ -277,7 +279,7 @@ ifeq ($(OS),Linux)
 
 	LINK_MAP_FLAGS = -Wl,-Map,$(@:.so=).map
 
-	SHLIBLDFLAGS = -shared $(LDFLAGS) -Wl,--no-undefined
+	SHLIBLDFLAGS = -shared $(LDFLAGS) -Wl,--no-undefined -lm
 	_WRAP := -Xlinker --wrap=
 	PATHWRAP = $(_WRAP)fopen $(_WRAP)freopen $(_WRAP)open    $(_WRAP)creat    $(_WRAP)access  $(_WRAP)__xstat \
 		   $(_WRAP)stat  $(_WRAP)lstat   $(_WRAP)fopen64 $(_WRAP)open64   $(_WRAP)opendir $(_WRAP)__lxstat \
