@@ -84,8 +84,8 @@ CCSBaseAchievement::CCSBaseAchievement()
 void CCSBaseAchievement::OnAchieved()
 {
 #if defined( _X360 )
- 	__time32_t unlockTime;
- 	_time32(&unlockTime);
+	time_t unlockTime;
+	unlockTime = time(nullptr);
  	SetUnlockTime(unlockTime);
 #endif
 }
@@ -105,7 +105,7 @@ bool CCSBaseAchievement::GetAwardTime( int& year, int& month, int& day, int& hou
 		struct tm* structuredTimePtr = localtime( &timeOfDay );
 #else
 		struct tm structuredTime;
-		__time32_t unlockTime = static_cast<__time32_t>(GetUnlockTime());
+		time_t unlockTime = GetUnlockTime();
 		_localtime32_s(&structuredTime, &unlockTime);
 		struct tm* structuredTimePtr = &structuredTime;
 #endif
