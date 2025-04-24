@@ -66,18 +66,41 @@ const fltx4 g_QuatMultRowSign[4] =
 };
 #endif
 
+const int32 ALIGN16 g_SIMD_clear_signmask[4] ALIGN16_POST = {
+    static_cast<int32>(0x7fffffffu), static_cast<int32>(0x7fffffffu),
+    static_cast<int32>(0x7fffffffu), static_cast<int32>(0x7fffffffu)
+};
 
-const int32 ALIGN16 g_SIMD_clear_signmask[4] ALIGN16_POST = {0x7fffffff,0x7fffffff,0x7fffffff,0x7fffffff};
-const int32 ALIGN16 g_SIMD_signmask[4] ALIGN16_POST = { 0x80000000, 0x80000000, 0x80000000, 0x80000000 };
-const int32 ALIGN16 g_SIMD_lsbmask[4] ALIGN16_POST = { 0xfffffffe, 0xfffffffe, 0xfffffffe, 0xfffffffe };
-const int32 ALIGN16 g_SIMD_clear_wmask[4] ALIGN16_POST = { 0xffffffff, 0xffffffff, 0xffffffff, 0 };
-const int32 ALIGN16 g_SIMD_AllOnesMask[4] ALIGN16_POST = { 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff }; // ~0,~0,~0,~0
-const int32 ALIGN16 g_SIMD_Low16BitsMask[4] ALIGN16_POST = { 0xffff, 0xffff, 0xffff, 0xffff }; // 0xffff x 4
+const int32 ALIGN16 g_SIMD_signmask[4] ALIGN16_POST = {
+    static_cast<int32>(0x80000000u), static_cast<int32>(0x80000000u),
+    static_cast<int32>(0x80000000u), static_cast<int32>(0x80000000u)
+};
 
+const int32 ALIGN16 g_SIMD_lsbmask[4] ALIGN16_POST = {
+    static_cast<int32>(0xfffffffeu), static_cast<int32>(0xfffffffeu),
+    static_cast<int32>(0xfffffffeu), static_cast<int32>(0xfffffffeu)
+};
+
+const int32 ALIGN16 g_SIMD_clear_wmask[4] ALIGN16_POST = {
+    static_cast<int32>(0xffffffffu), static_cast<int32>(0xffffffffu),
+    static_cast<int32>(0xffffffffu), 0
+};
+
+const int32 ALIGN16 g_SIMD_AllOnesMask[4] ALIGN16_POST = {
+    static_cast<int32>(0xffffffffu), static_cast<int32>(0xffffffffu),
+    static_cast<int32>(0xffffffffu), static_cast<int32>(0xffffffffu)
+};
+
+const int32 ALIGN16 g_SIMD_Low16BitsMask[4] ALIGN16_POST = {
+    0xffff, 0xffff, 0xffff, 0xffff
+};
 
 const int32 ALIGN16 g_SIMD_ComponentMask[4][4] ALIGN16_POST =
 {
-	{ 0xFFFFFFFF, 0, 0, 0 }, { 0, 0xFFFFFFFF, 0, 0 }, { 0, 0, 0xFFFFFFFF, 0 }, { 0, 0, 0, 0xFFFFFFFF }
+    { static_cast<int32>(0xffffffffu), 0, 0, 0 },
+    { 0, static_cast<int32>(0xffffffffu), 0, 0 },
+    { 0, 0, static_cast<int32>(0xffffffffu), 0 },
+    { 0, 0, 0, static_cast<int32>(0xffffffffu) }
 };
 
 const fltx4 g_SIMD_Identity[4] =
@@ -87,15 +110,26 @@ const fltx4 g_SIMD_Identity[4] =
 
 const int32 ALIGN16 g_SIMD_SkipTailMask[4][4] ALIGN16_POST =
 {
-	{ 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff },
-	{ 0xffffffff, 0x00000000, 0x00000000, 0x00000000 },
-	{ 0xffffffff, 0xffffffff, 0x00000000, 0x00000000 },
-	{ 0xffffffff, 0xffffffff, 0xffffffff, 0x00000000 },
+    {
+        static_cast<int32>(0xffffffffu), static_cast<int32>(0xffffffffu),
+        static_cast<int32>(0xffffffffu), static_cast<int32>(0xffffffffu)
+    },
+    {
+        static_cast<int32>(0xffffffffu), 0, 0, 0
+    },
+    {
+        static_cast<int32>(0xffffffffu), static_cast<int32>(0xffffffffu),
+        0, 0
+    },
+    {
+        static_cast<int32>(0xffffffffu), static_cast<int32>(0xffffffffu),
+        static_cast<int32>(0xffffffffu), 0
+    }
 };
 
-const int32 ALIGN16 g_SIMD_EveryOtherMask[4] = { 0, ~0, 0, ~0 };
-
-
+const int32 ALIGN16 g_SIMD_EveryOtherMask[4] = {
+    0, static_cast<int32>(~0), 0, static_cast<int32>(~0)
+};
 
 #ifdef PLATFORM_PPC
 

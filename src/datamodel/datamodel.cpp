@@ -1519,7 +1519,11 @@ void CDataModel::SetFileModificationUTCTime( DmFileId_t fileid, long fileModific
 
 long CDataModel::GetCurrentUTCTime()
 {
-	return _time32( NULL );
+#ifdef __linux__
+    return time(NULL);
+#else
+    return _time32(NULL);
+#endif
 }
 
 void CDataModel::UTCTimeToString( char *pString, int maxChars, long fileTime )
