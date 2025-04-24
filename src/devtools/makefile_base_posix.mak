@@ -291,7 +291,7 @@ ifeq ($(OS),Linux)
 	LIB_START_EXE = $(PATHWRAP) -static-libgcc -Wl,--start-group
 	LIB_END_EXE = -Wl,--end-group -lm -ldl $(LIBSTDCXX) -lpthread $(UUID_LIB)
 
-	LIB_START_SHLIB = $(PATHWRAP) -static-libgcc -Wl,--start-group
+	LIB_START_SHLIB = $(PATHWRAP) -static-libgcc -Wl,--start-group -lm
 	LIB_END_SHLIB = -Wl,--end-group -lm -ldl $(LIBSTDCXXPIC) -lpthread $(UUID_LIB) -l:$(LD_SO) -Wl,--version-script=$(SRCROOT)/devtools/version_script.linux.txt
 
 endif
