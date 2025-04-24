@@ -128,7 +128,7 @@ DEFINES += -DVPROF_LEVEL=1 -DGNUC
 # 32bit systems, which means we don't break on filesystems with inodes > 32bit.
 DEFINES += -D_FILE_OFFSET_BITS=64
 
-LDFLAGS = $(CFLAGS) $(GCC_ExtraLinkerFlags) $(OptimizerLevel)
+LDFLAGS = $(CFLAGS) $(GCC_ExtraLinkerFlags) $(OptimizerLevel) -lm
 GENDEP_CXXFLAGS = -MD -MP -MF $(@:.o=.P) 
 MAP_FLAGS =
 
@@ -153,7 +153,8 @@ ifeq ($(OS),Linux)
 	ifneq ($(USE_STEAM_RUNTIME),1)
 		# dedicated server flags
 		ifeq ($(TARGET_PLATFORM),linux64)
-			VALVE_BINDIR = /valve/bin64/
+			#VALVE_BINDIR = /valve/bin64/
+			VALVE_BINDIR = /usr/bin/
 			MARCH_TARGET = nocona
 		else
 			VALVE_BINDIR = /valve/bin/
@@ -847,6 +848,9 @@ $(OBJ_DIR)/_postbuild_event: $(ALL_CUSTOM_BUILD_TOOL_OUTPUTS) $(LINK_STEP) $(wil
 				$(FALSE); \
 			}; \
 		}
+
+override CC := $(CCACHE) gcc
+override CXX := $(CCACHE) g++
 
 # Everything that should run before anything starts generating intermediate files
 _prebuild_steps: _prebuild_always $(OBJ_DIR)/_create_dir
