@@ -86,7 +86,7 @@ const fltx4 g_SIMD_Identity[4] =
 	{ 1.0, 0, 0, 0 }, { 0, 1.0, 0, 0 }, { 0, 0, 1.0, 0 }, { 0, 0, 0, 1.0 }
 };
 
-const int32 ALIGN16 g_SIMD_SkipTailMask[4][4] ALIGN16_POST =
+const uint32 ALIGN16 g_SIMD_SkipTailMask[4][4] ALIGN16_POST =
 {
 	{ 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff },
 	{ 0xffffffff, 0x00000000, 0x00000000, 0x00000000 },
@@ -94,7 +94,7 @@ const int32 ALIGN16 g_SIMD_SkipTailMask[4][4] ALIGN16_POST =
 	{ 0xffffffff, 0xffffffff, 0xffffffff, 0x00000000 },
 };
 
-const int32 ALIGN16 g_SIMD_EveryOtherMask[4] = { 0, ~0, 0, ~0 };
+const uint32 ALIGN16 g_SIMD_EveryOtherMask[4] = { 0, ~0, 0, ~0 };
 
 
 
