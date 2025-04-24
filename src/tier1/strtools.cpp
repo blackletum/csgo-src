@@ -1561,21 +1561,20 @@ int _V_UnicodeToUCS2( const wchar_t *pUnicode, int cubSrcInBytes, char *pUCS2, i
 	pDest[ cchResult - 1 ] = 0;
 
 #elif defined (POSIX)
-	iconv_t conv_t = iconv_open( "UCS-2LE", "UTF-32LE" );
+	iconv_t conv_t = iconv_open("UCS-2LE", "UTF-32LE");
 	size_t cchResult = -1;
 	size_t nLenUnicde = cubSrcInBytes;
 	size_t nMaxUCS2 = cubDestSizeInBytes;
-	char *pIn = (char*)pUnicode;
-	char *pOut = pUCS2;
-	if ( conv_t > 0 )
+	char* pIn = (char*)pUnicode;
+	char* pOut = pUCS2;
+	if (conv_t != (iconv_t)-1)
 	{
-		cchResult = 0;
-		cchResult = iconv( conv_t, &pIn, &nLenUnicde, &pOut, &nMaxUCS2 );
-		iconv_close( conv_t );
-		if ( (int)cchResult < 0 )
+		cchResult = iconv(conv_t, &pIn, &nLenUnicde, &pOut, &nMaxUCS2);
+		iconv_close(conv_t);
+		if ((int)cchResult < 0)
 			cchResult = 0;
 		else
-			cchResult = cubSrcInBytes / sizeof( wchar_t );
+			cchResult = cubSrcInBytes / sizeof(wchar_t);
 	}
 #else
 	#error Must be implemented for this platform

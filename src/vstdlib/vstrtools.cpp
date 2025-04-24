@@ -52,19 +52,19 @@ int V_UTF8ToUnicode( const char *pUTF8, wchar_t *pwchDest, int cubDestSizeInByte
 	Assert( result == ConversionOK );
 	cchResult *= sizeof( uint16 );
 #elif POSIX
-	iconv_t conv_t = iconv_open( "UTF-32LE", "UTF-8" );
+	iconv_t conv_t = iconv_open("UTF-32LE", "UTF-8");
 	int cchResult = -1;
 	size_t nLenUnicde = cubDestSizeInBytes;
 	size_t nMaxUTF8 = strlen(pUTF8) + 1;
-	char *pIn = (char *)pUTF8;
-	char *pOut = (char *)pwchDest;
-	if ( conv_t > 0 )
+	char* pIn = (char*)pUTF8;
+	char* pOut = (char*)pwchDest;
+	if (conv_t > (iconv_t)0)
 	{
 		cchResult = 0;
-        size_t nInputCharCount = nMaxUTF8;
-		cchResult = iconv( conv_t, &pIn, &nMaxUTF8, &pOut, &nLenUnicde );
-		iconv_close( conv_t );
-		if ( (int)cchResult < 0 )
+		size_t nInputCharCount = nMaxUTF8;
+		cchResult = iconv(conv_t, &pIn, &nMaxUTF8, &pOut, &nLenUnicde);
+		iconv_close(conv_t);
+		if ((int)cchResult < 0)
 			cchResult = 0;
 		else
 			cchResult = nInputCharCount - nMaxUTF8; // nMaxUTF8 is decremented for each converted character. We want to return the count of conversions to match windows.
