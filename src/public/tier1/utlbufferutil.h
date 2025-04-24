@@ -80,20 +80,6 @@ bool Unserialize( CUtlBuffer &buf, CUtlBinaryBlock &dest );
 bool Serialize( CUtlBuffer &buf, const CUtlString &src );
 bool Unserialize( CUtlBuffer &buf, CUtlString &dest );
 
-//-----------------------------------------------------------------------------
-// Custom Unserialize overload for DmElementHandle_t
-//-----------------------------------------------------------------------------
-inline bool Unserialize(CUtlBuffer &buf, DmElementHandle_t &dest)
-{
-    int temp;
-    if (!Unserialize(buf, temp))
-        return false;
-    dest = static_cast<DmElementHandle_t>(temp);
-    return true;
-}
-
-
-
 bool Serialize( CUtlBuffer &buf, const CUtlSymbolLarge &src );
 // There is explicitly no unserialize of CUtlSymbolLarge,
 // it requires adding the a string to a specific symbol table.
@@ -208,3 +194,4 @@ bool Unserialize( CUtlBuffer &buf, CUtlVector<T> &dest )
 
 
 #endif // UTLBUFFERUTIL_H
+
