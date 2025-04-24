@@ -1525,12 +1525,11 @@ int _V_UCS2ToUnicode( const ucs2 *pUCS2, wchar_t *pUnicode, int cubDestSizeInByt
 	size_t nMaxUTF8 = cubDestSizeInBytes;
 	char *pIn = (char *)pUCS2;
 	char *pOut = (char *)pUnicode;
-	if ( conv_t > 0 )
+	if (conv_t != (iconv_t)-1)
 	{
-		cchResult = 0;
-		cchResult = iconv( conv_t, &pIn, &nLenUnicde, &pOut, &nMaxUTF8 );
-		iconv_close( conv_t );
-		if ( (int)cchResult < 0 )
+		cchResult = iconv(conv_t, &pIn, &nLenUnicde, &pOut, &nMaxUTF8);
+		iconv_close(conv_t);
+		if ((int)cchResult < 0)
 			cchResult = 0;
 		else
 			cchResult = nMaxUTF8;
