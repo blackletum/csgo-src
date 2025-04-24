@@ -130,7 +130,7 @@ DEFINES += -DVPROF_LEVEL=1 -DGNUC
 # 32bit systems, which means we don't break on filesystems with inodes > 32bit.
 DEFINES += -D_FILE_OFFSET_BITS=64
 
-LDFLAGS = $(CFLAGS) $(GCC_ExtraLinkerFlags) $(OptimizerLevel)
+LDFLAGS = $(CFLAGS) $(GCC_ExtraLinkerFlags) $(OptimizerLevel) -lm
 GENDEP_CXXFLAGS = -MD -MP -MF $(@:.o=.P) 
 MAP_FLAGS =
 
