@@ -690,7 +690,7 @@ double V_atod(const char* str)
 
 	if (exponent != 0)
 	{
-		val *= std::pow(10.0, exponent);
+		val *= std::exp10(exponent);
 	}
 	if (decimal == -1)
 		return val * sign;

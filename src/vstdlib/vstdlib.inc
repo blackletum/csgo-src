@@ -63,8 +63,3 @@ $Project
 		$File	"$SRCDIR\public\vstdlib\vstrtools.h"
 	}
 }
-
-$LinkLibraries
-{
-    "m"
-}
