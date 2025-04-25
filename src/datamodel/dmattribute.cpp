@@ -1160,14 +1160,27 @@ public:
 		}
 	}
 
-	virtual const char *GetDesc()
-	{
-		static char buf[ 128 ];
-
-		const char *base = BaseClass::GetDesc();
-		Q_snprintf( buf, sizeof( buf ), "%s (%s) = remove( pos %i, count %i )", base, GetAttributeName(), m_nIndex, m_nCount );
-		return buf;
-	}
+ virtual const char *CUndoAttributeSetValueElement<T>::GetDesc()
+ {
+     static char buf[128];
+     const char *base = BaseClass::GetDesc();
+     CDmAttribute *pAtt = GetAttribute();
+     CUtlBuffer serialized(0,0,CUtlBuffer::TEXT_BUFFER);
+-    if ( pAtt && pAtt->GetType() != AT_ELEMENT )
+-    {
+-        ::Serialize(serialized, static_cast<const DmElementHandle_t&>(m_Value));
+-    }
++    // serialize the actual T
++    if ( pAtt )
++    {
++        ::Serialize(serialized, m_Value);
++    }
+     V_sprintf_safe(buf, "%s(%s) = %s",
+                    base,
+                    m_symAttribute.String(),
+                    serialized.Base() ? (const char*)serialized.Base() : "\"\"");
+     return buf;
+ }
 
 private:	
 	bool						m_bFastRemove;
