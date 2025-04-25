@@ -7,6 +7,7 @@
 // These are redefined in the project settings to prevent anyone from using them.
 // We in this module are of a higher caste and thus are privileged in their use.
 
+#include <math.h>
 
 #ifdef strncpy
 #undef strncpy
@@ -690,7 +691,7 @@ double V_atod(const char* str)
 
 	if (exponent != 0)
 	{
-		val *= std::exp10(exponent);
+		val *= exp10(exponent);
 	}
 	if (decimal == -1)
 		return val * sign;
