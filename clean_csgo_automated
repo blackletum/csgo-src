@@ -11,10 +11,4 @@ echo "Cleaning previous build artifacts..."
 find . -type f \( -name "*.o" -o -name "*.a" -o -name "*.so" -o -name "*.d" -o -name "*.lo" \) -delete
 find . -type d \( -name ".libs" -o -name "lib" -o -name "Release" -o -name "Debug" \) -exec rm -rf {} +
 
-echo "Building project with tcmalloc and float safety disabled..."
-sudo CC=gcc-12 CXX=g++-12 \
-CXXFLAGS="-fno-finite-math-only" \
-LDFLAGS="-L./thirdparty/gperftools-2.0/.libs/lib -ltcmalloc_minimal" \
-make -f csgo_partner.mak -j2 all-targets P4_DISABLED=1 2>&1 | tee ./logs/build_${timestamp}.log
-
 echo "Clean finished."
