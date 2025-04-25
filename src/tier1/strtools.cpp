@@ -1741,8 +1741,10 @@ void V_binarytohex(const byte* in, int inputbytes, char* out, int outsize)
 	}
 }
 
+#ifdef PATHSEPARATOR
+#undef PATHSEPARATOR
+#endif
 #define PATHSEPARATOR(c) ((c) == '\\' || (c) == '/')
-
 
 //-----------------------------------------------------------------------------
 // Purpose: Extracts the base name of a file (no path, no extension, assumes '/' or '\' as path separator)

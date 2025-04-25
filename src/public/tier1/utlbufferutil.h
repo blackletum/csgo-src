@@ -18,28 +18,22 @@
 #include "datamodel/idatamodel.h"
 #include "tier1/utlbuffer.h"
 
-#ifdef __linux__
-
-// Provide Unserialize overload only for Linux
 inline bool Unserialize(CUtlBuffer& buf, DmElementHandle_t& dest)
 {
-    int temp = 0;
-    if (buf.IsText())
-    {
-        char token[256];
+	int temp = 0;
+	if (buf.IsText())
+	{
+		char token[256];
 		buf.GetString(token, sizeof(token));
-        temp = atoi(token);
-    }
-    else
-    {
-        temp = buf.GetInt();
-    }
-    dest = static_cast<DmElementHandle_t>(temp);
-    return buf.IsValid();
+		temp = atoi(token);
+	}
+	else
+	{
+		temp = buf.GetInt();
+	}
+	dest = static_cast<DmElementHandle_t>(temp);
+	return buf.IsValid();
 }
-
-#endif
-
 
 //-----------------------------------------------------------------------------
 // Forward declarations
