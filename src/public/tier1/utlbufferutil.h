@@ -23,11 +23,19 @@
 // Provide Unserialize overload only for Linux
 inline bool Unserialize(CUtlBuffer& buf, DmElementHandle_t& dest)
 {
-	int temp;
-	if (!::Unserialize(buf, temp))
-		return false;
-	dest = static_cast<DmElementHandle_t>(temp);
-	return true;
+    int temp = 0;
+    if (buf.IsText())
+    {
+        char token[256];
+		buf.GetString(token, sizeof(token));
+        temp = atoi(token);
+    }
+    else
+    {
+        temp = buf.GetInt();
+    }
+    dest = static_cast<DmElementHandle_t>(temp);
+    return buf.IsValid();
 }
 
 #endif

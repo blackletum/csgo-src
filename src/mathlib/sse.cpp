@@ -1,4 +1,4 @@
-//========= Copyright � 1996-2005, Valve Corporation, All rights reserved. ============//
+//========= Copyright   1996-2005, Valve Corporation, All rights reserved. ============//
 //
 // Purpose: SSE Math primitives.
 //
@@ -58,11 +58,11 @@ _PS_EXTERN_CONST(am_pi_o_2, (float)(M_PI / 2.0));
 _PS_EXTERN_CONST(am_2_o_pi, (float)(2.0 / M_PI));
 _PS_EXTERN_CONST(am_pi_o_4, (float)(M_PI / 4.0));
 _PS_EXTERN_CONST(am_4_o_pi, (float)(4.0 / M_PI));
-_PS_EXTERN_CONST_TYPE(am_sign_mask, int32, 0x80000000);
-_PS_EXTERN_CONST_TYPE(am_inv_sign_mask, int32, ~0x80000000);
-_PS_EXTERN_CONST_TYPE(am_min_norm_pos,int32, 0x00800000);
-_PS_EXTERN_CONST_TYPE(am_mant_mask, int32, 0x7f800000);
-_PS_EXTERN_CONST_TYPE(am_inv_mant_mask, int32, ~0x7f800000);
+_PS_EXTERN_CONST_TYPE(am_sign_mask, int32, static_cast<int32>(0x80000000u));
+_PS_EXTERN_CONST_TYPE(am_inv_sign_mask, int32, ~static_cast<int32>(0x80000000u));
+_PS_EXTERN_CONST_TYPE(am_min_norm_pos,int32, static_cast<int32>(0x00800000u));
+_PS_EXTERN_CONST_TYPE(am_mant_mask, int32, static_cast<int32>(0x7f800000u));
+_PS_EXTERN_CONST_TYPE(am_inv_mant_mask, int32, ~static_cast<int32>(0x7f800000u));
 
 _EPI32_CONST(1, 1);
 _EPI32_CONST(2, 2);
@@ -362,8 +362,8 @@ void FastSinCos( float x, float* s, float* c )  // any x
 //#define _PS_CONST(Name, Val) static const ALIGN16 float _ps_##Name[4] ALIGN16_POST = { Val, Val, Val, Val }
 #define _PS_CONST_TYPE(Name, Type, Val) static const ALIGN16 Type _ps_##Name[4] ALIGN16_POST = { Val, Val, Val, Val }
 
-_PS_CONST_TYPE(sign_mask, int, 0x80000000);
-_PS_CONST_TYPE(inv_sign_mask, int, ~0x80000000);
+_PS_CONST_TYPE(sign_mask, int, static_cast<int32>(0x80000000u));
+_PS_CONST_TYPE(inv_sign_mask, int, ~static_cast<int32>(0x80000000u));
 
 
 #define _PI32_CONST(Name, Val)  static const ALIGN16 int _pi32_##Name[4]  ALIGN16_POST = { Val, Val, Val, Val }
