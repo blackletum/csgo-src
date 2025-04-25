@@ -64,7 +64,7 @@ inline bool Unserialize(CUtlBuffer &buf, DmElementHandle_t &dest)
 }
 inline bool Serialize(CUtlBuffer& buf, const DmElementHandle_t& src)
 {
-    return Serialize(buf, static_cast<const int&>(src));
+    return Serialize(buf, src.handle);
 }
 
 //-----------------------------------------------------------------------------
