@@ -63,10 +63,12 @@ inline bool Unserialize(CUtlBuffer &buf, DmElementHandle_t &dest)
     return true;
 }
 
+#ifdef __linux__
 inline bool Serialize(CUtlBuffer& buf, const DmElementHandle_t& src)
 {
     return Serialize(buf, static_cast<const int&>(src));
 }
+#endif
 
 //-----------------------------------------------------------------------------
 // Support for DmElementHandle_t (assumed to be int-compatible)
