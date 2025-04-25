@@ -21,35 +21,35 @@
 #include "tier0/memdbgon.h"
 
 #if !defined(__SPU__)
-const fltx4 Four_PointFives={0.5,0.5,0.5,0.5};
+const fltx4 Four_PointFives = { 0.5,0.5,0.5,0.5 };
 #ifndef _X360
-const fltx4 Four_Zeros={0.0,0.0,0.0,0.0};
-const fltx4 Four_Ones={1.0,1.0,1.0,1.0};
+const fltx4 Four_Zeros = { 0.0,0.0,0.0,0.0 };
+const fltx4 Four_Ones = { 1.0,1.0,1.0,1.0 };
 #endif
-const fltx4 Four_Twos={2.0,2.0,2.0,2.0};
-const fltx4 Four_Threes={3.0,3.0,3.0,3.0};
-const fltx4 Four_Fours={4.0,4.0,4.0,4.0};
-const fltx4 Four_Origin={0,0,0,1};
-const fltx4 Four_NegativeOnes={-1,-1,-1,-1};
+const fltx4 Four_Twos = { 2.0,2.0,2.0,2.0 };
+const fltx4 Four_Threes = { 3.0,3.0,3.0,3.0 };
+const fltx4 Four_Fours = { 4.0,4.0,4.0,4.0 };
+const fltx4 Four_Origin = { 0,0,0,1 };
+const fltx4 Four_NegativeOnes = { -1,-1,-1,-1 };
 
-const fltx4 Four_2ToThe21s={ (float) (1<<21), (float) (1<<21), (float) (1<<21), (float)(1<<21) };
-const fltx4 Four_2ToThe22s={ (float) (1<<22), (float) (1<<22), (float) (1<<22), (float)(1<<22) };
-const fltx4 Four_2ToThe23s={ (float) (1<<23), (float) (1<<23), (float) (1<<23), (float)(1<<23) };
-const fltx4 Four_2ToThe24s={ (float) (1<<24), (float) (1<<24), (float) (1<<24), (float)(1<<24) };
-const fltx4 Four_Thirds={ 0.33333333, 0.33333333, 0.33333333, 0.33333333 };
-const fltx4 Four_TwoThirds={ 0.66666666, 0.66666666, 0.66666666, 0.66666666 };
-const fltx4 Four_Point225s={ .225, .225, .225, .225 };
-const fltx4 Four_Epsilons={FLT_EPSILON,FLT_EPSILON,FLT_EPSILON,FLT_EPSILON};
-const fltx4 Four_DegToRad= { ((float)(M_PI_F / 180.f)), ((float)(M_PI_F / 180.f)), ((float)(M_PI_F / 180.f)), ((float)(M_PI_F / 180.f))};
+const fltx4 Four_2ToThe21s = { (float)(1 << 21), (float)(1 << 21), (float)(1 << 21), (float)(1 << 21) };
+const fltx4 Four_2ToThe22s = { (float)(1 << 22), (float)(1 << 22), (float)(1 << 22), (float)(1 << 22) };
+const fltx4 Four_2ToThe23s = { (float)(1 << 23), (float)(1 << 23), (float)(1 << 23), (float)(1 << 23) };
+const fltx4 Four_2ToThe24s = { (float)(1 << 24), (float)(1 << 24), (float)(1 << 24), (float)(1 << 24) };
+const fltx4 Four_Thirds = { 0.33333333, 0.33333333, 0.33333333, 0.33333333 };
+const fltx4 Four_TwoThirds = { 0.66666666, 0.66666666, 0.66666666, 0.66666666 };
+const fltx4 Four_Point225s = { .225, .225, .225, .225 };
+const fltx4 Four_Epsilons = { FLT_EPSILON,FLT_EPSILON,FLT_EPSILON,FLT_EPSILON };
+const fltx4 Four_DegToRad = { ((float)(M_PI_F / 180.f)), ((float)(M_PI_F / 180.f)), ((float)(M_PI_F / 180.f)), ((float)(M_PI_F / 180.f)) };
 
-const fltx4 Four_FLT_MAX={FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX};
-const fltx4 Four_Negative_FLT_MAX={-FLT_MAX,-FLT_MAX,-FLT_MAX,-FLT_MAX};
+const fltx4 Four_FLT_MAX = { FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX };
+const fltx4 Four_Negative_FLT_MAX = { -FLT_MAX,-FLT_MAX,-FLT_MAX,-FLT_MAX };
 const fltx4 g_SIMD_0123 = { 0., 1., 2., 3. };
 
 const fltx4 Four_LinearToGammaCoefficients_A = { -3.7295, -3.7295, -3.7295, -3.7295 };
 const fltx4 Four_LinearToGammaCoefficients_B = { 8.9635,  8.9635,  8.9635,  8.9635 };
 const fltx4 Four_LinearToGammaCoefficients_C = { -7.7397,  -7.7397,  -7.7397,  -7.7397 };
-const fltx4 Four_LinearToGammaCoefficients_D = {3.443, 3.443, 3.443, 3.443 };
+const fltx4 Four_LinearToGammaCoefficients_D = { 3.443, 3.443, 3.443, 3.443 };
 const fltx4 Four_LinearToGammaCoefficients_E = { 0.048, 0.048, 0.048, 0.048 };
 
 const fltx4 Four_GammaToLinearCoefficients_A = { .1731, .1731, .1731, .1731 };
@@ -67,11 +67,11 @@ const fltx4 g_QuatMultRowSign[4] =
 #endif
 
 
-const int32 ALIGN16 g_SIMD_clear_signmask[4] ALIGN16_POST = {0x7fffffff,0x7fffffff,0x7fffffff,0x7fffffff};
-const int32 ALIGN16 g_SIMD_signmask[4] ALIGN16_POST = { 0x80000000, 0x80000000, 0x80000000, 0x80000000 };
-const int32 ALIGN16 g_SIMD_lsbmask[4] ALIGN16_POST = { 0xfffffffe, 0xfffffffe, 0xfffffffe, 0xfffffffe };
-const int32 ALIGN16 g_SIMD_clear_wmask[4] ALIGN16_POST = { 0xffffffff, 0xffffffff, 0xffffffff, 0 };
-const int32 ALIGN16 g_SIMD_AllOnesMask[4] ALIGN16_POST = { 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff }; // ~0,~0,~0,~0
+const int32 ALIGN16 g_SIMD_clear_signmask[4] ALIGN16_POST = { static_cast<int32>(0x7fffffffu),static_cast<int32>(0x7fffffffu),static_cast<int32>(0x7fffffffu),static_cast<int32>(0x7fffffffu) };
+const int32 ALIGN16 g_SIMD_signmask[4] ALIGN16_POST = { static_cast<int32>(0x80000000u), static_cast<int32>(0x80000000u), static_cast<int32>(0x80000000u), static_cast<int32>(0x80000000u) };
+const int32 ALIGN16 g_SIMD_lsbmask[4] ALIGN16_POST = { static_cast<int32>(0xfffffffeu), static_cast<int32>(0xfffffffeu), static_cast<int32>(0xfffffffeu), static_cast<int32>(0xfffffffeu) };
+const int32 ALIGN16 g_SIMD_clear_wmask[4] ALIGN16_POST = { static_cast<int32>(0xffffffffu), static_cast<int32>(0xffffffffu), static_cast<int32>(0xffffffffu), 0 };
+const int32 ALIGN16 g_SIMD_AllOnesMask[4] ALIGN16_POST = { static_cast<int32>(0xffffffffu), static_cast<int32>(0xffffffffu), static_cast<int32>(0xffffffffu), static_cast<int32>(0xffffffffu) }; // static_cast<int32>(~0),static_cast<int32>(~0),static_cast<int32>(~0),static_cast<int32>(~0)
 const int32 ALIGN16 g_SIMD_Low16BitsMask[4] ALIGN16_POST = { 0xffff, 0xffff, 0xffff, 0xffff }; // 0xffff x 4
 
 
@@ -87,20 +87,20 @@ const fltx4 g_SIMD_Identity[4] =
 
 const int32 ALIGN16 g_SIMD_SkipTailMask[4][4] ALIGN16_POST =
 {
-	{ 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff },
-	{ 0xffffffff, 0x00000000, 0x00000000, 0x00000000 },
-	{ 0xffffffff, 0xffffffff, 0x00000000, 0x00000000 },
-	{ 0xffffffff, 0xffffffff, 0xffffffff, 0x00000000 },
+	{ static_cast<int32>(0xffffffffu), static_cast<int32>(0xffffffffu), static_cast<int32>(0xffffffffu), static_cast<int32>(0xffffffffu) },
+	{ static_cast<int32>(0xffffffffu), 0x00000000, 0x00000000, 0x00000000 },
+	{ static_cast<int32>(0xffffffffu), static_cast<int32>(0xffffffffu), 0x00000000, 0x00000000 },
+	{ static_cast<int32>(0xffffffffu), static_cast<int32>(0xffffffffu), static_cast<int32>(0xffffffffu), 0x00000000 },
 };
 
-const int32 ALIGN16 g_SIMD_EveryOtherMask[4] = { 0, ~0, 0, ~0 };
+const int32 ALIGN16 g_SIMD_EveryOtherMask[4] = { 0, static_cast<int32>(~0), 0, static_cast<int32>(~0) };
 
 
 
 #ifdef PLATFORM_PPC
 
 /// Passed as a parameter to vslh, shuffles the z component of a quat48 stored in the zw words left by one bit.
-const uint16 ALIGN16 g_SIMD_Quat48_Unpack_Shift[] = { 
+const uint16 ALIGN16 g_SIMD_Quat48_Unpack_Shift[] = {
 	0x00, 0x00,												// x word
 	0x00, 0x00,												// y word
 	0x00, 0x01,												// z word 
@@ -110,8 +110,8 @@ const uint16 ALIGN16 g_SIMD_Quat48_Unpack_Shift[] = {
 // so that each gets its own word in the output. expected use is // __vperm( XX, Four_Threes, permute )
 // -- that way each int is represented as 3.0 + n * 2^-22 , which we can pull into the 
 // appropriate range with a single madd!
-const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute0[16] = 
-{ 
+const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute0[16] =
+{
 	16, 17, 0, 1,											// word one:   00XX
 	16, 17, 2, 3,											// word two:   00YY
 	16, 17, 4, 5,											// word three: 00ZZ
@@ -122,8 +122,8 @@ const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute0[16] =
 // 2 and 5 blend together prior results, rather than a source with 3.0f
 
 // out1 = __vperm( x0y0z0x1y1z1x2y2, Four_Threes, *reinterpret_cast<const fltx4 *>(g_SIMD_Quat48_Unpack_Permute1) ); // __x1__y1__z1____
-const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute1[16] = 
-{	
+const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute1[16] =
+{
 	16, 17, 6, 7,											// word one:   00XX
 	16, 17, 8, 9,											// word two:   00YY
 	16, 17, 10, 11,											// word three: 00ZZ
@@ -131,26 +131,26 @@ const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute1[16] =
 };
 
 // out3 = __vperm( z2x3y3z3x4y4z4x5, Four_Threes, *reinterpret_cast<const fltx4 *>(g_SIMD_Quat48_Unpack_Permute3) ); // __x3__y3__z3__z2  // z2 is important, goes into out2
-const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute3[16] = 
-{	
-	16, 17, 2, 3,   
-	16, 17, 4, 5,    
-	16, 17, 6, 7,  
-	16, 17, 0, 1  
+const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute3[16] =
+{
+	16, 17, 2, 3,
+	16, 17, 4, 5,
+	16, 17, 6, 7,
+	16, 17, 0, 1
 };
 
 // out4 = __vperm( z2x3y3z3x4y4z4x5, Four_Threes, *reinterpret_cast<const fltx4 *>(g_SIMD_Quat48_Unpack_Permute4) ); // __x4__y4__z4__x5  // x5 is important, goes into out5
-const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute4[16] = 
-{	
-	16, 17, 8, 9,    
-	16, 17, 10, 11,  
-	16, 17, 12, 13, 
-	16, 17, 14, 15   
+const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute4[16] =
+{
+	16, 17, 8, 9,
+	16, 17, 10, 11,
+	16, 17, 12, 13,
+	16, 17, 14, 15
 };
 
 // out6 = __vperm( y5z5x6y6z6x7y7z7, Four_Threes, *reinterpret_cast<const fltx4 *>(g_SIMD_Quat48_Unpack_Permute6) ); // __x6__y6__z6____
-const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute6[16] = 
-{	
+const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute6[16] =
+{
 	16, 17, 4, 5,    // word one
 	16, 17, 6, 7,  // word two
 	16, 17, 8, 9,  // word three
@@ -158,8 +158,8 @@ const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute6[16] =
 };
 
 // out7 = __vperm( y5z5x6y6z6x7y7z7, Four_Threes, *reinterpret_cast<const fltx4 *>(g_SIMD_Quat48_Unpack_Permute7) ); // __x7__y7__z7____
-const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute7[16] = 
-{	
+const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute7[16] =
+{
 	16, 17, 10, 11,    // word one
 	16, 17, 12, 13,  // word two
 	16, 17, 14, 15,  // word three
@@ -169,17 +169,17 @@ const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute7[16] =
 // these last two are tricky because we mix old output with source input. we get the 3.0f
 // from the old output.
 // out2 = __vperm( x0y0z0x1y1z1x2y2, out3, *reinterpret_cast<const fltx4 *>(g_SIMD_Quat48_Unpack_Permute2)  ); // __x2__y2__z2____
-const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute2[16] = 
-{	
+const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute2[16] =
+{
 	16, 17, 12, 13,  // 3.x2   
 	16, 17, 14, 15,  // 3.y2
 	16, 17, 30, 31,  // 3.z2 (from out2)
-	16, 17, 16, 17   
+	16, 17, 16, 17
 };
 
 // out5 = __vperm( y5z5x6y6z6x7y7z7, out4, *reinterpret_cast<const fltx4 *>(g_SIMD_Quat48_Unpack_Permute5)  ) // __x5__y5__z5____
-const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute5[16] = 
-{	
+const uint8 ALIGN16 g_SIMD_Quat48_Unpack_Permute5[16] =
+{
 	16, 17, 30, 31,  // 3.x5  (from out5)  
 	16, 17,  0,  1,  // 3.y5
 	16, 17,  2,  3,  // 3.z5 
@@ -202,8 +202,8 @@ const fltx4 g_SIMD_Quat48_Unpack_Magic_Constants = { UnpackMul16s , UnpackAdd16s
 #endif
 
 
-	// FUNCTIONS
-	// NOTE: WHY YOU **DO NOT** WANT TO PUT FUNCTIONS HERE
+// FUNCTIONS
+// NOTE: WHY YOU **DO NOT** WANT TO PUT FUNCTIONS HERE
 // Generally speaking, you want to make sure SIMD math functions
 // are inlined, because that gives the compiler much more latitude
 // in instruction scheduling. It's not that the overhead of calling
@@ -229,10 +229,10 @@ const fltx4 g_SIMD_Quat48_Unpack_Magic_Constants = { UnpackMul16s , UnpackAdd16s
 /// You can use this to rotate a long array of FourVectors all by the same
 /// matrix. The first parameter is the head of the array. The second is the
 /// number of vectors to rotate. The third is the matrix.
-void FourVectors::RotateManyBy(FourVectors * RESTRICT pVectors, unsigned int numVectors, const matrix3x4_t& rotationMatrix )
+void FourVectors::RotateManyBy(FourVectors* RESTRICT pVectors, unsigned int numVectors, const matrix3x4_t& rotationMatrix)
 {
 	Assert(numVectors > 0);
-	if ( numVectors == 0 )
+	if (numVectors == 0)
 		return;
 
 	// Splat out each of the entries in the matrix to a fltx4. Do this
@@ -283,45 +283,45 @@ void FourVectors::RotateManyBy(FourVectors * RESTRICT pVectors, unsigned int num
 
 	// Because of instruction latencies and scheduling, it's actually faster to use adds and muls
 	// rather than madds. (Empirically determined by timing.)
-	const FourVectors * stop = pVectors + numVectors;
-	FourVectors * RESTRICT pVectNext;
+	const FourVectors* stop = pVectors + numVectors;
+	FourVectors* RESTRICT pVectNext;
 	// prime the pump.
 	if (numVectors & 0x01)
 	{
 		// odd number of vectors to process
 		// prime the 1 group of registers
 		pVectNext = pVectors++;
-		outX1 = AddSIMD( AddSIMD( MulSIMD( pVectNext->x, matSplat00 ), MulSIMD( pVectNext->y, matSplat01 ) ), MulSIMD( pVectNext->z, matSplat02 ) );
-		outY1 = AddSIMD( AddSIMD( MulSIMD( pVectNext->x, matSplat10 ), MulSIMD( pVectNext->y, matSplat11 ) ), MulSIMD( pVectNext->z, matSplat12 ) );
-		outZ1 = AddSIMD( AddSIMD( MulSIMD( pVectNext->x, matSplat20 ), MulSIMD( pVectNext->y, matSplat21 ) ), MulSIMD( pVectNext->z, matSplat22 ) );
+		outX1 = AddSIMD(AddSIMD(MulSIMD(pVectNext->x, matSplat00), MulSIMD(pVectNext->y, matSplat01)), MulSIMD(pVectNext->z, matSplat02));
+		outY1 = AddSIMD(AddSIMD(MulSIMD(pVectNext->x, matSplat10), MulSIMD(pVectNext->y, matSplat11)), MulSIMD(pVectNext->z, matSplat12));
+		outZ1 = AddSIMD(AddSIMD(MulSIMD(pVectNext->x, matSplat20), MulSIMD(pVectNext->y, matSplat21)), MulSIMD(pVectNext->z, matSplat22));
 	}
 	else
 	{
 		// even number of total vectors to process; 
 		// prime the zero group and jump into the middle of the loop
-		outX0 = AddSIMD( AddSIMD( MulSIMD( pVectors->x, matSplat00 ), MulSIMD( pVectors->y, matSplat01 ) ), MulSIMD( pVectors->z, matSplat02 ) );
-		outY0 = AddSIMD( AddSIMD( MulSIMD( pVectors->x, matSplat10 ), MulSIMD( pVectors->y, matSplat11 ) ), MulSIMD( pVectors->z, matSplat12 ) );
-		outZ0 = AddSIMD( AddSIMD( MulSIMD( pVectors->x, matSplat20 ), MulSIMD( pVectors->y, matSplat21 ) ), MulSIMD( pVectors->z, matSplat22 ) );
+		outX0 = AddSIMD(AddSIMD(MulSIMD(pVectors->x, matSplat00), MulSIMD(pVectors->y, matSplat01)), MulSIMD(pVectors->z, matSplat02));
+		outY0 = AddSIMD(AddSIMD(MulSIMD(pVectors->x, matSplat10), MulSIMD(pVectors->y, matSplat11)), MulSIMD(pVectors->z, matSplat12));
+		outZ0 = AddSIMD(AddSIMD(MulSIMD(pVectors->x, matSplat20), MulSIMD(pVectors->y, matSplat21)), MulSIMD(pVectors->z, matSplat22));
 		goto EVEN_CASE;
 	}
 
 	// perform an even number of iterations through this loop.
 	while (pVectors < stop)
 	{
-		outX0 = MaddSIMD( pVectors->z, matSplat02, AddSIMD( MulSIMD( pVectors->x, matSplat00 ), MulSIMD( pVectors->y, matSplat01 ) ) );
-		outY0 = MaddSIMD( pVectors->z, matSplat12, AddSIMD( MulSIMD( pVectors->x, matSplat10 ), MulSIMD( pVectors->y, matSplat11 ) ) );
-		outZ0 = MaddSIMD( pVectors->z, matSplat22, AddSIMD( MulSIMD( pVectors->x, matSplat20 ), MulSIMD( pVectors->y, matSplat21 ) ) );
+		outX0 = MaddSIMD(pVectors->z, matSplat02, AddSIMD(MulSIMD(pVectors->x, matSplat00), MulSIMD(pVectors->y, matSplat01)));
+		outY0 = MaddSIMD(pVectors->z, matSplat12, AddSIMD(MulSIMD(pVectors->x, matSplat10), MulSIMD(pVectors->y, matSplat11)));
+		outZ0 = MaddSIMD(pVectors->z, matSplat22, AddSIMD(MulSIMD(pVectors->x, matSplat20), MulSIMD(pVectors->y, matSplat21)));
 
 		pVectNext->x = outX1;
 		pVectNext->y = outY1;
 		pVectNext->z = outZ1;
 
-EVEN_CASE:
-		pVectNext = pVectors+1;
+	EVEN_CASE:
+		pVectNext = pVectors + 1;
 
-		outX1 = MaddSIMD( pVectNext->z, matSplat02, AddSIMD( MulSIMD( pVectNext->x, matSplat00 ), MulSIMD( pVectNext->y, matSplat01 ) ) );
-		outY1 = MaddSIMD( pVectNext->z, matSplat12, AddSIMD( MulSIMD( pVectNext->x, matSplat10 ), MulSIMD( pVectNext->y, matSplat11 ) ) );
-		outZ1 = MaddSIMD( pVectNext->z, matSplat22, AddSIMD( MulSIMD( pVectNext->x, matSplat20 ), MulSIMD( pVectNext->y, matSplat21 ) ) );
+		outX1 = MaddSIMD(pVectNext->z, matSplat02, AddSIMD(MulSIMD(pVectNext->x, matSplat00), MulSIMD(pVectNext->y, matSplat01)));
+		outY1 = MaddSIMD(pVectNext->z, matSplat12, AddSIMD(MulSIMD(pVectNext->x, matSplat10), MulSIMD(pVectNext->y, matSplat11)));
+		outZ1 = MaddSIMD(pVectNext->z, matSplat22, AddSIMD(MulSIMD(pVectNext->x, matSplat20), MulSIMD(pVectNext->y, matSplat21)));
 
 		pVectors->x = outX0;
 		pVectors->y = outY0;
@@ -341,14 +341,14 @@ EVEN_CASE:
 
 	// Because of instruction latencies and scheduling, it's actually faster to use adds and muls
 	// rather than madds. (Empirically determined by timing.)
-	const FourVectors * stop = pVectors + numVectors;
+	const FourVectors* stop = pVectors + numVectors;
 
 	// perform an even number of iterations through this loop.
 	while (pVectors < stop)
 	{
-		outX0 = MaddSIMD( pVectors->z, matSplat02, AddSIMD( MulSIMD( pVectors->x, matSplat00 ), MulSIMD( pVectors->y, matSplat01 ) ) );
-		outY0 = MaddSIMD( pVectors->z, matSplat12, AddSIMD( MulSIMD( pVectors->x, matSplat10 ), MulSIMD( pVectors->y, matSplat11 ) ) );
-		outZ0 = MaddSIMD( pVectors->z, matSplat22, AddSIMD( MulSIMD( pVectors->x, matSplat20 ), MulSIMD( pVectors->y, matSplat21 ) ) );
+		outX0 = MaddSIMD(pVectors->z, matSplat02, AddSIMD(MulSIMD(pVectors->x, matSplat00), MulSIMD(pVectors->y, matSplat01)));
+		outY0 = MaddSIMD(pVectors->z, matSplat12, AddSIMD(MulSIMD(pVectors->x, matSplat10), MulSIMD(pVectors->y, matSplat11)));
+		outZ0 = MaddSIMD(pVectors->z, matSplat22, AddSIMD(MulSIMD(pVectors->x, matSplat20), MulSIMD(pVectors->y, matSplat21)));
 
 		pVectors->x = outX0;
 		pVectors->y = outY0;
@@ -362,38 +362,38 @@ EVEN_CASE:
 // calculate the shortest distance from P to the line.
 // If you pass in a value for t, it will tell you the t for (A + (B-A)t) to get the closest point.
 // If the closest point lies on the segment between A and B, then 0 <= t <= 1.
-void FourVectors::CalcClosestPointOnLineSIMD( const FourVectors &P, const FourVectors &vLineA, const FourVectors &vLineB, FourVectors &vClosest, fltx4 *outT)
+void FourVectors::CalcClosestPointOnLineSIMD(const FourVectors& P, const FourVectors& vLineA, const FourVectors& vLineB, FourVectors& vClosest, fltx4* outT)
 {
 	FourVectors vDir;
-	fltx4 t = CalcClosestPointToLineTSIMD( P, vLineA, vLineB, vDir );
-	if ( outT ) *outT = t;
-	vClosest =  vDir;
+	fltx4 t = CalcClosestPointToLineTSIMD(P, vLineA, vLineB, vDir);
+	if (outT) *outT = t;
+	vClosest = vDir;
 	vClosest *= t;
 	vClosest += vLineA;
 }
 
-fltx4 FourVectors::CalcClosestPointToLineTSIMD( const FourVectors &P, const FourVectors &vLineA, const FourVectors &vLineB, FourVectors &vDir )
+fltx4 FourVectors::CalcClosestPointToLineTSIMD(const FourVectors& P, const FourVectors& vLineA, const FourVectors& vLineB, FourVectors& vDir)
 {
-	Assert( s_bMathlibInitialized );
+	Assert(s_bMathlibInitialized);
 	vDir = vLineB;
 	vDir -= vLineA;
 
 	fltx4 div = vDir * vDir;
 	bi32x4 Mask;
-	fltx4 Compare = ReplicateX4( 0.00001f );
+	fltx4 Compare = ReplicateX4(0.00001f);
 	fltx4 result;
-	Mask = CmpLtSIMD( div, Compare );
+	Mask = CmpLtSIMD(div, Compare);
 
-	result = DivSIMD( SubSIMD( vDir * P, vDir * vLineA ), div );
+	result = DivSIMD(SubSIMD(vDir * P, vDir * vLineA), div);
 
-	MaskedAssign( Mask, Four_Zeros, result );
+	MaskedAssign(Mask, Four_Zeros, result);
 	return result;
 }
 
-void FourVectors::RotateManyBy(FourVectors * RESTRICT pVectors, unsigned int numVectors, const matrix3x4_t& rotationMatrix, FourVectors * RESTRICT pOut )
+void FourVectors::RotateManyBy(FourVectors* RESTRICT pVectors, unsigned int numVectors, const matrix3x4_t& rotationMatrix, FourVectors* RESTRICT pOut)
 {
 	Assert(numVectors > 0);
-	if ( numVectors == 0 )
+	if (numVectors == 0)
 		return;
 
 	// Splat out each of the entries in the matrix to a fltx4. Do this
@@ -444,9 +444,9 @@ void FourVectors::RotateManyBy(FourVectors * RESTRICT pVectors, unsigned int num
 
 	// Because of instruction latencies and scheduling, it's actually faster to use adds and muls
 	// rather than madds. (Empirically determined by timing.)
-	const FourVectors * stop = pVectors + numVectors;
-	FourVectors * RESTRICT pVectNext;
-	FourVectors * RESTRICT pOutNext;
+	const FourVectors* stop = pVectors + numVectors;
+	FourVectors* RESTRICT pVectNext;
+	FourVectors* RESTRICT pOutNext;
 	// prime the pump.
 	if (numVectors & 0x01)
 	{
@@ -454,38 +454,38 @@ void FourVectors::RotateManyBy(FourVectors * RESTRICT pVectors, unsigned int num
 		// prime the 1 group of registers
 		pVectNext = pVectors++;
 		pOutNext = pOut++;
-		outX1 = AddSIMD( AddSIMD( MulSIMD( pVectNext->x, matSplat00 ), MulSIMD( pVectNext->y, matSplat01 ) ), MulSIMD( pVectNext->z, matSplat02 ) );
-		outY1 = AddSIMD( AddSIMD( MulSIMD( pVectNext->x, matSplat10 ), MulSIMD( pVectNext->y, matSplat11 ) ), MulSIMD( pVectNext->z, matSplat12 ) );
-		outZ1 = AddSIMD( AddSIMD( MulSIMD( pVectNext->x, matSplat20 ), MulSIMD( pVectNext->y, matSplat21 ) ), MulSIMD( pVectNext->z, matSplat22 ) );
+		outX1 = AddSIMD(AddSIMD(MulSIMD(pVectNext->x, matSplat00), MulSIMD(pVectNext->y, matSplat01)), MulSIMD(pVectNext->z, matSplat02));
+		outY1 = AddSIMD(AddSIMD(MulSIMD(pVectNext->x, matSplat10), MulSIMD(pVectNext->y, matSplat11)), MulSIMD(pVectNext->z, matSplat12));
+		outZ1 = AddSIMD(AddSIMD(MulSIMD(pVectNext->x, matSplat20), MulSIMD(pVectNext->y, matSplat21)), MulSIMD(pVectNext->z, matSplat22));
 	}
 	else
 	{
 		// even number of total vectors to process; 
 		// prime the zero group and jump into the middle of the loop
-		outX0 = AddSIMD( AddSIMD( MulSIMD( pVectors->x, matSplat00 ), MulSIMD( pVectors->y, matSplat01 ) ), MulSIMD( pVectors->z, matSplat02 ) );
-		outY0 = AddSIMD( AddSIMD( MulSIMD( pVectors->x, matSplat10 ), MulSIMD( pVectors->y, matSplat11 ) ), MulSIMD( pVectors->z, matSplat12 ) );
-		outZ0 = AddSIMD( AddSIMD( MulSIMD( pVectors->x, matSplat20 ), MulSIMD( pVectors->y, matSplat21 ) ), MulSIMD( pVectors->z, matSplat22 ) );
+		outX0 = AddSIMD(AddSIMD(MulSIMD(pVectors->x, matSplat00), MulSIMD(pVectors->y, matSplat01)), MulSIMD(pVectors->z, matSplat02));
+		outY0 = AddSIMD(AddSIMD(MulSIMD(pVectors->x, matSplat10), MulSIMD(pVectors->y, matSplat11)), MulSIMD(pVectors->z, matSplat12));
+		outZ0 = AddSIMD(AddSIMD(MulSIMD(pVectors->x, matSplat20), MulSIMD(pVectors->y, matSplat21)), MulSIMD(pVectors->z, matSplat22));
 		goto EVEN_CASE;
 	}
 
 	// perform an even number of iterations through this loop.
 	while (pVectors < stop)
 	{
-		outX0 = MaddSIMD( pVectors->z, matSplat02, AddSIMD( MulSIMD( pVectors->x, matSplat00 ), MulSIMD( pVectors->y, matSplat01 ) ) );
-		outY0 = MaddSIMD( pVectors->z, matSplat12, AddSIMD( MulSIMD( pVectors->x, matSplat10 ), MulSIMD( pVectors->y, matSplat11 ) ) );
-		outZ0 = MaddSIMD( pVectors->z, matSplat22, AddSIMD( MulSIMD( pVectors->x, matSplat20 ), MulSIMD( pVectors->y, matSplat21 ) ) );
+		outX0 = MaddSIMD(pVectors->z, matSplat02, AddSIMD(MulSIMD(pVectors->x, matSplat00), MulSIMD(pVectors->y, matSplat01)));
+		outY0 = MaddSIMD(pVectors->z, matSplat12, AddSIMD(MulSIMD(pVectors->x, matSplat10), MulSIMD(pVectors->y, matSplat11)));
+		outZ0 = MaddSIMD(pVectors->z, matSplat22, AddSIMD(MulSIMD(pVectors->x, matSplat20), MulSIMD(pVectors->y, matSplat21)));
 
 		pOutNext->x = outX1;
 		pOutNext->y = outY1;
 		pOutNext->z = outZ1;
 
-EVEN_CASE:
-		pVectNext = pVectors+1;
-		pOutNext = pOut+1;
+	EVEN_CASE:
+		pVectNext = pVectors + 1;
+		pOutNext = pOut + 1;
 
-		outX1 = MaddSIMD( pVectNext->z, matSplat02, AddSIMD( MulSIMD( pVectNext->x, matSplat00 ), MulSIMD( pVectNext->y, matSplat01 ) ) );
-		outY1 = MaddSIMD( pVectNext->z, matSplat12, AddSIMD( MulSIMD( pVectNext->x, matSplat10 ), MulSIMD( pVectNext->y, matSplat11 ) ) );
-		outZ1 = MaddSIMD( pVectNext->z, matSplat22, AddSIMD( MulSIMD( pVectNext->x, matSplat20 ), MulSIMD( pVectNext->y, matSplat21 ) ) );
+		outX1 = MaddSIMD(pVectNext->z, matSplat02, AddSIMD(MulSIMD(pVectNext->x, matSplat00), MulSIMD(pVectNext->y, matSplat01)));
+		outY1 = MaddSIMD(pVectNext->z, matSplat12, AddSIMD(MulSIMD(pVectNext->x, matSplat10), MulSIMD(pVectNext->y, matSplat11)));
+		outZ1 = MaddSIMD(pVectNext->z, matSplat22, AddSIMD(MulSIMD(pVectNext->x, matSplat20), MulSIMD(pVectNext->y, matSplat21)));
 
 		pOut->x = outX0;
 		pOut->y = outY0;
@@ -506,14 +506,14 @@ EVEN_CASE:
 
 	// Because of instruction latencies and scheduling, it's actually faster to use adds and muls
 	// rather than madds. (Empirically determined by timing.)
-	const FourVectors * stop = pVectors + numVectors;
+	const FourVectors* stop = pVectors + numVectors;
 
 	// perform an even number of iterations through this loop.
 	while (pVectors < stop)
 	{
-		outX0 = MaddSIMD( pVectors->z, matSplat02, AddSIMD( MulSIMD( pVectors->x, matSplat00 ), MulSIMD( pVectors->y, matSplat01 ) ) );
-		outY0 = MaddSIMD( pVectors->z, matSplat12, AddSIMD( MulSIMD( pVectors->x, matSplat10 ), MulSIMD( pVectors->y, matSplat11 ) ) );
-		outZ0 = MaddSIMD( pVectors->z, matSplat22, AddSIMD( MulSIMD( pVectors->x, matSplat20 ), MulSIMD( pVectors->y, matSplat21 ) ) );
+		outX0 = MaddSIMD(pVectors->z, matSplat02, AddSIMD(MulSIMD(pVectors->x, matSplat00), MulSIMD(pVectors->y, matSplat01)));
+		outY0 = MaddSIMD(pVectors->z, matSplat12, AddSIMD(MulSIMD(pVectors->x, matSplat10), MulSIMD(pVectors->y, matSplat11)));
+		outZ0 = MaddSIMD(pVectors->z, matSplat22, AddSIMD(MulSIMD(pVectors->x, matSplat20), MulSIMD(pVectors->y, matSplat21)));
 
 		pOut->x = outX0;
 		pOut->y = outY0;
@@ -526,22 +526,22 @@ EVEN_CASE:
 
 #ifdef _X360
 // Loop-scheduled code to process FourVectors in groups of eight quite efficiently.
-void FourVectors_TransformManyGroupsOfEightBy(FourVectors * RESTRICT pVectors, unsigned int numVectors, const matrix3x4_t& rotationMatrix, FourVectors * RESTRICT pOut )
+void FourVectors_TransformManyGroupsOfEightBy(FourVectors* RESTRICT pVectors, unsigned int numVectors, const matrix3x4_t& rotationMatrix, FourVectors* RESTRICT pOut)
 {
 	Assert(numVectors > 0);
-	if ( numVectors == 0 )
+	if (numVectors == 0)
 		return;
 
-	AssertMsg( (pOut < pVectors && pOut+numVectors <= pVectors) ||
-			   (pOut > pVectors && pVectors+numVectors <= pOut), "FourVectors::TransformManyBy called with overlapping buffer pointers." );
+	AssertMsg((pOut < pVectors && pOut + numVectors <= pVectors) ||
+		(pOut > pVectors && pVectors + numVectors <= pOut), "FourVectors::TransformManyBy called with overlapping buffer pointers.");
 
 	// Splat out each of the entries in the matrix to a fltx4. Do this
 	// in the order that we will need them, to hide latency. I'm
 	// avoiding making an array of them, so that they'll remain in 
 	// registers.
 	fltx4 matSplat00, matSplat01, matSplat02, matSplat03,	// TWELVE REGISTERS
-		  matSplat10, matSplat11, matSplat12, matSplat13,
-		  matSplat20, matSplat21, matSplat22, matSplat23;
+		matSplat10, matSplat11, matSplat12, matSplat13,
+		matSplat20, matSplat21, matSplat22, matSplat23;
 
 	{
 		// Load the matrix into local vectors. Sadly, matrix3x4_ts are 
@@ -572,7 +572,7 @@ void FourVectors_TransformManyGroupsOfEightBy(FourVectors * RESTRICT pVectors, u
 #define WRITE(term, reg, toptr) toptr->term = reg
 
 	// define result groups (we're going to have an eight-way unroll)
-	
+
 	fltx4 res0X, res0Y, res0Z, res0XTemp, res0YTemp, res0ZTemp;	// 48 REGISTERS
 	fltx4 res1X, res1Y, res1Z, res1XTemp, res1YTemp, res1ZTemp;
 	fltx4 res2X, res2Y, res2Z, res2XTemp, res2YTemp, res2ZTemp;
@@ -581,9 +581,9 @@ void FourVectors_TransformManyGroupsOfEightBy(FourVectors * RESTRICT pVectors, u
 	fltx4 res5X, res5Y, res5Z, res5XTemp, res5YTemp, res5ZTemp;
 	fltx4 res6X, res6Y, res6Z, res6XTemp, res6YTemp, res6ZTemp;
 	fltx4 res7X, res7Y, res7Z, res7XTemp, res7YTemp, res7ZTemp;
-	
 
-// #define FROZ(out,in,offset) COMPUTE((out+offset)->x, (in + offset), matSplat00, matSplat01, matSplat02, matSplat03); COMPUTE((out + offset )->y, (in + offset), matSplat10, matSplat11, matSplat12, matSplat13); COMPUTE((out + offset)->z, (in + offset), matSplat20, matSplat21, matSplat22, matSplat23)
+
+	// #define FROZ(out,in,offset) COMPUTE((out+offset)->x, (in + offset), matSplat00, matSplat01, matSplat02, matSplat03); COMPUTE((out + offset )->y, (in + offset), matSplat10, matSplat11, matSplat12, matSplat13); COMPUTE((out + offset)->z, (in + offset), matSplat20, matSplat21, matSplat22, matSplat23)
 #define COMPUTE_GROUP(resgroup,dataptr) COMPUTE(resgroup ## X, (dataptr), matSplat00, matSplat01, matSplat02, matSplat03); COMPUTE(resgroup ## Y, (dataptr), matSplat10, matSplat11, matSplat12, matSplat13); COMPUTE(resgroup ## Z, (dataptr), matSplat20, matSplat21, matSplat22, matSplat23)
 #define WRITE_GROUP(ptr, resgroup) (ptr)->x = resgroup ## X; (ptr)->y = resgroup ## Y; (ptr)->z = resgroup ## Z
 
@@ -612,9 +612,9 @@ void FourVectors_TransformManyGroupsOfEightBy(FourVectors * RESTRICT pVectors, u
 										COMPUTE_STAGE3_ROW(resgroup ## Y, resgroup ## Y ## Temp, invec, matSplat10, matSplat11, matSplat12, matSplat13);\
 										COMPUTE_STAGE3_ROW(resgroup ## Z, resgroup ## Z ## Temp, invec, matSplat20, matSplat21, matSplat22, matSplat23)
 
-	FourVectors * RESTRICT inData = pVectors;
-	FourVectors * RESTRICT outData = pOut;
-	const FourVectors * const RESTRICT STOP = pVectors + numVectors;
+	FourVectors* RESTRICT inData = pVectors;
+	FourVectors* RESTRICT outData = pOut;
+	const FourVectors* const RESTRICT STOP = pVectors + numVectors;
 
 	// Use techniques of loop scheduling to eliminate data hazards; process
 	// eight groups simultaneously so that we never have any operations stalling
@@ -627,9 +627,9 @@ void FourVectors_TransformManyGroupsOfEightBy(FourVectors * RESTRICT pVectors, u
 	{
 		// start prefetching the three cache lines
 		// we'll hit two iterations from now
-		__dcbt( sizeof(FourVectors) * 16,       inData );
-		__dcbt( sizeof(FourVectors) * 16 + 128, inData );
-		__dcbt( sizeof(FourVectors) * 16 + 256, inData );
+		__dcbt(sizeof(FourVectors) * 16, inData);
+		__dcbt(sizeof(FourVectors) * 16 + 128, inData);
+		__dcbt(sizeof(FourVectors) * 16 + 256, inData);
 
 		// synchro
 		COMPUTE_STAGE1_GROUP(res0, inData + 0);
@@ -637,39 +637,39 @@ void FourVectors_TransformManyGroupsOfEightBy(FourVectors * RESTRICT pVectors, u
 		COMPUTE_STAGE1_GROUP(res2, inData + 2);
 		COMPUTE_STAGE1_GROUP(res3, inData + 3);
 
-			COMPUTE_STAGE2_GROUP(res0, inData + 0);
+		COMPUTE_STAGE2_GROUP(res0, inData + 0);
 		COMPUTE_STAGE1_GROUP(res4, inData + 4);
-			COMPUTE_STAGE2_GROUP(res1, inData + 1);
+		COMPUTE_STAGE2_GROUP(res1, inData + 1);
 		COMPUTE_STAGE1_GROUP(res5, inData + 5);
-			COMPUTE_STAGE2_GROUP(res2, inData + 2);
+		COMPUTE_STAGE2_GROUP(res2, inData + 2);
 		COMPUTE_STAGE1_GROUP(res6, inData + 6);
-			COMPUTE_STAGE2_GROUP(res3, inData + 3);
+		COMPUTE_STAGE2_GROUP(res3, inData + 3);
 		COMPUTE_STAGE1_GROUP(res7, inData + 7);
 
-				COMPUTE_STAGE3_GROUP(res0, inData + 0);
-			COMPUTE_STAGE2_GROUP(res4, inData + 4);
-				COMPUTE_STAGE3_GROUP(res1, inData + 1);
-			COMPUTE_STAGE2_GROUP(res5, inData + 5);
-				COMPUTE_STAGE3_GROUP(res2, inData + 2);
-			COMPUTE_STAGE2_GROUP(res6, inData + 6);
-				COMPUTE_STAGE3_GROUP(res3, inData + 3);
-			COMPUTE_STAGE2_GROUP(res7, inData + 7);
+		COMPUTE_STAGE3_GROUP(res0, inData + 0);
+		COMPUTE_STAGE2_GROUP(res4, inData + 4);
+		COMPUTE_STAGE3_GROUP(res1, inData + 1);
+		COMPUTE_STAGE2_GROUP(res5, inData + 5);
+		COMPUTE_STAGE3_GROUP(res2, inData + 2);
+		COMPUTE_STAGE2_GROUP(res6, inData + 6);
+		COMPUTE_STAGE3_GROUP(res3, inData + 3);
+		COMPUTE_STAGE2_GROUP(res7, inData + 7);
 
-				COMPUTE_STAGE3_GROUP(res4, inData + 4);
-					WRITE_GROUP( outData + 0, res0 );
-				COMPUTE_STAGE3_GROUP(res5, inData + 5);
-					WRITE_GROUP( outData + 1, res1 );
-				COMPUTE_STAGE3_GROUP(res6, inData + 6);
-					WRITE_GROUP( outData + 2, res2 );
-				COMPUTE_STAGE3_GROUP(res7, inData + 7);
-					WRITE_GROUP( outData + 3, res3 );
-		
+		COMPUTE_STAGE3_GROUP(res4, inData + 4);
+		WRITE_GROUP(outData + 0, res0);
+		COMPUTE_STAGE3_GROUP(res5, inData + 5);
+		WRITE_GROUP(outData + 1, res1);
+		COMPUTE_STAGE3_GROUP(res6, inData + 6);
+		WRITE_GROUP(outData + 2, res2);
+		COMPUTE_STAGE3_GROUP(res7, inData + 7);
+		WRITE_GROUP(outData + 3, res3);
 
-					WRITE_GROUP( outData + 4, res4 );
-					WRITE_GROUP( outData + 5, res5 );
-					WRITE_GROUP( outData + 6, res6 );
-					WRITE_GROUP( outData + 7, res7 );
-		
+
+		WRITE_GROUP(outData + 4, res4);
+		WRITE_GROUP(outData + 5, res5);
+		WRITE_GROUP(outData + 6, res6);
+		WRITE_GROUP(outData + 7, res7);
+
 		inData += 8;
 		outData += 8;
 	}
@@ -690,42 +690,42 @@ void FourVectors_TransformManyGroupsOfEightBy(FourVectors * RESTRICT pVectors, u
 #ifdef _X360
 // Loop-scheduled code to process FourVectors in groups of eight quite efficiently. This is the version
 // to call when starting on a 128-byte-aligned address.
-void FourVectors_TransformManyGroupsOfEightBy_128byteAligned(FourVectors * RESTRICT pVectors, unsigned int numVectors, const matrix3x4_t& rotationMatrix, FourVectors * RESTRICT pOut )
+void FourVectors_TransformManyGroupsOfEightBy_128byteAligned(FourVectors* RESTRICT pVectors, unsigned int numVectors, const matrix3x4_t& rotationMatrix, FourVectors* RESTRICT pOut)
 {
 	/* If this has changed, you will need to change all the prefetches, *
 	 * and groups of eight are no longer the ideal unit for iterating   *
 	 * on many vectors.													*/
-	COMPILE_TIME_ASSERT( sizeof(FourVectors) == 48 ) ;
+	COMPILE_TIME_ASSERT(sizeof(FourVectors) == 48);
 
 	Assert(numVectors > 0);
-	if ( numVectors == 0 )
+	if (numVectors == 0)
 		return;
 
 	AssertMsg((numVectors & 0x07) == 0, "FourVectors_TransformManyGroupsOfEight called with numVectors % 8 != 0!");
 
 	// Assert alignment
-	AssertMsg( ( ( reinterpret_cast<uint32>( pVectors )  & 127 ) == 0) && 
-			   ( ( reinterpret_cast<uint32>(pOut) & 127 ) == 0),
-			   "FourVectors_Transform..aligned called with non-128-byte-aligned buffers." );
+	AssertMsg(((reinterpret_cast<uint32>(pVectors) & 127) == 0) &&
+		((reinterpret_cast<uint32>(pOut) & 127) == 0),
+		"FourVectors_Transform..aligned called with non-128-byte-aligned buffers.");
 
 	// Assert non overlap
-	AssertMsg( (pOut < pVectors && pOut+numVectors <= pVectors) ||
-		(pOut > pVectors && pVectors+numVectors <= pOut), "FourVectors::TransformManyBy called with overlapping buffer pointers." );
+	AssertMsg((pOut < pVectors && pOut + numVectors <= pVectors) ||
+		(pOut > pVectors && pVectors + numVectors <= pOut), "FourVectors::TransformManyBy called with overlapping buffer pointers.");
 
-		// Here's the plan. 8 four-vecs = 3 cache lines exactly. It takes about 400 cycles to process a group
-		// of eight, and cache latency is 600 cycles, so we try to prefetch two iterations ahead (eg fetch
-		// iteration 3 while working on iteration 1). In the case of the output, we can simply zero-flush 
-		// the cache lines since we are sure to write into them. Because we're reading and fetching two ahead,
-		// we want to stop two away from the last iteration.
+	// Here's the plan. 8 four-vecs = 3 cache lines exactly. It takes about 400 cycles to process a group
+	// of eight, and cache latency is 600 cycles, so we try to prefetch two iterations ahead (eg fetch
+	// iteration 3 while working on iteration 1). In the case of the output, we can simply zero-flush 
+	// the cache lines since we are sure to write into them. Because we're reading and fetching two ahead,
+	// we want to stop two away from the last iteration.
 
-		// No matter what, we will need to prefetch the first two groups of eight of input (that's the 
-		// first six cache lines)
-	__dcbt( 0, pVectors );
-	__dcbt( 128, pVectors );
-	__dcbt( 256, pVectors );
-	__dcbt( 384, pVectors );
-	__dcbt( 512, pVectors );
-	__dcbt( 640, pVectors );
+	// No matter what, we will need to prefetch the first two groups of eight of input (that's the 
+	// first six cache lines)
+	__dcbt(0, pVectors);
+	__dcbt(128, pVectors);
+	__dcbt(256, pVectors);
+	__dcbt(384, pVectors);
+	__dcbt(512, pVectors);
+	__dcbt(640, pVectors);
 
 
 	// Splat out each of the entries in the matrix to a fltx4. Do this
@@ -806,25 +806,25 @@ void FourVectors_TransformManyGroupsOfEightBy_128byteAligned(FourVectors * RESTR
 	COMPUTE_STAGE3_ROW(resgroup ## Z, resgroup ## Z ## Temp, invec, matSplat20, matSplat21, matSplat22, matSplat23)
 
 
-		// Okay. First do all but the last two turns of the crank; we don't want to overshoot with the flush-to-zero.
-	FourVectors * RESTRICT inData = pVectors;
-	FourVectors * RESTRICT outData = pOut;
-	const FourVectors * RESTRICT STOP;
+	// Okay. First do all but the last two turns of the crank; we don't want to overshoot with the flush-to-zero.
+	FourVectors* RESTRICT inData = pVectors;
+	FourVectors* RESTRICT outData = pOut;
+	const FourVectors* RESTRICT STOP;
 	if (numVectors > 16)
 	{
 		STOP = pVectors + numVectors - 16;
 		// flush the first two blocks we'll write into 
-		__dcbz128( 0, outData );
-		__dcbz128( 128, outData );
-		__dcbz128( 256, outData );
+		__dcbz128(0, outData);
+		__dcbz128(128, outData);
+		__dcbz128(256, outData);
 
 		while (inData < STOP)
 		{
 			// start prefetching the three cache lines
 			// we'll hit two iterations from now
-			__dcbt( sizeof(FourVectors) * 16,       inData );
-			__dcbt( sizeof(FourVectors) * 16 + 128, inData );
-			__dcbt( sizeof(FourVectors) * 16 + 256, inData );
+			__dcbt(sizeof(FourVectors) * 16, inData);
+			__dcbt(sizeof(FourVectors) * 16 + 128, inData);
+			__dcbt(sizeof(FourVectors) * 16 + 256, inData);
 
 			// synchro
 			COMPUTE_STAGE1_GROUP(res0, inData + 0);
@@ -834,9 +834,9 @@ void FourVectors_TransformManyGroupsOfEightBy_128byteAligned(FourVectors * RESTR
 
 			// pre-zero the three cache lines we'll overwrite
 			// in the next iteration
-			__dcbz128( 384, outData );
-			__dcbz128( 512, outData );
-			__dcbz128( 640, outData );
+			__dcbz128(384, outData);
+			__dcbz128(512, outData);
+			__dcbz128(640, outData);
 
 
 			COMPUTE_STAGE2_GROUP(res0, inData + 0);
@@ -858,19 +858,19 @@ void FourVectors_TransformManyGroupsOfEightBy_128byteAligned(FourVectors * RESTR
 			COMPUTE_STAGE2_GROUP(res7, inData + 7);
 
 			COMPUTE_STAGE3_GROUP(res4, inData + 4);
-			WRITE_GROUP( outData + 0, res0 );
+			WRITE_GROUP(outData + 0, res0);
 			COMPUTE_STAGE3_GROUP(res5, inData + 5);
-			WRITE_GROUP( outData + 1, res1 );
+			WRITE_GROUP(outData + 1, res1);
 			COMPUTE_STAGE3_GROUP(res6, inData + 6);
-			WRITE_GROUP( outData + 2, res2 );
+			WRITE_GROUP(outData + 2, res2);
 			COMPUTE_STAGE3_GROUP(res7, inData + 7);
-			WRITE_GROUP( outData + 3, res3 );
+			WRITE_GROUP(outData + 3, res3);
 
 
-			WRITE_GROUP( outData + 4, res4 );
-			WRITE_GROUP( outData + 5, res5 );
-			WRITE_GROUP( outData + 6, res6 );
-			WRITE_GROUP( outData + 7, res7 );
+			WRITE_GROUP(outData + 4, res4);
+			WRITE_GROUP(outData + 5, res5);
+			WRITE_GROUP(outData + 6, res6);
+			WRITE_GROUP(outData + 7, res7);
 
 			inData += 8;
 			outData += 8;
@@ -879,29 +879,29 @@ void FourVectors_TransformManyGroupsOfEightBy_128byteAligned(FourVectors * RESTR
 	else if (numVectors == 16)
 	{
 		// zero out the exactly six cache lines we will write into
-		__dcbz128( 0, outData );
-		__dcbz128( 128, outData );
-		__dcbz128( 256, outData );
-		__dcbz128( 384, outData );
-		__dcbz128( 512, outData );
-		__dcbz128( 640, outData );
+		__dcbz128(0, outData);
+		__dcbz128(128, outData);
+		__dcbz128(256, outData);
+		__dcbz128(384, outData);
+		__dcbz128(512, outData);
+		__dcbz128(640, outData);
 	}
 	else if (numVectors == 8)
 	{
 		// zero out the exactly three cache lines we will write into
-		__dcbz128( 0, outData );
-		__dcbz128( 128, outData );
-		__dcbz128( 256, outData );
+		__dcbz128(0, outData);
+		__dcbz128(128, outData);
+		__dcbz128(256, outData);
 	}
 	else
 	{
 		AssertMsg(false, "Can't happen!");
 	}
-	
+
 	// deal with the ultimate two groups (or, if we were fed
 	// less than 16 groups, the whole shebang)
 	STOP = pVectors + numVectors - 16;
-	
+
 
 	// Use techniques of loop scheduling to eliminate data hazards; process
 	// eight groups simultaneously so that we never have any operations stalling
@@ -937,19 +937,19 @@ void FourVectors_TransformManyGroupsOfEightBy_128byteAligned(FourVectors * RESTR
 		COMPUTE_STAGE2_GROUP(res7, inData + 7);
 
 		COMPUTE_STAGE3_GROUP(res4, inData + 4);
-		WRITE_GROUP( outData + 0, res0 );
+		WRITE_GROUP(outData + 0, res0);
 		COMPUTE_STAGE3_GROUP(res5, inData + 5);
-		WRITE_GROUP( outData + 1, res1 );
+		WRITE_GROUP(outData + 1, res1);
 		COMPUTE_STAGE3_GROUP(res6, inData + 6);
-		WRITE_GROUP( outData + 2, res2 );
+		WRITE_GROUP(outData + 2, res2);
 		COMPUTE_STAGE3_GROUP(res7, inData + 7);
-		WRITE_GROUP( outData + 3, res3 );
+		WRITE_GROUP(outData + 3, res3);
 
 
-		WRITE_GROUP( outData + 4, res4 );
-		WRITE_GROUP( outData + 5, res5 );
-		WRITE_GROUP( outData + 6, res6 );
-		WRITE_GROUP( outData + 7, res7 );
+		WRITE_GROUP(outData + 4, res4);
+		WRITE_GROUP(outData + 5, res5);
+		WRITE_GROUP(outData + 6, res6);
+		WRITE_GROUP(outData + 7, res7);
 
 		inData += 8;
 		outData += 8;
@@ -970,17 +970,17 @@ void FourVectors_TransformManyGroupsOfEightBy_128byteAligned(FourVectors * RESTR
 #endif
 
 // Transform a long array of FourVectors by a given matrix. 
-void FourVectors::TransformManyBy(FourVectors * RESTRICT pVectors, unsigned int numVectors, const matrix3x4_t& rotationMatrix, FourVectors * RESTRICT pOut )
+void FourVectors::TransformManyBy(FourVectors* RESTRICT pVectors, unsigned int numVectors, const matrix3x4_t& rotationMatrix, FourVectors* RESTRICT pOut)
 {
 	Assert(numVectors > 0);
 
-	AssertMsg( (pOut < pVectors && pOut+numVectors <= pVectors) ||
-		(pOut > pVectors && pVectors+numVectors <= pOut), "FourVectors::TransformManyBy called with overlapping buffer pointers." );
+	AssertMsg((pOut < pVectors && pOut + numVectors <= pVectors) ||
+		(pOut > pVectors && pVectors + numVectors <= pOut), "FourVectors::TransformManyBy called with overlapping buffer pointers.");
 
 #ifdef _X360
 	// The really fast version of this function likes to operate on blocks of eight. So, chug through
 	// groups of eight, then deal with any leftovers.
-	int numVectorsRoundedToNearestEight = numVectors & (~0x07);
+	int numVectorsRoundedToNearestEight = numVectors & (static_cast<int32>(~0)x07);
 	if (numVectors >= 8)
 	{
 		// aligned?
@@ -1034,7 +1034,7 @@ void FourVectors::TransformManyBy(FourVectors * RESTRICT pVectors, unsigned int 
 			matSplat23 = SplatWSIMD(matCol2);
 		}
 
-		do 
+		do
 		{
 			// Trust in the compiler to schedule these operations correctly:
 			pOut->x = MaddSIMD(pVectors->z, matSplat02, MaddSIMD(pVectors->y, matSplat01, MaddSIMD(pVectors->x, matSplat00, matSplat03)));
@@ -1044,21 +1044,21 @@ void FourVectors::TransformManyBy(FourVectors * RESTRICT pVectors, unsigned int 
 			++pOut;
 			++pVectors;
 			--numVectors;
-		} while(numVectors > 0);
+		} while (numVectors > 0);
 	}
 }
 
 #ifdef _X360
 // Loop-scheduled code to process FourVectors in groups of eight quite efficiently.
-static void FourVectors_TransformManyGroupsOfEightBy_InPlace(FourVectors * RESTRICT pVectors, unsigned int numVectors, const matrix3x4_t& rotationMatrix )
+static void FourVectors_TransformManyGroupsOfEightBy_InPlace(FourVectors* RESTRICT pVectors, unsigned int numVectors, const matrix3x4_t& rotationMatrix)
 {
 	Assert(numVectors > 0);
-	if ( numVectors == 0 )
+	if (numVectors == 0)
 		return;
 
 	// Prefetch line 1 and 2
-	__dcbt(0,pVectors);
-	__dcbt(128,pVectors);
+	__dcbt(0, pVectors);
+	__dcbt(128, pVectors);
 
 	// Splat out each of the entries in the matrix to a fltx4. Do this
 	// in the order that we will need them, to hide latency. I'm
@@ -1137,7 +1137,7 @@ static void FourVectors_TransformManyGroupsOfEightBy_InPlace(FourVectors * RESTR
 	COMPUTE_STAGE3_ROW(resgroup ## Y, resgroup ## Y ## Temp, invec, matSplat10, matSplat11, matSplat12, matSplat13);\
 	COMPUTE_STAGE3_ROW(resgroup ## Z, resgroup ## Z ## Temp, invec, matSplat20, matSplat21, matSplat22, matSplat23)
 
-	const FourVectors * const RESTRICT STOP = pVectors + numVectors;
+	const FourVectors* const RESTRICT STOP = pVectors + numVectors;
 
 	// Use techniques of loop scheduling to eliminate data hazards; process
 	// eight groups simultaneously so that we never have any operations stalling
@@ -1150,9 +1150,9 @@ static void FourVectors_TransformManyGroupsOfEightBy_InPlace(FourVectors * RESTR
 	{
 		// start prefetching the three cache lines
 		// we'll hit two iterations from now
-		__dcbt( sizeof(FourVectors) * 16,       pVectors );
-		__dcbt( sizeof(FourVectors) * 16 + 128, pVectors );
-		__dcbt( sizeof(FourVectors) * 16 + 256, pVectors );
+		__dcbt(sizeof(FourVectors) * 16, pVectors);
+		__dcbt(sizeof(FourVectors) * 16 + 128, pVectors);
+		__dcbt(sizeof(FourVectors) * 16 + 256, pVectors);
 
 		// synchro
 		COMPUTE_STAGE1_GROUP(res0, pVectors + 0);
@@ -1179,18 +1179,18 @@ static void FourVectors_TransformManyGroupsOfEightBy_InPlace(FourVectors * RESTR
 		COMPUTE_STAGE2_GROUP(res7, pVectors + 7);
 
 		COMPUTE_STAGE3_GROUP(res4, pVectors + 4);
-		WRITE_GROUP( pVectors + 0, res0 );
+		WRITE_GROUP(pVectors + 0, res0);
 		COMPUTE_STAGE3_GROUP(res5, pVectors + 5);
-		WRITE_GROUP( pVectors + 1, res1 );
+		WRITE_GROUP(pVectors + 1, res1);
 		COMPUTE_STAGE3_GROUP(res6, pVectors + 6);
-		WRITE_GROUP( pVectors + 2, res2 );
+		WRITE_GROUP(pVectors + 2, res2);
 		COMPUTE_STAGE3_GROUP(res7, pVectors + 7);
-		WRITE_GROUP( pVectors + 3, res3 );
+		WRITE_GROUP(pVectors + 3, res3);
 
-		WRITE_GROUP( pVectors + 4, res4 );
-		WRITE_GROUP( pVectors + 5, res5 );
-		WRITE_GROUP( pVectors + 6, res6 );
-		WRITE_GROUP( pVectors + 7, res7 );
+		WRITE_GROUP(pVectors + 4, res4);
+		WRITE_GROUP(pVectors + 5, res5);
+		WRITE_GROUP(pVectors + 6, res6);
+		WRITE_GROUP(pVectors + 7, res7);
 
 		pVectors += 8;
 	}
@@ -1212,14 +1212,14 @@ static void FourVectors_TransformManyGroupsOfEightBy_InPlace(FourVectors * RESTR
 // In-place version of above. It's necessary to have this, rather than just allowing pOut and pVectors
 // to equal each other, because of the semantics of RESTRICT: pVectors and pOut must not be allowed 
 // to alias. (Simply un-restricting the pointers results in very poor scheduling.)
-void FourVectors::TransformManyBy(FourVectors * RESTRICT pVectors, unsigned int numVectors, const matrix3x4_t& rotationMatrix )
+void FourVectors::TransformManyBy(FourVectors* RESTRICT pVectors, unsigned int numVectors, const matrix3x4_t& rotationMatrix)
 {
 	Assert(numVectors > 0);
 
 #ifdef _X360
 	// The really fast version of this function likes to operate on blocks of eight. So, chug through
 	// groups of eight, then deal with any leftovers.
-	int numVectorsRoundedToNearestEight = numVectors & (~0x07);
+	int numVectorsRoundedToNearestEight = numVectors & (static_cast<int32>(~0)x07);
 	if (numVectors >= 8)
 	{
 		FourVectors_TransformManyGroupsOfEightBy_InPlace(pVectors, numVectorsRoundedToNearestEight, rotationMatrix);
@@ -1264,7 +1264,7 @@ void FourVectors::TransformManyBy(FourVectors * RESTRICT pVectors, unsigned int 
 			matSplat23 = SplatWSIMD(matCol2);
 		}
 
-		do 
+		do
 		{
 			fltx4 resultX, resultY, resultZ;
 			// Trust in the compiler to schedule these operations correctly:
@@ -1278,7 +1278,7 @@ void FourVectors::TransformManyBy(FourVectors * RESTRICT pVectors, unsigned int 
 
 			++pVectors;
 			--numVectors;
-		} while(numVectors > 0);
+		} while (numVectors > 0);
 	}
 }
 
@@ -1290,7 +1290,7 @@ void FourVectors::TransformManyBy(FourVectors * RESTRICT pVectors, unsigned int 
 // The points must be stored as 16-byte aligned. They are points
 // and not vectors because we assume the w-component to be 1. 
 #ifdef _X360
-void TransformManyPointsBy(VectorAligned * RESTRICT pVectors, unsigned int numVectors, FLTX4 mRow0, FLTX4 mRow1, FLTX4 mRow2)
+void TransformManyPointsBy(VectorAligned* RESTRICT pVectors, unsigned int numVectors, FLTX4 mRow0, FLTX4 mRow1, FLTX4 mRow2)
 {
 	/**************************************************
 	 *  Here is an elaborate and carefully scheduled  *
@@ -1310,9 +1310,9 @@ void TransformManyPointsBy(VectorAligned * RESTRICT pVectors, unsigned int numVe
 
 	UINT GroupIndex;
 
-	VectorAligned * RESTRICT vCurrent = pVectors;
+	VectorAligned* RESTRICT vCurrent = pVectors;
 	// sentinel pointers
-	VectorAligned * vStreamEnd, *vStreamGroupBase, *vStreamGroupEnd;
+	VectorAligned* vStreamEnd, * vStreamGroupBase, * vStreamGroupEnd;
 
 	{
 		// cook up the pointers from integer math. Necessary because otherwise we LHS all over
@@ -1324,14 +1324,14 @@ void TransformManyPointsBy(VectorAligned * RESTRICT pVectors, unsigned int numVe
 		UINT_PTR InputStreamCGroupBase = XMMin(InputVector + (XM_CACHE_LINE_SIZE - 1), InputStreamEnd) & ~(XM_CACHE_LINE_SIZE - 1);
 		UINT_PTR InputStreamCGroupEnd = InputStreamCGroupBase + ((InputStreamEnd - InputStreamCGroupBase) & ~(4 * XM_CACHE_LINE_SIZE - 1));
 
-		vStreamEnd = (VectorAligned *)InputStreamEnd;
-		vStreamGroupBase = (VectorAligned *)InputStreamCGroupBase;
-		vStreamGroupEnd = (VectorAligned *)InputStreamCGroupEnd;
+		vStreamEnd = (VectorAligned*)InputStreamEnd;
+		vStreamGroupBase = (VectorAligned*)InputStreamCGroupBase;
+		vStreamGroupEnd = (VectorAligned*)InputStreamCGroupEnd;
 	}
 
 
-	__dcbt(0,                      vStreamGroupBase);
-	__dcbt(XM_CACHE_LINE_SIZE,     vStreamGroupBase);
+	__dcbt(0, vStreamGroupBase);
+	__dcbt(XM_CACHE_LINE_SIZE, vStreamGroupBase);
 	__dcbt(XM_CACHE_LINE_SIZE * 2, vStreamGroupBase);
 	__dcbt(XM_CACHE_LINE_SIZE * 3, vStreamGroupBase);
 
@@ -1347,7 +1347,7 @@ void TransformManyPointsBy(VectorAligned * RESTRICT pVectors, unsigned int numVe
 		__stvewx(R1[0], vCurrent->Base(), 4);
 		__stvewx(R2[0], vCurrent->Base(), 8);
 
-		vCurrent++; 
+		vCurrent++;
 	}
 
 	while (vCurrent < vStreamGroupEnd)
@@ -1467,7 +1467,7 @@ void TransformManyPointsBy(VectorAligned * RESTRICT pVectors, unsigned int numVe
 
 		vCurrent++;
 	}
-	
+
 
 }
 
