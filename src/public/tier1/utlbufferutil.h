@@ -50,6 +50,19 @@ bool Unserialize(CUtlBuffer& buf, bool& dest);
 bool Serialize(CUtlBuffer& buf, const int& src);
 bool Unserialize(CUtlBuffer& buf, int& dest);
 
+//-----------------------------------------------------------------------------
+// Support for DmElementHandle_t (assumed to be int-compatible)
+//-----------------------------------------------------------------------------
+inline bool Unserialize(CUtlBuffer &buf, DmElementHandle_t &dest)
+{
+    int temp;
+    if (!Unserialize(buf, temp))
+        return false;
+
+    dest = static_cast<DmElementHandle_t>(temp);
+    return true;
+}
+
 bool Serialize(CUtlBuffer& buf, const float& src);
 bool Unserialize(CUtlBuffer& buf, float& dest);
 
