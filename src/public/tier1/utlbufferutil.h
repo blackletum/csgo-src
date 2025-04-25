@@ -24,7 +24,7 @@
 inline bool Unserialize(CUtlBuffer& buf, DmElementHandle_t& dest)
 {
 	int temp;
-	if (!Unserialize(buf, temp))
+	if (!::Unserialize(buf, temp))
 		return false;
 	dest = static_cast<DmElementHandle_t>(temp);
 	return true;
@@ -212,16 +212,5 @@ bool Unserialize(CUtlBuffer& buf, CUtlVector<T>& dest)
 	}
 	return true;
 }
-
-
-
-
-//-----------------------------------------------------------------------------
-// Forward declare DmElementHandle_t for Windows build compatibility
-//-----------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------
-// Custom Unserialize overload for DmElementHandle_t
-//-----------------------------------------------------------------------------
 
 #endif // UTLBUFFERUTIL_H

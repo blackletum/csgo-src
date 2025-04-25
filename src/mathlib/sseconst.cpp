@@ -77,7 +77,7 @@ const int32 ALIGN16 g_SIMD_Low16BitsMask[4] ALIGN16_POST = { 0xffff, 0xffff, 0xf
 
 const int32 ALIGN16 g_SIMD_ComponentMask[4][4] ALIGN16_POST =
 {
-	{ 0xFFFFFFFF, 0, 0, 0 }, { 0, 0xFFFFFFFF, 0, 0 }, { 0, 0, 0xFFFFFFFF, 0 }, { 0, 0, 0, 0xFFFFFFFF }
+	{ static_cast<int32>(0xFFFFFFFFu), 0, 0, 0 }, { 0, static_cast<int32>(0xFFFFFFFFu), 0, 0 }, { 0, 0, static_cast<int32>(0xFFFFFFFFu), 0 }, { 0, 0, 0, static_cast<int32>(0xFFFFFFFFu) }
 };
 
 const fltx4 g_SIMD_Identity[4] =
