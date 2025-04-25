@@ -691,8 +691,13 @@ double V_atod(const char* str)
 
 	if (exponent != 0)
 	{
-		val *= exp10(exponent);
+		#ifdef _WIN32
+			val *= pow(10.0, exponent);
+		#else
+			val *= exp10(exponent);
+		#endif
 	}
+
 	if (decimal == -1)
 		return val * sign;
 	while (total > decimal)
