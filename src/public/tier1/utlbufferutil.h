@@ -1,4 +1,4 @@
-//====== Copyright © 1996-2005, Valve Corporation, All rights reserved. =======//
+//====== Copyright Â© 1996-2005, Valve Corporation, All rights reserved. =======//
 //
 // Purpose: 
 //
@@ -34,13 +34,6 @@ inline bool Unserialize(CUtlBuffer& buf, DmElementHandle_t& dest)
 	dest = static_cast<DmElementHandle_t>(temp);
 	return buf.IsValid();
 }
-
-#ifdef __linux__
-inline bool Serialize(CUtlBuffer& buf, const DmElementHandle_t& src)
-{
-    return Serialize(buf, static_cast<const int&>(src));
-}
-#endif
 
 //-----------------------------------------------------------------------------
 // Forward declarations
@@ -103,12 +96,6 @@ bool Unserialize(CUtlBuffer& buf, CUtlBinaryBlock& dest);
 
 bool Serialize(CUtlBuffer& buf, const CUtlString& src);
 bool Unserialize(CUtlBuffer& buf, CUtlString& dest);
-
-//-----------------------------------------------------------------------------
-// Custom Unserialize overload for DmElementHandle_t
-//-----------------------------------------------------------------------------
-
-
 
 bool Serialize(CUtlBuffer& buf, const CUtlSymbolLarge& src);
 // There is explicitly no unserialize of CUtlSymbolLarge,
