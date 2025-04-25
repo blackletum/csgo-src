@@ -18,6 +18,20 @@
 #include "datamodel/idatamodel.h"
 #include "tier1/utlbuffer.h"
 
+#ifdef __linux__
+
+// Provide Unserialize overload only for Linux
+inline bool Unserialize(CUtlBuffer& buf, DmElementHandle_t& dest)
+{
+	int temp;
+	if (!Unserialize(buf, temp))
+		return false;
+	dest = static_cast<DmElementHandle_t>(temp);
+	return true;
+}
+
+#endif
+
 
 //-----------------------------------------------------------------------------
 // Forward declarations
