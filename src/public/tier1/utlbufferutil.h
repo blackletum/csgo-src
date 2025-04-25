@@ -35,6 +35,15 @@ inline bool Unserialize(CUtlBuffer& buf, DmElementHandle_t& dest)
 	return buf.IsValid();
 }
 
+#ifdef __linux__
+template<typename T>
+inline typename std::enable_if<std::is_same<T, DmElementHandle_t>::value, bool>::type
+Serialize(CUtlBuffer& buf, const T& src)
+{
+    return Serialize(buf, static_cast<const int&>(src));
+}
+#endif
+
 //-----------------------------------------------------------------------------
 // Forward declarations
 //-----------------------------------------------------------------------------
@@ -96,15 +105,6 @@ bool Unserialize(CUtlBuffer& buf, CUtlBinaryBlock& dest);
 
 bool Serialize(CUtlBuffer& buf, const CUtlString& src);
 bool Unserialize(CUtlBuffer& buf, CUtlString& dest);
-
-
-#ifdef __linux__
-// Provide Serialize overload only for Linux
-inline bool Serialize(CUtlBuffer& buf, const DmElementHandle_t& src)
-{
-	return Serialize(buf, static_cast<const int&>(src));
-}
-#endif
 
 //-----------------------------------------------------------------------------
 // Custom Unserialize overload for DmElementHandle_t
