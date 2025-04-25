@@ -1,0 +1,33 @@
+#!/bin/bash
+
+echo "Navigating to /home/csgo-src/src..."
+cd /home/csgo-src/src || exit 1
+
+# Capture timestamp for log filenames
+timestamp=$(date +"%m%d%Y_%H%M")
+
+# Recreate logs folder, if missing
+echo "Creating new logs directory..."
+mkdir -p ./logs
+
+echo "Setting executable permissions..."
+chmod u+x createcsgo
+chmod u+x devtools/bin/vpc
+chmod u+x devtools/bin/linux/ccache
+chmod u+x ../devtools/gendbg.sh
+chmod +x devtools/gendbg.sh
+
+echo "Create folder bc this is uhh, stoopid"
+mkdir -p ./lib/public/linux64
+
+echo "Running VPC setup..."
+./createcsgo 2>&1 | tee ./logs/createcsgo_${timestamp}.log
+export P4="echo [p4 disabled]"
+
+echo "Building project with tcmalloc and float safety disabled..."
+sudo CC=gcc-12 CXX=g++-12 \
+CXXFLAGS="-fno-finite-math-only" \
+LDFLAGS="-L./thirdparty/gperftools-2.0/.libs/lib -ltcmalloc_minimal" \
+make -f csgo_partner.mak -j2 all-targets P4_DISABLED=1 2>&1 | tee ./logs/build_${timestamp}.log
+
+echo "Build finished. Logs saved to './logs/'"
