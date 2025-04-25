@@ -1,4 +1,4 @@
-//====== Copyright © 1996-2005, Valve Corporation, All rights reserved. =======//
+//====== Copyright Â© 1996-2005, Valve Corporation, All rights reserved. =======//
 //
 // Purpose: 
 //
@@ -66,11 +66,6 @@ inline bool Unserialize(CUtlBuffer &buf, DmElementHandle_t &dest)
 //-----------------------------------------------------------------------------
 // Support for DmElementHandle_t (assumed to be int-compatible)
 //-----------------------------------------------------------------------------
-inline bool Serialize(CUtlBuffer &buf, const DmElementHandle_t &src)
-{
-    return Serialize(buf, static_cast<const int &>(src));
-}
-
 bool Serialize(CUtlBuffer& buf, const float& src);
 bool Unserialize(CUtlBuffer& buf, float& dest);
 
