@@ -36,9 +36,7 @@ inline bool Unserialize(CUtlBuffer& buf, DmElementHandle_t& dest)
 }
 
 #ifdef __linux__
-template<typename T>
-inline typename std::enable_if<std::is_same<T, DmElementHandle_t>::value, bool>::type
-Serialize(CUtlBuffer& buf, const T& src)
+inline bool Serialize(CUtlBuffer& buf, const DmElementHandle_t& src)
 {
     return Serialize(buf, static_cast<const int&>(src));
 }
