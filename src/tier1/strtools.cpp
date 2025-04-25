@@ -691,10 +691,10 @@ double V_atod(const char* str)
 
 	if (exponent != 0)
 	{
-		#ifdef _WIN32
-			val *= pow(10.0, exponent);
-		#else
+		#ifdef __linux__
 			val *= exp10(exponent);
+		#else
+			val *= pow(10.0, exponent);
 		#endif
 	}
 
