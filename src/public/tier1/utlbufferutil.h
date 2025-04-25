@@ -35,13 +35,6 @@ inline bool Unserialize(CUtlBuffer& buf, DmElementHandle_t& dest)
 	return buf.IsValid();
 }
 
-#ifdef __linux__
-inline bool Serialize(CUtlBuffer& buf, const DmElementHandle_t& src)
-{
-    return ::Serialize(buf, static_cast<int>(src));
-}
-#endif
-
 //-----------------------------------------------------------------------------
 // Forward declarations
 //-----------------------------------------------------------------------------
