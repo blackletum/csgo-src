@@ -692,7 +692,7 @@ double V_atod(const char* str)
 if (exponent != 0)
 {
     #ifdef __linux__
-        val *= std::pow(10.0, exponent); // safe with -fno-finite-math-only
+        val *= std::exp10(exponent);
     #else
         val *= pow(10.0, exponent);
     #endif
