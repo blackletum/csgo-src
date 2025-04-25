@@ -65,17 +65,6 @@ static inline bool IsA( DmElementHandle_t hElement, CUtlSymbolLarge type )
 //-----------------------------------------------------------------------------
 // Element attributes are never directly unserialized
 //-----------------------------------------------------------------------------
-static bool Serialize( CUtlBuffer &buf, DmElementHandle_t src )
-{
-	Assert( 0 );
-	return false;
-}
-
-static bool Unserialize( CUtlBuffer &buf, DmElementHandle_t &dest )
-{
-	Assert( 0 );
-	return false;
-}
 
 static bool Serialize( CUtlBuffer &buf, const DmUnknownAttribute_t& src )
 {
@@ -788,7 +777,7 @@ public:
 		CUtlBuffer serialized( 0, 0, CUtlBuffer::TEXT_BUFFER );
 		if ( pAtt && pAtt->GetType() != AT_ELEMENT )
 		{
-			::Serialize(serialized, m_Value.GetHandle());
+			::Serialize(serialized, m_Value);
 		}
 		V_sprintf_safe( buf, "%s(%s) = %s", base, m_symAttribute.String(), serialized.Base() ? (const char*)serialized.Base() : "\"\"" );
 		return buf;
