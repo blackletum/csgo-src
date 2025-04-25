@@ -97,6 +97,15 @@ bool Unserialize(CUtlBuffer& buf, CUtlBinaryBlock& dest);
 bool Serialize(CUtlBuffer& buf, const CUtlString& src);
 bool Unserialize(CUtlBuffer& buf, CUtlString& dest);
 
+
+#ifdef __linux__
+// Provide Serialize overload only for Linux
+inline bool Serialize(CUtlBuffer& buf, const DmElementHandle_t& src)
+{
+	return Serialize(buf, static_cast<const int&>(src));
+}
+#endif
+
 //-----------------------------------------------------------------------------
 // Custom Unserialize overload for DmElementHandle_t
 //-----------------------------------------------------------------------------
