@@ -65,17 +65,6 @@ static inline bool IsA( DmElementHandle_t hElement, CUtlSymbolLarge type )
 //-----------------------------------------------------------------------------
 // Element attributes are never directly unserialized
 //-----------------------------------------------------------------------------
-static bool Serialize( CUtlBuffer &buf, DmElementHandle_t src )
-{
-	Assert( 0 );
-	return false;
-}
-
-static bool Unserialize( CUtlBuffer &buf, DmElementHandle_t &dest )
-{
-	Assert( 0 );
-	return false;
-}
 
 static bool Serialize( CUtlBuffer &buf, const DmUnknownAttribute_t& src )
 {
@@ -788,7 +777,7 @@ public:
 		CUtlBuffer serialized( 0, 0, CUtlBuffer::TEXT_BUFFER );
 		if ( pAtt && pAtt->GetType() != AT_ELEMENT )
 		{
-			::Serialize(serialized, m_Value);
+			::Serialize(serialized, static_cast<const DmElementHandle_t&>(m_Value));
 		}
 		V_sprintf_safe( buf, "%s(%s) = %s", base, m_symAttribute.String(), serialized.Base() ? (const char*)serialized.Base() : "\"\"" );
 		return buf;
@@ -2609,7 +2598,7 @@ bool CDmAttribute::ShouldModify( const T& value )
 	if ( !IsTypeConvertable<T>() )
 		return false;
 
-	if ( ( GetType() == CDmAttributeInfo<T>::ATTRIBUTE_TYPE ) && IsAttributeEqual( GetValue<T>(), value ) )
+	if ( ( static_cast<int>(GetType()) == static_cast<int>(CDmAttributeInfo<T>::ATTRIBUTE_TYPE) ) && IsAttributeEqual( GetValue<T>(), value ) )
 		return false;
 
 	return MarkDirty();
@@ -3203,12 +3192,12 @@ void CDmrDecoratorConst<T,BaseClass>::Init( const CDmAttribute* pAttribute )
 	if ( pAttribute && pAttribute->GetType() == CDmAttributeInfo< CUtlVector< T > >::AttributeType() )
 	{
 		this->m_pAttribute = const_cast<CDmAttribute*>( pAttribute );
-		Attach( this->m_pAttribute->GetAttributeData() );
+		this->Attach(this->m_pAttribute->GetAttributeData());
 	}
 	else
 	{
 		this->m_pAttribute = NULL;
-		Attach( NULL );
+		this->Attach(NULL);
 	}
 }
 
