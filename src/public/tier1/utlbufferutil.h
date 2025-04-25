@@ -18,30 +18,6 @@
 #include "datamodel/idatamodel.h"
 #include "tier1/utlbuffer.h"
 
-inline bool Unserialize(CUtlBuffer& buf, DmElementHandle_t& dest)
-{
-	int temp = 0;
-	if (buf.IsText())
-	{
-		char token[256];
-		buf.GetString(token, sizeof(token));
-		temp = atoi(token);
-	}
-	else
-	{
-		temp = buf.GetInt();
-	}
-	dest = static_cast<DmElementHandle_t>(temp);
-	return buf.IsValid();
-}
-
-#ifdef __linux__
-inline bool Serialize(CUtlBuffer& buf, const DmElementHandle_t& src)
-{
-    return ::Serialize(buf, static_cast<const int&>(src));
-}
-#endif
-
 //-----------------------------------------------------------------------------
 // Forward declarations
 //-----------------------------------------------------------------------------
@@ -215,5 +191,31 @@ bool Unserialize(CUtlBuffer& buf, CUtlVector<T>& dest)
 	}
 	return true;
 }
+
+#ifdef __linux__
+
+inline bool Serialize(CUtlBuffer& buf, const DmElementHandle_t& src)
+{
+    return ::Serialize(buf, static_cast<int>(src));
+}
+
+inline bool Unserialize(CUtlBuffer& buf, DmElementHandle_t& dest)
+{
+    int temp = 0;
+    if (buf.IsText())
+    {
+        char token[256];
+        buf.GetString(token, sizeof(token));
+        temp = atoi(token);
+    }
+    else
+    {
+        temp = buf.GetInt();
+    }
+    dest = static_cast<DmElementHandle_t>(temp);
+    return buf.IsValid();
+}
+
+#endif
 
 #endif // UTLBUFFERUTIL_H
