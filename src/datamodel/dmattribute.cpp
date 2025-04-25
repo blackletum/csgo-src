@@ -2579,7 +2579,6 @@ template<> void CDmAttribute::CopyData( const DmElementHandle_t& value )
 	g_pDataModelImp->OnElementReferenceAdded( value, this );
 }
 
-
 //-----------------------------------------------------------------------------
 // Should we be allowed to modify the attribute data?
 //-----------------------------------------------------------------------------
@@ -2589,7 +2588,7 @@ bool CDmAttribute::ShouldModify( const T& value )
 	if ( !IsTypeConvertable<T>() )
 		return false;
 
-	if ( ( static_cast<int>(GetType()) == static_cast<int>(CDmAttributeInfo<T>::ATTRIBUTE_TYPE) ) && IsAttributeEqual( GetValue<T>(), value ) )
+	if ( ( GetType() == CDmAttributeInfo<T>::ATTRIBUTE_TYPE ) && IsAttributeEqual( GetValue<T>(), value ) )
 		return false;
 
 	return MarkDirty();
