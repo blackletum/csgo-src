@@ -689,14 +689,14 @@ double V_atod(const char* str)
 		total++;
 	}
 
-	if (exponent != 0)
-	{
-		#ifdef __linux__
-			val *= exp10(exponent);
-		#else
-			val *= pow(10.0, exponent);
-		#endif
-	}
+if (exponent != 0)
+{
+    #ifdef __linux__
+        val *= std::pow(10.0, exponent); // safe with -fno-finite-math-only
+    #else
+        val *= pow(10.0, exponent);
+    #endif
+}
 
 	if (decimal == -1)
 		return val * sign;
