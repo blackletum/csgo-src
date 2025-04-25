@@ -777,7 +777,7 @@ public:
 		CUtlBuffer serialized( 0, 0, CUtlBuffer::TEXT_BUFFER );
 		if ( pAtt && pAtt->GetType() != AT_ELEMENT )
 		{
-			::Serialize(serialized, m_Value);
+			::Serialize(serialized, static_cast<const int&>(m_Value));
 		}
 		V_sprintf_safe( buf, "%s(%s) = %s", base, m_symAttribute.String(), serialized.Base() ? (const char*)serialized.Base() : "\"\"" );
 		return buf;
