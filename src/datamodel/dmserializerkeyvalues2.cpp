@@ -161,7 +161,7 @@ void CKeyValues2ErrorStack::ReportError( const char *pFmt, ... )
 
 	char temp2[2048];
 	Q_snprintf( temp2, sizeof( temp2 ), "%s(%d) : %s\n", m_pFilename, m_nFileLine, temp );
-	Warning( temp2 );
+	Warning("%s", temp2);
 
 	for ( int i = 0; i < m_maxErrorIndex; i++ )
 	{
