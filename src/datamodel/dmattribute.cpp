@@ -778,7 +778,7 @@ public:
 
 		if (pAtt && pAtt->GetType() != AT_ELEMENT)
 		{
-			Serialize(serialized, static_cast<int>(m_Value));
+			Serialize(serialized, m_Value);
 		}
 
 		V_sprintf_safe(buf, "%s(%s) = %s",
@@ -787,6 +787,8 @@ public:
 
 		return buf;
 	}
+
+
 	virtual const char* GetDesc(int nIndex)
 	{
 		static char buf[128];
