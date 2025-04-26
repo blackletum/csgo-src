@@ -768,18 +768,30 @@ public:
 		}
 	}
 
-	virtual const char	*GetDesc()
+	virtual const char* GetDesc()
 	{
-		static char buf[ 128 ];
+		static char buf[128];
 
-		const char *base = BaseClass::GetDesc();
-		CDmAttribute *pAtt = GetAttribute();
-		CUtlBuffer serialized( 0, 0, CUtlBuffer::TEXT_BUFFER );
+		const char* base = BaseClass::GetDesc();
+		CDmAttribute* pAtt = GetAttribute();
+		CUtlBuffer serialized(0, 0, CUtlBuffer::TEXT_BUFFER);
+
 		if (pAtt && pAtt->GetType() != AT_ELEMENT)
 		{
-			Serialize(serialized, static_cast<const DmElementHandle_t&>(m_Value));
+			Serialize(serialized, static_cast<int>(m_Value));
 		}
-		V_sprintf_safe( buf, "%s(%s) = %s", base, m_symAttribute.String(), serialized.Base() ? (const char*)serialized.Base() : "\"\"" );
+
+		V_sprintf_safe(buf, "%s(%s) = %s",
+			base, m_symAttribute.String(),
+			serialized.Base() ? (const char*)serialized.Base() : "\"\"");
+
+		return buf;
+	}
+	virtual const char* GetDesc(int nIndex)
+	{
+		static char buf[128];
+		const char* base = BaseClass::GetDesc();
+		V_sprintf_safe(buf, "%s(%s) = %d", base, m_symAttribute.String(), nIndex);
 		return buf;
 	}
 
