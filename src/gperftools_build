@@ -1,0 +1,36 @@
+#!/bin/bash
+
+echo "Navigating to gperftools-2.0..."
+cd /home/csgo-src/src/thirdparty/gperftools-2.0 || exit 1
+
+# Setup timestamp for logs
+timestamp=$(date +"%m%d%Y_%H%M")
+mkdir -p /home/csgo-src/src/logs/
+
+# Prepare autogen.sh
+chmod +x autogen.sh
+
+# Run autogen.sh and log output
+echo "Running autogen.sh to generate configure..."
+./autogen.sh 2>&1 | tee /home/csgo-src/src/logs/build_gperftools_autogen_${timestamp}.log
+
+# Run configure and log output
+echo "Running configure..."
+./configure --prefix=$PWD/install --disable-debugalloc 2>&1 | tee /home/csgo-src/src/logs/build_gperftools_configure_${timestamp}.log
+
+# Build and log output
+echo "Running make..."
+make -j$(nproc) 2>&1 | tee /home/csgo-src/src/logs/build_gperftools_make_${timestamp}.log
+
+# Install and log output
+echo "Running make install..."
+make install 2>&1 | tee /home/csgo-src/src/logs/build_gperftools_install_${timestamp}.log
+
+# Prepare lib folder structure
+mkdir -p ./.libs/lib
+mv ./install/lib/libtcmalloc_minimal.so ./.libs/lib/
+
+mkdir -p ./.libs/x86_64
+mv ./.libs/lib/libtcmalloc_minimal.so ./.libs/x86_64/
+
+echo "? gperftools build, install, and folder fixes complete. Logs saved under /src/logs/"

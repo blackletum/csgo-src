@@ -313,15 +313,15 @@ static void ListerThread(struct ListerParams *args) {
    * interfere with this function.
    */
   sig_marker = marker;
-  sig_proc   = -1;
+  sig_proc = -1;
   for (sig = 0; sig < sizeof(sync_signals)/sizeof(*sync_signals); sig++) {
-    struct kernel_sigaction sa;
-    memset(&sa, 0, sizeof(sa));
-    sa.sa_sigaction_ = (void (*)(int, siginfo_t *, void *))SignalHandler;
-    sys_sigfillset(&sa.sa_mask);
-    sa.sa_flags      = SA_ONSTACK|SA_SIGINFO|SA_RESETHAND;
-    sys_sigaction(sync_signals[sig], &sa, (struct kernel_sigaction *)NULL);
-  }
+  struct sigaction sa;
+  memset(&sa, 0, sizeof(sa));
+  sa.sa_sigaction = SignalHandler;
+  sigfillset(&sa.sa_mask);
+  sa.sa_flags = SA_ONSTACK | SA_SIGINFO | SA_RESETHAND;
+  sigaction(sync_signals[sig], &sa, NULL);
+}
   
   /* Read process directories in /proc/...                                   */
   for (;;) {

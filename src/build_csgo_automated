@@ -13,9 +13,11 @@ mkdir -p ./logs
 echo "Setting executable permissions..."
 chmod u+x createcsgo
 chmod u+x devtools/bin/vpc
+chmod u+x devtools/bin/vpc_linux
 chmod u+x devtools/bin/linux/ccache
 chmod u+x ../devtools/gendbg.sh
 chmod +x devtools/gendbg.sh
+
 
 echo "Create folder bc this is uhh, stoopid"
 mkdir -p ./lib/public/linux64
