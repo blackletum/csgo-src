@@ -14,9 +14,9 @@ chmod +x autogen.sh
 echo "Running autogen.sh to generate configure..."
 ./autogen.sh 2>&1 | tee /home/csgo-src/src/logs/build_gperftools_autogen_${timestamp}.log
 
-# Run configure and log output
+# Run configure with .libs prefix and log output
 echo "Running configure..."
-./configure --prefix=$PWD/install --disable-debugalloc 2>&1 | tee /home/csgo-src/src/logs/build_gperftools_configure_${timestamp}.log
+./configure --prefix="$(pwd)/.libs" --disable-debugalloc 2>&1 | tee /home/csgo-src/src/logs/build_gperftools_configure_${timestamp}.log
 
 # Build and log output
 echo "Running make..."
@@ -27,10 +27,12 @@ echo "Running make install..."
 make install 2>&1 | tee /home/csgo-src/src/logs/build_gperftools_install_${timestamp}.log
 
 # Prepare lib folder structure
+echo "Preparing lib folder structure..."
+
 mkdir -p ./.libs/lib
-mv ./install/lib/libtcmalloc_minimal.so ./.libs/lib/
+cp -f ./.libs/lib/libtcmalloc_minimal.so ./.libs/lib/ 2>/dev/null || echo "libtcmalloc_minimal.so already in place."
 
 mkdir -p ./.libs/x86_64
-mv ./.libs/lib/libtcmalloc_minimal.so ./.libs/x86_64/
+cp -f ./.libs/lib/libtcmalloc_minimal.so ./.libs/x86_64/ 2>/dev/null || echo "libtcmalloc_minimal.so already in place."
 
 echo "? gperftools build, install, and folder fixes complete. Logs saved under /src/logs/"
