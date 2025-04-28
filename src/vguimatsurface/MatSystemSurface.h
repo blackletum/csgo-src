@@ -11,7 +11,7 @@
 #pragma once
 #endif
 
-#include <vgui/vgui.h>
+#include <vgui/VGUI.h>
 #include <vgui/ISurface.h>
 #include <vgui/IPanel.h>
 #include <vgui/IClientPanel.h>

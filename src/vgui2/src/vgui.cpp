@@ -12,7 +12,7 @@
 #endif
 
 #include "VGuiMatSurface/IMatSystemSurface.h"
-#include <vgui/vgui.h>
+#include <vgui/VGUI.h>
 #include <vgui/Dar.h>
 #include <vgui/IInputInternal.h>
 #include <vgui/IPanel.h>

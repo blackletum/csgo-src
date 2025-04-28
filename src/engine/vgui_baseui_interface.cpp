@@ -64,7 +64,7 @@
 #include <GameUI/IGameConsole.h>
 
 // interface to expose vgui root panels
-#include <ienginevgui.h>
+#include <iengineVGUI.h>
 #include "VGuiMatSurface/IMatSystemSurface.h"
 
 #include "cl_texturelistpanel.h"
@@ -74,7 +74,7 @@
 
 // vgui2 interface
 // note that GameUI project uses ..\public\vgui and ..\public\vgui_controls, not ..\utils\vgui\include
-#include <vgui/vgui.h>
+#include <vgui/VGUI.h>
 #include <vgui/Cursor.h>
 #include <KeyValues.h>
 #include <vgui/ILocalize.h>

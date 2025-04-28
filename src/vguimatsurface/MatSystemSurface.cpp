@@ -30,7 +30,7 @@ ILauncherMgr *g_pLauncherMgr = NULL;
 #include "tier0/icommandline.h"
 #include "tier0/dbg.h"
 #include "filesystem.h"
-#include <vgui/vgui.h>
+#include <vgui/VGUI.h>
 #include <color.h>
 #include "shaderapi/ishaderapi.h"
 #include "utlvector.h"

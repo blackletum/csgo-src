@@ -13,7 +13,7 @@
 #include "utlvector.h"
 #include "utldict.h"
 #include "convar.h"
-#include <vgui/vgui.h>
+#include <vgui/VGUI.h>
 #include <color.h>
 #include <bitbuf.h>
 #include "usermessages.h"

@@ -16,7 +16,7 @@
 #include <olectl.h>
 #include <exdisp.h>
 
-#include <vgui/vgui.h>
+#include <vgui/VGUI.h>
 #include <vgui/IHTML.h>
 #include <vgui/IImage.h>
 

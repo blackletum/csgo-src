@@ -13,7 +13,7 @@
 #pragma once
 #endif
 
-#include <vgui/vgui.h>
+#include <vgui/VGUI.h>
 
 namespace vgui
 {

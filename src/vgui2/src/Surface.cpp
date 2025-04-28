@@ -28,7 +28,7 @@
 #include <stdio.h>
 #include <basetypes.h>
 
-#include <vgui/vgui.h>
+#include <vgui/VGUI.h>
 #include <vgui/Dar.h>
 #include <vgui/IClientPanel.h>
 #include <vgui/ISurface.h>

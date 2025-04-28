@@ -17,7 +17,7 @@
 
 #include <windows.h>
 // base vgui interfaces
-#include <vgui/vgui.h>
+#include <vgui/VGUI.h>
 #include <vgui_controls/Panel.h>
 #include <vgui/IVGui.h>
 #include <vgui/ISurface.h>

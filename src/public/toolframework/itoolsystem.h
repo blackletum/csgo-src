@@ -142,7 +142,7 @@ public:
 	virtual void		HostRunFrameBegin() = 0;
 	virtual void		HostRunFrameEnd() = 0;
 
-	// See enginevgui.h for paintmode_t enum definitions
+	// See engineVGUI.h for paintmode_t enum definitions
 	virtual void		VGui_PreRender( int paintMode ) = 0;
 	virtual void		VGui_PostRender( int paintMode ) = 0;
 

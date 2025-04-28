@@ -12,7 +12,7 @@
 #endif
 
 #include "interface.h"
-#include <vgui/vgui.h>
+#include <vgui/VGUI.h>
 
 //-----------------------------------------------------------------------------
 // Purpose: Standard interface to loading vgui modules

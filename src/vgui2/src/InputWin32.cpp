@@ -18,7 +18,7 @@
 #include "utlvector.h"
 #include <KeyValues.h>
 
-#include <vgui/vgui.h>
+#include <vgui/VGUI.h>
 #include <vgui/IClientPanel.h>
 #include <vgui/IInputInternal.h>
 #include <vgui/IPanel.h>

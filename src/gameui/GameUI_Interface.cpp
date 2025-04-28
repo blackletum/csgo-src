@@ -46,7 +46,7 @@
 #include "ixboxsystem.h"
 #include "iachievementmgr.h"
 #include "IGameUIFuncs.h"
-#include <ienginevgui.h>
+#include <iengineVGUI.h>
 #include "steam/steam_api.h"
 #include "BonusMapsDatabase.h"
 #include "BonusMapsDialog.h"
