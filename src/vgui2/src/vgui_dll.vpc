@@ -72,7 +72,7 @@ $Project "vgui2"
 	$Folder	"Public Header Files"
 	{
 		$File	"$SRCDIR\public\tier0\basetypes.h"
-		$File	"$SRCDIR\public\color.h"
+		$File	"$SRCDIR\public\Color.h"
 		$File	"$SRCDIR\public\vgui\Cursor.h"
 		$File	"$SRCDIR\public\filesystem.h"
 		$File	"$SRCDIR\common\vgui_surfacelib\FontAmalgam.h"

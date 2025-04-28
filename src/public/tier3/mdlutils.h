@@ -14,7 +14,7 @@
 
 #include "datacache/imdlcache.h"
 #include "mathlib/vector.h"
-#include "color.h"
+#include "Color.h"
 #include "studio.h"
 #include "materialsystem/custommaterialowner.h"
 #include "materialsystem/MaterialSystemUtil.h"

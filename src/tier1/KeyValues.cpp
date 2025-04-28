@@ -19,7 +19,7 @@
 #include "filesystem.h"
 #include <vstdlib/IKeyValuesSystem.h>
 
-#include <color.h>
+#include <Color.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include "tier1/convar.h"

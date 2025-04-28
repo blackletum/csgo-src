@@ -61,7 +61,7 @@ typedef int SOCKET;
 #include "tier0/icommandline.h"
 #include "tier1/utlintrusivelist.h"
 
-#include "color.h"
+#include "Color.h"
 #include "tier0/dbg.h"
 
 #if defined( _X360 )

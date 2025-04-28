@@ -53,7 +53,7 @@
 #include "utlhashtable.h"
 #include "UtlStringMap.h"
 #include "callqueue.h"
-#include "color.h"
+#include "Color.h"
 #include "tier1/lzmaDecoder.h"
 #include "eiface.h"
 #include "server.h"

@@ -9,7 +9,7 @@
 // To handle scaling
 #include "materialsystem/imaterialsystem.h"
 #include "animdata.h"
-#include "color.h"
+#include "Color.h"
 #include "gameuisystemmgr.h"
 #include "gameuidefinition.h"
 

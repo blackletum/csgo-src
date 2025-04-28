@@ -905,7 +905,7 @@ $Project
 		$File	"$SRCDIR\public\closedcaptions.h"
 		$File	"$SRCDIR\public\cmodel.h"
 		$File	"$SRCDIR\public\vphysics\collision_set.h"
-		$File	"$SRCDIR\public\color.h"
+		$File	"$SRCDIR\public\Color.h"
 		$File	"$SRCDIR\public\mathlib\compressed_light_cube.h"
 		$File	"$SRCDIR\public\mathlib\compressed_vector.h"
 		$File	"$SRCDIR\public\const.h"

@@ -15,7 +15,7 @@
 
 #include "tier0/basetypes.h"
 #include <stdio.h>
-#include "color.h"
+#include "Color.h"
 
 #include <ctype.h>
 #if POSIX

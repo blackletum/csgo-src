@@ -17,7 +17,7 @@
 #include "MapClass.h"		// For CMapObjectList
 #include "UtlVector.h"
 #include "VGuiWnd.h"
-#include "color.h"
+#include "Color.h"
 
 class CTitleWnd;
 class CMapDoc;

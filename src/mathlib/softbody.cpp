@@ -14,7 +14,7 @@
 #include "filesystem.h"
 #include "mathlib/dynamictree.h"
 #include "engine/ivdebugoverlay.h"
-#include "mathlib/vertexcolor.h"
+#include "mathlib/vertexColor.h"
 #include "rubikon/param_types.h"
 #include "materialsystem/imesh.h"
 #include "mathlib/softbody.inl"

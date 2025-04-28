@@ -16,7 +16,7 @@
 #include "materialsystem/MaterialSystemUtil.h"
 #include "mathlib/vector.h"
 #include "tier1/utllinkedlist.h"
-#include "color.h"
+#include "Color.h"
 
 
 //-----------------------------------------------------------------------------

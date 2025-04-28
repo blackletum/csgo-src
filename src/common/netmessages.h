@@ -28,7 +28,7 @@
 #include <bitvec.h>
 #include "networksystem/inetworksystem.h"
 #include <engine/iserverplugin.h>
-#include <color.h>
+#include <Color.h>
 #include <tier0/tslist.h>
 #include <tier1/utldelegate.h>
 #include "tier1/utlstring.h"

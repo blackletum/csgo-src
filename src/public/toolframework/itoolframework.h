@@ -14,7 +14,7 @@
 #include "materialsystem/imaterialproxy.h"
 #include "toolframework/itoolentity.h"
 #include "mathlib/vector.h"
-#include "color.h"
+#include "Color.h"
 
 //-----------------------------------------------------------------------------
 // Forward declarations

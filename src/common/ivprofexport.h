@@ -15,7 +15,7 @@
 
 
 #define VPROF_EXPORT_INTERFACE_VERSION "VProfExport001"
-#include <color.h>
+#include <Color.h>
 
 abstract_class IVProfExport
 {

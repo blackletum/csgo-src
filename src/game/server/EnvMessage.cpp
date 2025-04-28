@@ -10,7 +10,7 @@
 #include "engine/IEngineSound.h"
 #include "KeyValues.h"
 #include "filesystem.h"
-#include "color.h"
+#include "Color.h"
 #include "GameStats.h"
 
 // memdbgon must be the last include file in a .cpp file!!!

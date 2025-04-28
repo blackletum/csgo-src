@@ -39,7 +39,7 @@ $Project "soundemittersystem"
 	$Folder "Public Header Files"
 	{
 		$File	"$SRCDIR\public\tier0\basetypes.h"
-		$File	"$SRCDIR\public\color.h"
+		$File	"$SRCDIR\public\Color.h"
 		$File	"$SRCDIR\public\tier0\dbg.h"
 		$File	"$SRCDIR\public\tier0\fasttimer.h"
 		$File	"$SRCDIR\public\filesystem.h"

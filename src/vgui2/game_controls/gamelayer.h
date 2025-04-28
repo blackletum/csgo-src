@@ -18,7 +18,7 @@
 #include "materialsystem/MaterialSystemUtil.h"
 #include "bitmap/psheet.h"
 #include "rendersystem/irenderdevice.h"
-#include "mathlib/vertexcolor.h"
+#include "mathlib/vertexColor.h"
 #include "resourcesystem/stronghandle.h"
 #include "tier1/utldict.h"
 #include "tier1/UtlStringMap.h"

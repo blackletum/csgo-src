@@ -29,7 +29,7 @@
 #include "AmbientLight.h"
 #endif
 
-#include "color.h"
+#include "Color.h"
 #include "collisionutils.h"
 #include "functorutils.h"
 #include "team.h"

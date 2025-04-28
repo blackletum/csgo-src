@@ -31,7 +31,7 @@ ILauncherMgr *g_pLauncherMgr = NULL;
 #include "tier0/dbg.h"
 #include "filesystem.h"
 #include <vgui/VGUI.h>
-#include <color.h>
+#include <Color.h>
 #include "shaderapi/ishaderapi.h"
 #include "utlvector.h"
 #include "Clip2D.h"

@@ -18,7 +18,7 @@
 #include "fmtstr.h"
 #include "props_shared.h"
 #include "func_breakablesurf.h"
-#include "color.h"
+#include "Color.h"
 #include "collisionutils.h"
 #include "point_hiding_spot.h"
 

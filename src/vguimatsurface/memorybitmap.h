@@ -14,7 +14,7 @@
 
 #include <vgui/VGUI.h>
 #include <vgui/IImage.h>
-#include <color.h>
+#include <Color.h>
 
 namespace vgui
 {

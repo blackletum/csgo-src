@@ -11,7 +11,7 @@
 #include "datamodel/idatamodel.h"
 #include "datamodel.h"
 #include "tier1/uniqueid.h"
-#include "color.h"
+#include "Color.h"
 #include "mathlib/vector.h"
 #include "tier1/utlstring.h"
 #include "tier1/utlbuffer.h"

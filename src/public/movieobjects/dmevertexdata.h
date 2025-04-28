@@ -15,7 +15,7 @@
 #include "datamodel/dmattribute.h"
 #include "datamodel/dmattributevar.h"
 #include "mathlib/vector.h"
-#include "color.h"
+#include "Color.h"
 
 
 //-----------------------------------------------------------------------------

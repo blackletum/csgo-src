@@ -12,7 +12,7 @@
 #endif
 
 #include "tier2/tier2.h"
-#include "color.h"
+#include "Color.h"
 
 //-----------------------------------------------------------------------------
 // Forward declarations

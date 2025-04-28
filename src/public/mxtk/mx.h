@@ -35,7 +35,7 @@
 #endif
 
 #ifndef INCLUDED_MXCHOOSECOLOR
-#include "mxtk/mxChoosecolor.h"
+#include "mxtk/mxChooseColor.h"
 #endif
 
 #ifndef INCLUDED_MXEVENT

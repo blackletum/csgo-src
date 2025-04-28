@@ -1018,7 +1018,7 @@ $Project $EPROJ
 		$File	"$SRCDIR\public\client_textmessage.h"
 		$File	"$SRCDIR\public\clientstats.h"
 		$File	"$SRCDIR\public\cmodel.h"
-		$File	"$SRCDIR\public\color.h"
+		$File	"$SRCDIR\public\Color.h"
 		$File	"$SRCDIR\public\vgui_controls\ComboBox.h"
 		$File	"$SRCDIR\public\mathlib\compressed_vector.h"
 		$File	"$SRCDIR\public\con_nprint.h"

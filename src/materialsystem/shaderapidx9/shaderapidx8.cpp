@@ -70,7 +70,7 @@ mat_fullbright 1 doesn't work properly on alpha materials in testroom_standards
 #include "tier1/convar.h"
 #include "tier1/KeyValues.h"
 #include "vstdlib/vstrtools.h"
-#include "color.h"
+#include "Color.h"
 #ifdef RECORDING
 #include "materialsystem/IShader.h"
 #endif

@@ -27,7 +27,7 @@
 #include "ToolManager.h"
 #include "mathlib/mathlib.h"
 #include "dispshore.h"
-#include "color.h"
+#include "Color.h"
 #include "render2d.h"
 #include "faceeditsheet.h"
 #include "..\FoW\FoW.h"

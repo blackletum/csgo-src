@@ -1,6 +1,6 @@
 #pragma once
 #include "afxwin.h"
-#include "color.h"
+#include "Color.h"
 
 namespace vgui
 {
