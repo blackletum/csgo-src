@@ -19,4 +19,6 @@ $Configuration
 	{
 		$PreprocessorDefinitions	"$BASE;CSTRIKE15"
 	}
+
+	$AdditionalOptions "-lm" [$POSIX]
 }

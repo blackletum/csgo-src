@@ -22,14 +22,29 @@ chmod +x devtools/gendbg.sh
 echo "Create folder bc this is uhh, stoopid"
 mkdir -p ./lib/public/linux64
 
+echo "Fix lm issue"
+export LDFLAGS="$LDFLAGS -lm"
+
 echo "Running VPC setup..."
 ./createcsgo 2>&1 | tee ./logs/createcsgo_${timestamp}.log
 export P4="echo [p4 disabled]"
 
+# delete tier1_client.a to force it to rebuild
+rm -f ./lib/public/linux64/tier1_client.a
+
+# Add this block right here
+echo "Patching _client.mak files to inject -lm..."
+find . -name '*_client_linux64.mak' -exec sed -i 's/\$(LDFLAGS)/$(LDFLAGS) -lm/g' {} +
+
+# Continue normal build
+
 echo "Building project with tcmalloc and float safety disabled..."
 sudo env CC=gcc-12 CXX=g++-12 \
-CXXFLAGS="-fno-finite-math-only" \
+CXXFLAGS="-fno-finite-math-only -Wno-narrowing" \
 LDFLAGS="-L./thirdparty/gperftools-2.0/.libs/lib -ltcmalloc_minimal -lm" \
-make -f csgo_partner.mak -j2 all-targets P4_DISABLED=1 2>&1 | tee ./logs/build_${timestamp}.log
+make -f csgo_partner.mak -j2 Client_CSGO tier0 tier1 vstdlib interfaces engine mathlib P4_DISABLED=1 2>&1 | tee ./logs/build_${timestamp}.log
+
+
+
 
 echo "Build finished. Logs saved to './logs/'"

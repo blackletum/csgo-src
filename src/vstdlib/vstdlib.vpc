@@ -42,6 +42,8 @@ $Configuration
 		
 		$SystemFrameworks			"CoreServices"
 		$SystemLibraries			"iconv" [$OSXALL]
+
+		$AdditionalOptions			"-lm"		[$POSIX]
 	}
 	
 	$Linker [$PS3||$POSIX]
