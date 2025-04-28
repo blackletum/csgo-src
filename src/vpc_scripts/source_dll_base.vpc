@@ -20,5 +20,9 @@ $Configuration
 		$PreprocessorDefinitions	"$BASE;CSTRIKE15"
 	}
 
-	$AdditionalOptions "-lm" [$POSIX]
+	$Linker
+	{
+		$AdditionalOptions "-lm" [$POSIX]
+	}
+
 }
