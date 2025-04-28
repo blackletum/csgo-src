@@ -12,7 +12,7 @@
 #pragma once
 #endif
 
-#include "iengineVGUI.h"
+#include "ienginevgui.h"
 #include "inputsystem/ButtonCode.h"
 
 #if !defined( _X360 )

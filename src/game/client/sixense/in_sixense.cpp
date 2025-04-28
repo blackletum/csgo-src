@@ -53,7 +53,7 @@ using sixenseMath::Line;
 #include "vgui/iinput.h"
 #include "vgui/ISurface.h"
 #include "vgui_controls/label.h"
-#include "iengineVGUI.h"
+#include "ienginevgui.h"
 #include "vgui_controls/imagepanel.h"
 #include "flashlighteffect.h"
 #include "weapon_selection.h"

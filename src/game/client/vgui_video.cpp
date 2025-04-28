@@ -8,7 +8,7 @@
 #include <vgui/IVGui.h>
 #include "vgui/IInput.h"
 #include <vgui/ISurface.h>
-#include "iengineVGUI.h"
+#include "ienginevgui.h"
 #include "iclientmode.h"
 #include "vgui_video.h"
 #include "engine/IEngineSound.h"

@@ -6,7 +6,7 @@
 //=============================================================================
 
 #include "toolutils/vgui_tools.h"
-#include "iengineVGUI.h"
+#include "ienginevgui.h"
 #include <vgui/isurface.h>
 #include <vgui/IVGui.h>
 #include <vgui/IInput.h>

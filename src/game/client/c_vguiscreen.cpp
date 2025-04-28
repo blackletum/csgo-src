@@ -17,7 +17,7 @@
 #include <vgui/IInput.h>
 #include <vgui/IPanel.h>
 #include <vgui/IVGui.h>
-#include "iengineVGUI.h"
+#include "ienginevgui.h"
 #include "in_buttons.h"
 #include <vgui/MouseCode.h>
 #include "materialsystem/imesh.h"

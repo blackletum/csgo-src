@@ -12,7 +12,7 @@
 #include "vgui_bitmappanel.h"
 #include <vgui/IVGui.h>
 #include "c_slideshow_display.h"
-#include "iengineVGUI.h"
+#include "ienginevgui.h"
 #include "fmtstr.h"
 #include "vgui_controls/ImagePanel.h"
 

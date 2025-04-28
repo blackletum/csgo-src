@@ -22,7 +22,7 @@
 
 #ifdef CLIENT_DLL
 #include <igameevents.h>
-#include "iengineVGUI.h"
+#include "ienginevgui.h"
 #include "clientmode_csnormal.h"
 #else
 #include "props_shared.h"

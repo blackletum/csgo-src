@@ -17,7 +17,7 @@
 #include "vgui/iinput.h"
 #include "vgui/iVGUI.h"
 #include "vgui_controls/AnimationController.h"
-#include "iengineVGUI.h"
+#include "ienginevgui.h"
 #include "toolui.h"
 #include "toolutils/toolmenubar.h"
 #include "vgui/ILocalize.h"

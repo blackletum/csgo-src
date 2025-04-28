@@ -19,7 +19,7 @@
 #include "hammer.h"
 #include "toolutils/enginetools_int.h"
 #include "toolframework/ienginetool.h"
-#include "iengineVGUI.h"
+#include "ienginevgui.h"
 
 
 IMPLEMENT_DYNCREATE(CVGuiPanelWnd, CWnd)
