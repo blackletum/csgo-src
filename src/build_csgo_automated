@@ -17,7 +17,7 @@ chmod u+x devtools/bin/vpc_linux
 chmod u+x devtools/bin/linux/ccache
 chmod u+x ../devtools/gendbg.sh
 chmod +x devtools/gendbg.sh
-
+chmod +x /home/csgo-src/src/devtools/bin/linux/protoc
 
 echo "Create folder bc this is uhh, stoopid"
 mkdir -p ./lib/public/linux64
@@ -43,8 +43,5 @@ sudo env CC=gcc-10 CXX=g++-10 \
 CXXFLAGS="-fno-finite-math-only -Wno-narrowing" \
 LDFLAGS="-L./thirdparty/gperftools-2.0/.libs/lib -ltcmalloc_minimal -lm" \
 make -f csgo_partner.mak -j2 Client_CSGO tier0 tier1 vstdlib interfaces engine mathlib P4_DISABLED=1 2>&1 | tee ./logs/build_${timestamp}.log
-
-
-
 
 echo "Build finished. Logs saved to './logs/'"
