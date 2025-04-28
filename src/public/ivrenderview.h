@@ -16,7 +16,7 @@
 #include "interface.h"
 #include "materialsystem/imaterialsystem.h"
 #include "const.h"
-#include "mathlib/vertexColor.h"
+#include "mathlib/vertexcolor.h"
 #include "tier1/refcount.h"
 
 

@@ -10,7 +10,7 @@
 #include "tier1/utlstringtoken.h"
 #include "resourcefile/resourcestream.h"
 #include "mathlib/aabb.h"
-#include "mathlib/vertexColor.h"
+#include "mathlib/vertexcolor.h"
 #include "rubikon/param_types.h"
 #include "mathlib/femodeldesc.h"
 #include "mathlib/femodelbuilder.h"
