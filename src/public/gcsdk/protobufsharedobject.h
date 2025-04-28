@@ -11,7 +11,7 @@
 #endif
 
 #include "google/protobuf/descriptor.h"
-#include "tier1/keyvalues.h"
+#include "tier1/KeyValues.h"
 
 #if defined( GC ) && defined( DEBUG )
 #include "gcbase.h"
