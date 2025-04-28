@@ -64,7 +64,7 @@
 #include <GameUI/IGameConsole.h>
 
 // interface to expose vgui root panels
-#include <iengineVGUI.h>
+#include "ienginevgui.h"
 #include "VGuiMatSurface/IMatSystemSurface.h"
 
 #include "cl_texturelistpanel.h"
