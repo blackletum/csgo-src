@@ -15,7 +15,7 @@
 #include "tier1/strtools.h"
 #include "vstdlib/random.h"
 #include "sharedInterface.h"
-#include "color.h"
+#include "Color.h"
 
 extern class ISoundEmitterSystemBase *soundemitter;
 

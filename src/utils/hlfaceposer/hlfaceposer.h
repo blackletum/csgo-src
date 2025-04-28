@@ -14,7 +14,7 @@
 #include <float.h>
 #include <windows.h>
 #include "SoundEmitterSystem/isoundemittersystembase.h"
-#include "color.h"
+#include "Color.h"
 
 #define CONSOLE_COLOR Color( 82, 173, 216 )
 

@@ -11,7 +11,7 @@
 #include <mmsystem.h>
 #include <stdio.h>
 #include <math.h>
-#include "color.h"
+#include "Color.h"
 #include "snd_audio_source.h"
 #include "AudioWaveOutput.h"
 #include "ifaceposersound.h"

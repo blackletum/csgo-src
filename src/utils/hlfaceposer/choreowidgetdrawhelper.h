@@ -14,7 +14,7 @@
 #include <mxtk/mx.h>
 #include "choreowidget.h"
 #include "utlvector.h"
-#include "color.h"
+#include "Color.h"
 
 //-----------------------------------------------------------------------------
 // Purpose: Helper class that automagically sets up and destroys a memory device-

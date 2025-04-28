@@ -11,7 +11,7 @@
 #endif
 
 #include "faceposertoolwindow.h"
-#include "color.h"
+#include "Color.h"
 
 class mxScrollbar;
 

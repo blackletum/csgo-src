@@ -13,7 +13,7 @@
 
 #include <mxtk/mx.h>
 #include "utlvector.h"
-#include "color.h"
+#include "Color.h"
 
 class CChoreoWidgetDrawHelper;
 
